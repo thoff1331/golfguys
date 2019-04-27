@@ -1,0 +1,83 @@
+@import "../src/variables.scss";
+
+body {
+  background-color: $color;
+  color: $font-color;
+  font-family: $font-family;
+}
+
+nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  height: 13vh;
+  align-items: center;
+  color: $font-color;
+}
+nav:link {
+  color: pink;
+}
+
+.navbarTop {
+  justify-content: space-evenly;
+  align-items: center;
+  display: flex;
+  width: 55vw;
+  color: red;
+  position: sticky;
+}
+.link {
+  color: #ff0000;
+}
+
+.nav {
+  color: $font-color;
+  font-size: 24px;
+}
+
+.signup-form {
+  display: flex;
+  border: 1px solid;
+  flex-direction: column;
+  height: 40vh;
+}
+.formsu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: $form-font;
+}
+
+.buttonsu {
+  color: $font-color;
+  background: none;
+  background-color: yellow;
+  font-size: 17px;
+  color: $color;
+  border-radius: 25px;
+}
+
+.mainheader {
+  display: flex;
+  width: 30vw;
+  align-items: center;
+  justify-content: flex-start;
+  height: 10vh;
+  font-family: $font-color;
+  font-size: 35px;
+}
+
+.ballpic {
+  height: 75px;
+  width: 75px;
+  padding-left: 17px;
+  mix-blend-mode: multiply;
+  background: none;
+  background-color: transparent;
+}
+.formli {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: $form-font;
+}
