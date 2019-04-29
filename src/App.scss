@@ -1,9 +1,10 @@
 @import "../src/variables.scss";
 
 body {
-  background-color: $color;
+  background-color: white;
   color: $font-color;
   font-family: $font-family;
+  text-decoration: none;
 }
 
 nav {
@@ -12,10 +13,16 @@ nav {
   justify-content: flex-end;
   height: 13vh;
   align-items: center;
-  color: $font-color;
-}
-nav:link {
-  color: pink;
+  color: yellow;
+  text-decoration: none;
+  font-weight: 900;
+  font-size: 19px;
+  z-index: 2;
+  a.nav {
+    &:hover {
+      border: 5px solid yellow;
+    }
+  }
 }
 
 .navbarTop {
@@ -28,11 +35,14 @@ nav:link {
 }
 .link {
   color: #ff0000;
+  text-decoration: none;
 }
 
 .nav {
-  color: $font-color;
+  color: $color;
   font-size: 24px;
+  text-decoration: none;
+  z-index: 2;
 }
 
 .signup-form {
@@ -40,21 +50,25 @@ nav:link {
   border: 1px solid;
   flex-direction: column;
   height: 40vh;
+  font-weight: 900;
 }
 .formsu {
   display: flex;
   flex-direction: column;
   align-items: center;
   font-size: $form-font;
+  text-decoration: none;
+  font-weight: 900;
 }
 
 .buttonsu {
-  color: $font-color;
+  color: $color;
   background: none;
   background-color: yellow;
   font-size: 17px;
   color: $color;
   border-radius: 25px;
+  text-decoration: none;
 }
 
 .mainheader {
@@ -63,21 +77,136 @@ nav:link {
   align-items: center;
   justify-content: flex-start;
   height: 10vh;
-  font-family: $font-color;
+  font-family: $color;
   font-size: 35px;
+  z-index: 2;
+  color: yellow;
 }
 
 .ballpic {
-  height: 75px;
-  width: 75px;
-  padding-left: 17px;
-  mix-blend-mode: multiply;
-  background: none;
-  background-color: transparent;
+  height: 110px;
+  width: 110px;
 }
 .formli {
   display: flex;
   flex-direction: column;
   align-items: center;
   font-size: $form-font;
+  text-decoration: none;
+  font-weight: 900;
+}
+.upgrade {
+  color: red($color: #000000);
+  font-family: $font-family;
+  font-size: 30px;
+}
+.home-component {
+  color: yellow;
+  z-index: 8;
+}
+
+.trippic {
+  height: 600px;
+  align-content: center;
+
+  display: flex;
+  justify-content: center;
+  padding-left: 27%;
+  flex-direction: column;
+}
+
+link {
+  text-decoration: none;
+}
+.root,
+.app,
+.map {
+  height: 100%;
+}
+
+.state {
+  width: 200px;
+  float: left;
+}
+
+.map {
+  margin-left: 200px;
+}
+.tee-menu {
+  height: 60px;
+  width: 60px;
+  display: none;
+  z-index: 2;
+  margin-top: 0;
+}
+
+@media (max-width: 1000px) {
+  .tee-menu {
+    display: inline;
+  }
+  .nav {
+    display: none;
+  }
+}
+.top-menu- {
+  width: 100vw;
+  height: 17vh;
+  position: absolute;
+  top: 0px;
+  display: none;
+  color: white;
+  text-align: center;
+  padding-left: 70px;
+  border: ipx solid black;
+}
+.top-menu-open {
+  width: 100vw;
+  height: 20vh;
+  position: absolute;
+  top: 0px;
+  background: $color;
+  animation: openMenu 1s;
+  z-index: 0;
+  color: white;
+  padding-left: 180px;
+  padding-top: 30px;
+  font-size: 20px;
+}
+.top-menu-closed {
+  animation: closeMenu 2s;
+  width: 100vw;
+  height: 20vh;
+  position: absolute;
+  top: 0px;
+  background: $color;
+  animation-fill-mode: forwards;
+  display: none;
+}
+@keyframes openMenu {
+  from {
+    height: 0px;
+  }
+  to {
+    height: 20vh;
+  }
+}
+@keyframes closeMenu {
+  from {
+    height: 20vh;
+  }
+  to {
+    height: 0px;
+  }
+}
+h6 {
+  border: #000000 1px;
+}
+
+.top-menu-list {
+  display: flex;
+  height: 20vh;
+  width: 45vw;
+  justify-content: space-between;
+  align-items: flex-end;
+  font-size: 15px;
 }

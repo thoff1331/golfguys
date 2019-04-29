@@ -5,6 +5,7 @@ import Signup from "./signup";
 import Profile from "./profile";
 import Courses from "./courses";
 import Login from "./Login";
+import Upgrade from "./upgrade";
 
 export default (
   <Switch>
@@ -13,5 +14,6 @@ export default (
     <Route path="/profile" component={Profile} />
     <Route path="/courses" component={Courses} />
     <Route path="/login" component={Login} />
+    <Route path="/upgrade" component={Upgrade} />
   </Switch>
 );

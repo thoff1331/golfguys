@@ -1,7 +1,8 @@
 import React, { Fragment } from "react";
 import StripeCheckout from "react-stripe-checkout";
 import axios from "axios";
-const stripeBtn = () => {
+
+const StripeBtn = () => {
   const publishableKey = "pk_test_p1ld7stU6rIRXMCQpUsxGS3Q00jyguokjd";
 
   const onToken = token => {
@@ -22,7 +23,7 @@ const stripeBtn = () => {
   };
   return (
     <StripeCheckout
-      label="Secure Checkout" //Component button text
+      label="Upgrade" //Component button text
       name="Golf Guys" //Modal Header
       description=""
       panelLabel="Submit" //Submit button in modal
@@ -33,4 +34,4 @@ const stripeBtn = () => {
   );
 };
 
-export default stripeBtn;
+export default StripeBtn;

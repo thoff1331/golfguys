@@ -1,7 +1,21 @@
 import React from "react";
+import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 
 function Profile(props) {
-  return <h1>Profile</h1>;
+  if (!props.auth.username) {
+    return (
+      <h1>
+        <Link to="/login">Please Login </Link>
+      </h1>
+    );
+  }
+  return (
+    <div>
+      <h1>Welcome, {props.auth.username}</h1>
+    </div>
+  );
 }
 
-export default Profile;
+const mapStateToProps = reduxState => reduxState;
+export default connect(mapStateToProps)(Profile);
