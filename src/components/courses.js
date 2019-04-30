@@ -6,27 +6,35 @@ class Courses extends Component {
     super(props);
 
     this.state = {
-      character: []
+      data: []
     };
+    this.getData = this.getData.bind(this);
   }
   componentDidMount() {
-    axios.get("https://rickandmortyapi.com/api/character").then(response => {
-      this.setState({ character: response.data.results });
+    this.getData();
+  }
+  getData() {
+    axios.get("/api/getGoogle").then(response => {
+      this.setState({ data: response.data.results });
+      console.log(response);
     });
   }
-
   render() {
-    let map = this.state.character.map(character => {
+    let map = this.state.data.map(val => {
       return (
-        <div className="fun">
-          <div>
-            <h1 className="app">{character.name}</h1>
-            <img src={character.image} alt="" />
-          </div>
+        <div className="bump">
+          <h1>{val.name}</h1>
         </div>
       );
     });
-    return <div className="one">{map}</div>;
+
+    return (
+      <div>
+        <button onClick={this.getData}>Get Data</button>
+        {map}
+      </div>
+    );
   }
 }
+
 export default Courses;

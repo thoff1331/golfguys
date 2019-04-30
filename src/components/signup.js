@@ -8,10 +8,10 @@ class Signup extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      email: "",
+      pp: "",
       username: "",
       password: "",
-      button: false
+      loginAttempt: false
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -27,28 +27,22 @@ class Signup extends Component {
   handleSubmit(e) {
     console.log();
     e.preventDefault();
-    this.props.signUp(
-      this.state.email,
-      this.state.username,
-      this.state.password
-    );
+    this.props.signUp(this.state.pp, this.state.username, this.state.password);
+    this.setState({
+      loginAttempt: true
+    });
   }
 
   render() {
-    if (this.props.auth.error) {
-      alert("user name already taken");
-    } else {
-      // return <Redirect to="/profile" />;
+    if (this.props.username) {
+      return <Redirect to="/" push={true} />;
     }
+    console.log(this.props);
     return (
       <div>
         <form onSubmit={this.handleSubmit} className="formsu">
-          <label>Email</label>
-          <input
-            onChange={this.handleChange}
-            value={this.state.email}
-            name="email"
-          />
+          <label>Profile Pic</label>
+          <input onChange={this.handleChange} value={this.state.pp} name="pp" />
           <label>UserName</label>
           <input
             onChange={this.handleChange}
@@ -65,6 +59,7 @@ class Signup extends Component {
           />
           <br />
           <button className="buttonsu">Join The Club</button>
+          <p>{this.props.error}</p>
           <Link to="/login">
             <p className="nav">Already Registered? Login here</p>
           </Link>
@@ -73,8 +68,13 @@ class Signup extends Component {
     );
   }
 }
-const mapStatetoProps = reduxState => reduxState;
-
+const mapStatetoProps = reduxState => {
+  return {
+    username: reduxState.auth.username,
+    error: reduxState.auth.error,
+    pp: reduxState.auth.pp
+  };
+};
 export default connect(
   mapStatetoProps,
   { signUp }

@@ -80,7 +80,7 @@ nav {
   font-family: $color;
   font-size: 35px;
   z-index: 2;
-  color: yellow;
+  color: $color;
 }
 
 .ballpic {
@@ -101,7 +101,7 @@ nav {
   font-size: 30px;
 }
 .home-component {
-  color: yellow;
+  color: $color;
   z-index: 8;
 }
 
@@ -133,8 +133,8 @@ link {
   margin-left: 200px;
 }
 .tee-menu {
-  height: 60px;
-  width: 60px;
+  height: 120px;
+  width: 120px;
   display: none;
   z-index: 2;
   margin-top: 0;
@@ -209,4 +209,80 @@ h6 {
   justify-content: space-between;
   align-items: flex-end;
   font-size: 15px;
+  text-decoration: none;
+  color: white;
+}
+
+.six {
+  border: #000000 1px;
+  text-decoration: none;
+  color: white;
+}
+
+.add {
+  display: flex;
+  flex-direction: column;
+}
+
+.add-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: $form-font;
+  text-decoration: none;
+  font-weight: 900;
+  padding-top: 20vh;
+}
+.input-add {
+  width: 300px;
+  height: 100px;
+  font-family: $font-family;
+  color: $font-color;
+  font-weight: 900;
+  font-size: $form-font;
+}
+// .bump {
+//   text-align: center;
+//   padding-top: 20vh;
+//   border: 1px solid red;
+// }
+.pp {
+  border-radius: 50%;
+  border: 7px solid $font-color;
+  width: 50px;
+  height: 50px;
+  margin-left: 35px;
+}
+.lineup {
+  display: flex;
+  justify-content: center;
+  width: 20vw;
+  align-items: center;
+}
+
+.home-pp {
+  display: flex;
+  font-size: 32px;
+  justify-content: center;
+  width: 20vw;
+  align-items: center;
+}
+.posts {
+  width: 250px;
+  border: 4px solid $font-color;
+}
+
+.home-posted-by {
+  display: flex;
+  margin-top: 15px;
+}
+.caption {
+  font-weight: 900;
+  font-size: 17px;
+}
+.lineups {
+  display: flex;
+  width: 30vw;
+  justify-content: space-between;
+  align-items: center;
 }
