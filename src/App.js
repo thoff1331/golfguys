@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Post from "./post";
 
 import "./App.scss";
 import { HashRouter, Link } from "react-router-dom";
@@ -84,9 +85,7 @@ class App extends Component {
           </div>
         </div>
         <div>{routes}</div>
-        <div className="footer">
-          <h1 />
-        </div>
+        <div className="footer">{/* <Post /> */}</div>
       </HashRouter>
     );
   }

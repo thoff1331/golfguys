@@ -21,11 +21,16 @@ class Login extends Component {
   }
   handleSubmit(e) {
     e.preventDefault();
-
-    this.props.login(this.state.username, this.state.password).catch(err => {
-      console.log(err);
-      alert("incorrect Creditentials");
-    });
+    console.log(this.state.username);
+    this.props
+      .login(this.state.username, this.state.password)
+      .then(res => {
+        this.props.history.push("/");
+      })
+      .catch(err => {
+        console.log(err);
+        alert("incorrect Creditentials");
+      });
     this.setState({
       username: "",
       password: "",
@@ -34,17 +39,18 @@ class Login extends Component {
   }
 
   render() {
-    console.log(this.state.login);
-    console.log(this.props.auth.username);
-
     if (this.props.auth.username) {
-      return <Redirect to="/" push={true} />;
     }
+
     return (
       <div>
         <h1 className="formli">Login</h1>
 
-        <form onSubmit={this.handleSubmit} className="formli">
+        <form
+          onSubmit={this.handleSubmit}
+          className="formli"
+          autoComplete="off"
+        >
           <label>Username </label>
           <input
             onChange={this.handleChange}

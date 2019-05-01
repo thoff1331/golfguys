@@ -11,6 +11,7 @@ const signup = async (req, res) => {
   res.json(result);
 };
 const login = async (req, res) => {
+  console.log(req.body);
   const db = req.app.get("db");
 
   const results = await db.verify(req.body.username);
@@ -26,7 +27,7 @@ const login = async (req, res) => {
         username: results[0].username,
         pp: results[0].pp
       };
-      res.json(req.session.user);
+      res.status(200).json(req.session.user);
     } else {
       res.status(403).json("Error: Wrong password");
     }
@@ -64,7 +65,14 @@ const getuser = function(req, res, next) {
 };
 const logout = (req, res) => {
   console.log(req.session);
-  req.session.destroy();
+  req.session.destroy().then(response => {
+    res.sendStatus(200);
+    console.log(req.session);
+  });
+};
+const getPost = (req, res) => {
+  const db = req.app.get("db");
+  db.get_post(id).then(post => res.status(200).json(post));
 };
 
 module.exports = {
@@ -74,5 +82,6 @@ module.exports = {
   addmemory,
   deleteone,
   getuser,
-  logout
+  logout,
+  getPost
 };

@@ -4,7 +4,6 @@ import axios from "axios";
 
 const StripeBtn = () => {
   const publishableKey = "pk_test_p1ld7stU6rIRXMCQpUsxGS3Q00jyguokjd";
-
   const onToken = token => {
     const body = {
       amount: 999,

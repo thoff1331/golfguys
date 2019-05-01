@@ -26,7 +26,11 @@ class Add extends Component {
   render() {
     return (
       <div className="add">
-        <form onSubmit={this.handlesubmit} className="add-form">
+        <form
+          onSubmit={this.handlesubmit}
+          className="add-form"
+          autoComplete="off"
+        >
           <label> Share Your Recent Golf Experience </label>
           <textarea
             className="input-add"

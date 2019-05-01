@@ -23,6 +23,7 @@ export function signUp(pp, username, password) {
   };
 }
 export function login(username, password) {
+  console.log(username);
   return {
     type: LOGIN,
     payload: axios.post("/auth/login", { username, password })
@@ -34,8 +35,15 @@ export function getSession() {
     payload: axios.get("/auth/cookie")
   };
 }
+export function logout() {
+  return {
+    type: LOGOUT,
+    payload: axios.get("/auth/logout")
+  };
+}
 
 export default function reducer(state = initialState, action) {
+  console.log(action);
   switch (action.type) {
     case `${SIGN_UP}_FULFILLED`:
       return {
@@ -44,6 +52,7 @@ export default function reducer(state = initialState, action) {
         pp: action.payload.data.pp
       };
     case `${LOGIN}_FULFILLED`:
+      console.log(action.payload);
       return {
         ...state,
         username: action.payload.data.username,
@@ -55,15 +64,26 @@ export default function reducer(state = initialState, action) {
         error: "Username already taken"
       };
     case `${GET_SESSION}_FULFILLED`:
-      console.log(action.payload.data);
       return {
         ...state,
         username: action.payload.data.username,
         pp: action.payload.data.pp
       };
+    case `${LOGOUT}_PENDING`:
+      return {
+        pp: "",
+        username: ""
+      };
     case `${LOGOUT}_FULFILLED`:
-      console.log(action.payload.data);
-      return {};
+      return {
+        pp: "",
+        username: ""
+      };
+    case `${LOGOUT}_REJECTED`:
+      return {
+        pp: "",
+        username: ""
+      };
 
     default:
       return state;

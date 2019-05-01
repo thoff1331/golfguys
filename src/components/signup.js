@@ -40,7 +40,11 @@ class Signup extends Component {
     console.log(this.props);
     return (
       <div>
-        <form onSubmit={this.handleSubmit} className="formsu">
+        <form
+          onSubmit={this.handleSubmit}
+          className="formsu"
+          autoComplete="off"
+        >
           <label>Profile Pic</label>
           <input onChange={this.handleChange} value={this.state.pp} name="pp" />
           <label>UserName</label>

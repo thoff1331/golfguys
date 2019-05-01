@@ -2,8 +2,8 @@ import React, { Component } from "react";
 import axios from "axios";
 import Add from "./postmemory";
 import { connect } from "react-redux";
-import { getSession } from "../ducks/auth";
-import { Link } from "react-router-dom";
+import { getSession, logout } from "../ducks/auth";
+import { Redirect, Link } from "react-router-dom";
 
 class Home extends Component {
   constructor() {
@@ -35,17 +35,23 @@ class Home extends Component {
       });
   }
   logout = () => {
-    console.log("hitt");
-    axios.get("/auth/logout");
+    this.props.logout();
+    // axios.get("/auth/logout").then(response => {
+    //   console.log(response);
+    //   this.props.history.push("/login");
+    // });
+    // };
   };
-
   render() {
-    console.log(this.props);
     return (
       <div>
         <Link to="/login">
           <button onClick={this.logout}>Logout</button>
         </Link>
+        <Link to="/login">
+          <button>Login</button>
+        </Link>
+
         <div className="home-pp">
           <h3> Welcome, {this.props.username} </h3>
           <img src={this.props.pp} className="pp" />
@@ -53,7 +59,6 @@ class Home extends Component {
         <Add />
         <div>
           {this.state.messages.map((val, index) => {
-            console.log(val.pp);
             return (
               <div>
                 <div className="home-posted-by">
@@ -66,7 +71,9 @@ class Home extends Component {
                   {val.username}: {val.messages}
                 </div>
                 <button>💚</button>
-                <button>💬</button>
+                <Link to={`post/${val.id}`}>
+                  <button>💬</button>
+                </Link>
                 <button onClick={() => this.deletePost(val.id)}>❌</button>
                 <div>
                   <div className="lineup" />
@@ -81,6 +88,7 @@ class Home extends Component {
   }
 }
 const mapStateToProps = reduxState => {
+  console.log(reduxState.auth);
   return {
     username: reduxState.auth.username,
     pp: reduxState.auth.pp
@@ -88,5 +96,5 @@ const mapStateToProps = reduxState => {
 };
 export default connect(
   mapStateToProps,
-  { getSession }
+  { getSession, logout }
 )(Home);
