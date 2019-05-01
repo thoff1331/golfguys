@@ -75,6 +75,9 @@ const getPost = (req, res) => {
   const db = req.app.get("db");
   db.get_post(+req.params.id).then(post => res.status(200).json(post));
 };
+// const addComment(req,res) => {
+
+// }
 
 module.exports = {
   signup,

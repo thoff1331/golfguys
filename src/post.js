@@ -8,10 +8,13 @@ class Post extends Component {
     super();
     this.state = {
       posts: [],
-      input: false
+      input: false,
+      comments: [],
+      inputText: ""
     };
     this.addComment = this.addComment.bind(this);
     this.submitComment = this.submitComment.bind(this);
+    this.handleChange = this.handleChange.bind(this);
   }
   componentDidMount() {
     axios.get(`/auth/post/${this.props.match.params.id}`).then(res => {
@@ -30,7 +33,13 @@ class Post extends Component {
       input: false
     });
   }
+  handleChange(e) {
+    this.setState({
+      [e.target.name]: e.target.value
+    });
+  }
   render() {
+    console.log(this.state.inputText);
     var mapped = this.state.posts.map((val, index) => {
       return (
         <div className="post-page">
@@ -54,7 +63,11 @@ class Post extends Component {
             <div>
               <h1 className="caption">{val.messages}</h1>
               {this.state.input ? (
-                <input placeholder="Add Your Comment here" />
+                <input
+                  onChange={this.handleChange}
+                  placeholder="Add Your Comment here"
+                  name="inputText"
+                />
               ) : null}
               {this.state.input ? (
                 <button onClick={this.submitComment} className="buttonsu">

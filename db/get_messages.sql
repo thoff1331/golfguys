@@ -1,1 +1,1 @@
-SELECT * FROM messages;
+SELECT * FROM messages ORDER BY id DESC;
