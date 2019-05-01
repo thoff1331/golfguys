@@ -267,6 +267,7 @@ h6 {
   width: 20vw;
   align-items: center;
 }
+
 .posts {
   width: 250px;
   border: 4px solid $font-color;
@@ -275,8 +276,10 @@ h6 {
 .home-posted-by {
   display: flex;
   margin-top: 15px;
+  padding-top: 0;
 }
 .caption {
+  margin-top: -10px;
   font-weight: 900;
   font-size: 17px;
 }
@@ -299,4 +302,101 @@ h6 {
 }
 .upg {
   display: none;
+}
+
+.post-page {
+  display: flex;
+  justify-content: center;
+  height: 20vh;
+  align-items: center;
+  padding-top: 15vh;
+}
+.post-lineup {
+  display: flex;
+  flex-direction: column;
+}
+.post-pic {
+  display: flex;
+  align-items: center;
+}
+
+.post-lineup img {
+  border: 4px solid $color;
+}
+.home-posted-by- {
+  // border: 1px solid red;
+  width: 55%;
+  display: flex;
+  padding-top: 0;
+  flex-direction: row;
+  justify-content: space-around;
+  align-content: flex-start;
+  align-items: flex-start;
+}
+// .user {
+//   margin-right: 110px;
+//   border: 1px solid red;
+//   justify-content: center;
+//   align-items: center;
+//   display: flex;
+// }
+.comment {
+  margin-left: 12px;
+}
+.heart {
+  margin-left: 12px;
+}
+.comment-text {
+  display: flex;
+  padding-top: 0;
+  flex-direction: row;
+  justify-content: space-between;
+  align-content: flex-start;
+  align-items: center;
+  border: 1px solid black;
+}
+.user-name {
+  text-decoration: underline;
+  font-size: 30px;
+  font-weight: 900;
+}
+.user-text {
+  font-weight: normal;
+  padding-right: 30px;
+}
+
+.pp- {
+  border-radius: 50%;
+  border: 7px solid $font-color;
+  width: 25px;
+  height: 25px;
+  margin-left: 25px;
+}
+
+.post-username {
+  // border: 5px solid red;
+}
+
+.post-top {
+  display: flex;
+  height: 5vh;
+  align-items: center;
+  padding-top: 20px;
+  // border: 5px solid orange;
+}
+.user {
+  text-decoration: underline;
+}
+.comment-input {
+  border: 1px solid black;
+}
+
+.post-comment-button {
+  color: $color;
+  background: none;
+  background-color: yellow;
+  font-size: 17px;
+  color: $color;
+  border-radius: 25px;
+  text-decoration: none;
 }

@@ -71,8 +71,9 @@ const logout = (req, res) => {
   });
 };
 const getPost = (req, res) => {
+  console.log(req.params);
   const db = req.app.get("db");
-  db.get_post(id).then(post => res.status(200).json(post));
+  db.get_post(+req.params.id).then(post => res.status(200).json(post));
 };
 
 module.exports = {

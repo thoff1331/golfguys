@@ -7,25 +7,75 @@ class Post extends Component {
   constructor() {
     super();
     this.state = {
-      posts: []
+      posts: [],
+      input: false
     };
+    this.addComment = this.addComment.bind(this);
+    this.submitComment = this.submitComment.bind(this);
   }
   componentDidMount() {
-    axios.get(`/auth/post/id${this.props.match.params.id}`).then(res => {
+    axios.get(`/auth/post/${this.props.match.params.id}`).then(res => {
       this.setState({
         posts: res.data
       });
     });
   }
+  addComment() {
+    this.setState({
+      input: true
+    });
+  }
+  submitComment() {
+    this.setState({
+      input: false
+    });
+  }
   render() {
-    {
-      this.state.posts.map((val, index) => {
-        return <h1>{val.username}</h1>;
-      });
-    }
+    var mapped = this.state.posts.map((val, index) => {
+      return (
+        <div className="post-page">
+          <div className="post-lineup">
+            <div className="post-top">
+              <h3 className="post-username">{val.username}</h3>
+              <img src={val.pp} className="pp-" />
+            </div>
+            <img src={val.image} />
+            <div className="home-posted-by-">
+              <div className="user">
+                <h3>{val.username}</h3>
+              </div>
+              <div className="comment">
+                <p onClick={this.addComment}>💬</p>
+              </div>
+              <p>💚</p>
+
+              <div className="heart" />
+            </div>
+            <div>
+              <h1 className="caption">{val.messages}</h1>
+              {this.state.input ? (
+                <input placeholder="Add Your Comment here" />
+              ) : null}
+              {this.state.input ? (
+                <button onClick={this.submitComment} className="buttonsu">
+                  Submit
+                </button>
+              ) : null}
+            </div>
+            <div className="comment-text">
+              <h1 className="user-name">{val.user} </h1>
+              <p className="user-text"> {val.comments}</p>
+            </div>
+            <div className="post-pic" />
+          </div>
+        </div>
+      );
+    });
+
     return (
       <diiv>
         <h1> {this.props.match.params.id}</h1>
+        {mapped}
       </diiv>
     );
   }
