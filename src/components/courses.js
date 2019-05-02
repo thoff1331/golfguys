@@ -10,9 +10,7 @@ class Courses extends Component {
     };
     this.getData = this.getData.bind(this);
   }
-  componentDidMount() {
-    this.getData();
-  }
+  componentDidMount() {}
   getData() {
     axios.get("/api/getGoogle").then(response => {
       this.setState({ data: response.data.results });
@@ -30,8 +28,16 @@ class Courses extends Component {
 
     return (
       <div>
-        <button onClick={this.getData}>Get Data</button>
-        {map}
+        <div className="search-feature">
+          <input
+            className="search-input"
+            placeholder="Search address, Course or by your zip code"
+          />
+          <button className="button-search" onClick={this.getData}>
+            Search for Courses near you!
+          </button>
+        </div>
+        <div className="search-results">{map}</div>
       </div>
     );
   }

@@ -45,13 +45,6 @@ class Home extends Component {
   render() {
     return (
       <div>
-        <Link to="/login">
-          <button onClick={this.logout}>Logout</button>
-        </Link>
-        <Link to="/login">
-          <button>Login</button>
-        </Link>
-
         <div className="home-pp">
           <h3> Welcome, {this.props.username} </h3>
           <img src={this.props.pp} className="pp" />

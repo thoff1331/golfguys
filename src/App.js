@@ -1,17 +1,22 @@
 import React, { Component } from "react";
 import Post from "./post";
+import { getSession, logout, login } from "./ducks/auth";
+import { connect } from "react-redux";
 
 import "./App.scss";
 import { HashRouter, Link } from "react-router-dom";
 import routes from "./components/routes";
 import ball from "./pics/ball.png";
 import tee from "./pics/tee.png";
+import { builtinModules } from "module";
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      menuStatus: ""
+      menuStatus: "",
+      loggedIn: true
     };
+    this.logout = this.logout.bind(this);
   }
   handleClick = () => {
     if (this.state.menuStatus === "open") {
@@ -24,7 +29,14 @@ class App extends Component {
       });
     }
   };
+  logout() {
+    this.props.logout();
+    this.setState({
+      loggedIn: false
+    });
+  }
   render() {
+    console.log(this.state.loggedIn);
     return (
       <HashRouter>
         <nav>
@@ -54,6 +66,9 @@ class App extends Component {
               </Link>
               <Link className="nav" to="/login">
                 Log In!
+              </Link>
+              <Link to="/login" onClick={this.logout} className="nav">
+                Logout
               </Link>
             </div>
           </div>
@@ -90,5 +105,14 @@ class App extends Component {
     );
   }
 }
-
-export default App;
+const mapStateToProps = reduxState => {
+  console.log(reduxState.auth);
+  return {
+    username: reduxState.auth.username,
+    pp: reduxState.auth.pp
+  };
+};
+export default connect(
+  mapStateToProps,
+  { getSession, logout, login }
+)(App);

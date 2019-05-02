@@ -400,3 +400,59 @@ h6 {
   border-radius: 25px;
   text-decoration: none;
 }
+.search-feature {
+  display: flex;
+  width: 100vw;
+  height: 7vh;
+  align-items: center;
+  flex-direction: column;
+  padding-top: 2vw;
+}
+.search-input {
+  width: 13vw;
+  border-radius: 10px;
+  border: 6px solid $font-color;
+  outline: none;
+}
+.button-search {
+  color: $color;
+  background: none;
+  background-color: yellow;
+  font-size: 17px;
+  color: $color;
+  border-radius: 25px;
+  text-decoration: none;
+  margin-top: 1vh;
+  outline: none;
+}
+.search-results {
+  align-content: center;
+  display: flex;
+  justify-content: center;
+}
+.logout-button {
+  align-items: center;
+  justify-content: flex-end;
+  border: 1px solid black;
+  display: flex;
+  align-items: flex-start;
+}
+.nav- {
+  nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    height: 13vh;
+    align-items: center;
+    color: yellow;
+    text-decoration: none;
+    font-weight: 900;
+    font-size: 19px;
+    z-index: 2;
+    a.nav {
+      &:hover {
+        border: 5px solid yellow;
+      }
+    }
+  }
+}
