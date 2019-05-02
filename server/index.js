@@ -27,6 +27,7 @@ app.use(
     }
   })
 );
+app.get("/auth/profile/:id", authController.getProfile);
 app.get("/auth/post/:id", authController.getPost);
 app.get("/auth/logout", authController.logout);
 app.get("/auth/cookie", authController.getuser);

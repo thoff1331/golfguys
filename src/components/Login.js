@@ -44,7 +44,7 @@ class Login extends Component {
 
     return (
       <div>
-        <h1 className="formli">Login</h1>
+        <h1 className="login-button">Login</h1>
 
         <form
           onSubmit={this.handleSubmit}

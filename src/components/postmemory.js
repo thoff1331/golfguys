@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import Axios from "axios";
+import { connect } from "react-redux";
+import { logout, getSession } from "../ducks/auth";
 
 class Add extends Component {
   constructor() {
@@ -26,6 +28,7 @@ class Add extends Component {
   render() {
     return (
       <div className="add">
+        <h1 className="recent-posts">Recent Posts</h1>
         <form
           onSubmit={this.handlesubmit}
           className="add-form"
@@ -53,4 +56,14 @@ class Add extends Component {
   }
 }
 
-export default Add;
+const mapStateToProps = reduxState => {
+  console.log(reduxState.auth);
+  return {
+    username: reduxState.auth.username,
+    pp: reduxState.auth.pp
+  };
+};
+export default connect(
+  mapStateToProps,
+  { getSession, logout }
+)(Add);

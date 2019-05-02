@@ -75,6 +75,11 @@ const getPost = (req, res) => {
   const db = req.app.get("db");
   db.get_post(+req.params.id).then(post => res.status(200).json(post));
 };
+const getProfile = (req, res) => {
+  console.log(req.params);
+  const db = req.app.get("db");
+  db.get_profile(+req.params.id).then(profile => res.status(200).json(profile));
+};
 // const addComment(req,res) => {
 
 // }
@@ -87,5 +92,6 @@ module.exports = {
   deleteone,
   getuser,
   logout,
-  getPost
+  getPost,
+  getProfile
 };

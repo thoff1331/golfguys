@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import UserInfo from "./userinfo";
 import axios from "axios";
 
-class Profile extends Component {
+class ProfilePage extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -20,10 +20,16 @@ class Profile extends Component {
     //   });
     // }
   }
+
   render() {
     console.log(this.props.match);
     var mapped = this.state.profile.map((val, index) => {
-      return <h3>{val.username}</h3>;
+      return (
+        <di>
+          <h3>{val.username}</h3>
+          <img src={val.pp} />
+        </di>
+      );
     });
 
     if (!this.props.auth.username) {
@@ -35,43 +41,21 @@ class Profile extends Component {
     }
     return (
       <div>
+        <img src={this.props.match.params.pp} />
         <div>
-          <div className="lineups-profile">
+          <div className="lineups-">
             <h1 className="bump">
               {" "}
-              Welcome to {this.props.auth.username}'s' page{" "}
+              Welcome to {this.props.match.params.id}' s page{" "}
             </h1>
-
-            <img src={this.props.auth.pp} className="pp" />
-            <button
-              onClick={() => {
-                this.setState({ input: true });
-              }}
-              className="buttonsu-profile"
-            >
-              Change Profile Pic
-            </button>
-            {this.state.input ? (
-              <input className="profile-pic-input" placeholder="image url" />
-            ) : null}
-            <div />
-            {this.state.input ? (
-              <button
-                onClick={() => {
-                  this.setState({ input: false });
-                }}
-                className="buttonsu"
-              >
-                Submit
-              </button>
-            ) : null}
           </div>
         </div>
         {mapped}
+        <UserInfo />
       </div>
     );
   }
 }
 
 const mapStateToProps = reduxState => reduxState;
-export default connect(mapStateToProps)(Profile);
+export default connect(mapStateToProps)(ProfilePage);

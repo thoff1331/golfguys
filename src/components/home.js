@@ -43,41 +43,63 @@ class Home extends Component {
     // };
   };
   render() {
-    return (
-      <div>
-        <div className="home-pp">
-          <h3> Welcome, {this.props.username} </h3>
-          <img src={this.props.pp} className="pp" />
-        </div>
-        <Add />
+    console.log(this.props);
+    if (!this.props.username) {
+      return (
+        <h1 className="protected-profile">
+          <Link to="/login">Please Login </Link>
+        </h1>
+      );
+    } else {
+      return (
         <div>
-          {this.state.messages.map((val, index) => {
-            return (
-              <div>
-                <div className="home-posted-by">
-                  <h2> Posted By: {val.username}</h2>
-                  <img src={val.pp} className="pp" />
-                </div>
-                <img src={val.image} alt="" className="posts" />
-                <h1 key={val.index} />{" "}
-                <div className="caption">
-                  {val.username}: {val.messages}
-                </div>
-                <button>💚</button>
-                <Link to={`post/${val.id}`}>
-                  <button>💬</button>
-                </Link>
-                <button onClick={() => this.deletePost(val.id)}>❌</button>
+          <div className="home-pp">
+            <h3> Welcome, {this.props.username} </h3>
+            <img src={this.props.pp} className="pp" />
+          </div>
+          <Add />
+          <div>
+            {this.state.messages.map((val, index) => {
+              return (
                 <div>
-                  <div className="lineup" />
+                  <div className="home-posted-by">
+                    {" "}
+                    <h2>
+                      {" "}
+                      Posted By:{" "}
+                      <Link
+                        className="profile-link-home"
+                        to={{
+                          pathname: `profile-page/${val.username}`,
+                          state: {
+                            id: val.username
+                          }
+                        }}
+                      >
+                        {val.username}
+                      </Link>
+                    </h2>
+                    <img src={val.pp} className="pp" />
+                  </div>
+                  <img src={val.image} alt="" className="posts" />
+                  <h1 key={val.index} />{" "}
+                  <div className="caption">{val.messages}</div>
+                  <button>💚</button>
+                  <Link to={`post/${val.id}`}>
+                    <button>💬</button>
+                  </Link>
+                  <button onClick={() => this.deletePost(val.id)}>❌</button>
+                  <div>
+                    <div className="lineup" />
+                  </div>
+                  <div />
                 </div>
-                <div />
-              </div>
-            );
-          })}
+              );
+            })}
+          </div>
         </div>
-      </div>
-    );
+      );
+    }
   }
 }
 const mapStateToProps = reduxState => {

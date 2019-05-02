@@ -36,7 +36,7 @@ class App extends Component {
     });
   }
   render() {
-    console.log(this.state.loggedIn);
+    console.log(this.props.username);
     return (
       <HashRouter>
         <nav>
@@ -60,16 +60,18 @@ class App extends Component {
                 {" "}
                 Go Play!
               </Link>
-
               <Link className="nav" to="/signup">
                 Sign Up!
               </Link>
-              <Link className="nav" to="/login">
-                Log In!
-              </Link>
-              <Link to="/login" onClick={this.logout} className="nav">
-                Logout
-              </Link>
+              {!this.props.username ? (
+                <Link className="nav" to="/login">
+                  Log in!
+                </Link>
+              ) : (
+                <Link to="/login" className="nav" onClick={this.logout}>
+                  Log out!
+                </Link>
+              )}
             </div>
           </div>
           <img
