@@ -44,7 +44,6 @@ class Home extends Component {
     // };
   };
   render() {
-    console.log(this.state.posts);
     if (!this.props.username) {
       return (
         <h1 className="protected-profile">
@@ -62,7 +61,7 @@ class Home extends Component {
           <div>
             {this.state.messages.map((val, index) => {
               return (
-                <div>
+                <div key={index}>
                   <div className="home-posted-by">
                     {" "}
                     <h2>

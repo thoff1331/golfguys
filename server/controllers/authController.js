@@ -7,7 +7,11 @@ const signup = async (req, res) => {
   const result = await db.signup([pp, username, hash]).catch(err => {
     res.status(400).json("Username already exists");
   });
-  req.session.user = { username: result[0].username, pp: result[0].pp };
+  req.session.user = {
+    username: result[0].username,
+    pp: result[0].pp,
+    userId: result[0].user_id
+  };
   res.json(result);
 };
 const login = async (req, res) => {
@@ -43,7 +47,7 @@ const getmessages = (req, res) => {
 const addmemory = (req, res) => {
   const db = req.app.get("db");
   const { caption, image } = req.body;
-
+  console.log(req.session.user.userId);
   db.add_memory([
     caption,
     image,
