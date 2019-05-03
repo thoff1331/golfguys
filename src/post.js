@@ -8,6 +8,7 @@ class Post extends Component {
     super();
     this.state = {
       posts: [],
+      comments: [],
       input: false,
       comments: [],
       inputText: ""
@@ -15,8 +16,11 @@ class Post extends Component {
     this.addComment = this.addComment.bind(this);
     this.submitComment = this.submitComment.bind(this);
     this.handleChange = this.handleChange.bind(this);
+    this.getComments = this.getComments.bind(this);
   }
   componentDidMount() {
+    this.getComments();
+    this.props.getSession();
     axios.get(`/auth/post/${this.props.match.params.id}`).then(res => {
       this.setState({
         posts: res.data
@@ -33,13 +37,19 @@ class Post extends Component {
       input: false
     });
   }
+  getComments() {
+    axios.get(`/auth/comment/$${this.props.match.params.id}`).then(res => {
+      this.setState({
+        comments: res.data
+      });
+    });
+  }
   handleChange(e) {
     this.setState({
       [e.target.name]: e.target.value
     });
   }
   render() {
-    console.log(this.state.inputText);
     var mapped = this.state.posts.map((val, index) => {
       return (
         <div className="post-page">
@@ -61,7 +71,7 @@ class Post extends Component {
               <div className="heart" />
             </div>
             <div>
-              <h1 className="caption">{val.messages}</h1>
+              <h1 className="caption">{val.caption}</h1>
               {this.state.input ? (
                 <input
                   onChange={this.handleChange}
@@ -94,7 +104,6 @@ class Post extends Component {
   }
 }
 const mapStateToProps = reduxState => {
-  console.log(reduxState.auth);
   return {
     username: reduxState.auth.username,
     pp: reduxState.auth.pp

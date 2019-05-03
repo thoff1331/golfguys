@@ -12,10 +12,10 @@ const { CONNECTION_STRING, SESSION_SECRET } = process.env;
 massive(CONNECTION_STRING)
   .then(db => {
     app.set("db", db);
-    console.log("Database Connected");
+    ("Database Connected");
   })
   .catch(err => {
-    console.log(err);
+    err;
   });
 app.use(
   session({
@@ -27,6 +27,7 @@ app.use(
     }
   })
 );
+app.get("/auth/comment/:id", authController.getComment);
 app.get("/auth/profile/:id", authController.getProfile);
 app.get("/auth/post/:id", authController.getPost);
 app.get("/auth/logout", authController.logout);
@@ -42,12 +43,12 @@ app.get("/api/getGoogle", (req, res) => {
       "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=40.51606,-112.30155&radius=1500&type=golf&keyword=golf&key=AIzaSyAYc5zf8Pk1IyMfT0CLUHWWHtflYwm79qc"
     )
     .then(response => {
-      console.log(response);
+      response;
       res.json(response.data);
     });
 });
 const PORT = 3131;
 
 app.listen(PORT, () => {
-  console.log(`Listening on port ${PORT}`);
+  `Listening on port ${PORT}`;
 });

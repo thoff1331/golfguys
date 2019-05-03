@@ -1,4 +1,4 @@
-INSERT INTO messages (messages, image, username)
+INSERT INTO messages (caption, image, username )
 VALUES ($1, $2, $3);
 
 

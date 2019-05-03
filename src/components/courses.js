@@ -19,7 +19,6 @@ class Courses extends Component {
     });
   }
   render() {
-    console.log(this.props);
     if (!this.props.username) {
       return (
         <h1 className="protected-profile">

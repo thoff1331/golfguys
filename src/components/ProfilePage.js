@@ -22,7 +22,6 @@ class ProfilePage extends Component {
   }
 
   render() {
-    console.log(this.props.match);
     var mapped = this.state.profile.map((val, index) => {
       return (
         <di>
@@ -56,6 +55,5 @@ class ProfilePage extends Component {
     );
   }
 }
-
 const mapStateToProps = reduxState => reduxState;
 export default connect(mapStateToProps)(ProfilePage);

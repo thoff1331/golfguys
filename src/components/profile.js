@@ -21,7 +21,6 @@ class Profile extends Component {
     // }
   }
   render() {
-    console.log(this.props.match);
     var mapped = this.state.profile.map((val, index) => {
       return <h3>{val.username}</h3>;
     });

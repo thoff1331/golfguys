@@ -23,7 +23,6 @@ export function signUp(pp, username, password) {
   };
 }
 export function login(username, password) {
-  console.log(username);
   return {
     type: LOGIN,
     payload: axios.post("/auth/login", { username, password })
@@ -43,7 +42,6 @@ export function logout() {
 }
 
 export default function reducer(state = initialState, action) {
-  console.log(action);
   switch (action.type) {
     case `${SIGN_UP}_FULFILLED`:
       return {
@@ -52,7 +50,6 @@ export default function reducer(state = initialState, action) {
         pp: action.payload.data.pp
       };
     case `${LOGIN}_FULFILLED`:
-      console.log(action.payload);
       return {
         ...state,
         username: action.payload.data.username,

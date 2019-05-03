@@ -36,7 +36,6 @@ class App extends Component {
     });
   }
   render() {
-    console.log(this.props.username);
     return (
       <HashRouter>
         <nav>
@@ -108,7 +107,6 @@ class App extends Component {
   }
 }
 const mapStateToProps = reduxState => {
-  console.log(reduxState.auth);
   return {
     username: reduxState.auth.username,
     pp: reduxState.auth.pp

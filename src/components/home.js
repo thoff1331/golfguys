@@ -43,7 +43,6 @@ class Home extends Component {
     // };
   };
   render() {
-    console.log(this.props);
     if (!this.props.username) {
       return (
         <h1 className="protected-profile">
@@ -103,7 +102,6 @@ class Home extends Component {
   }
 }
 const mapStateToProps = reduxState => {
-  console.log(reduxState.auth);
   return {
     username: reduxState.auth.username,
     pp: reduxState.auth.pp

@@ -25,7 +25,6 @@ class Signup extends Component {
     this.setState({ [e.target.name]: e.target.value });
   }
   handleSubmit(e) {
-    console.log();
     e.preventDefault();
     this.props.signUp(this.state.pp, this.state.username, this.state.password);
     this.setState({
@@ -37,7 +36,6 @@ class Signup extends Component {
     if (this.props.username) {
       return <Redirect to="/" push={true} />;
     }
-    console.log(this.props);
     return (
       <div>
         <form

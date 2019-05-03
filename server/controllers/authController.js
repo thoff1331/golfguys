@@ -11,7 +11,7 @@ const signup = async (req, res) => {
   res.json(result);
 };
 const login = async (req, res) => {
-  console.log(req.body);
+  req.body;
   const db = req.app.get("db");
 
   const results = await db.verify(req.body.username);
@@ -21,7 +21,7 @@ const login = async (req, res) => {
       req.body.password,
       results[0].password
     );
-    console.log(isMatch);
+    isMatch;
     if (isMatch) {
       req.session.user = {
         username: results[0].username,
@@ -40,20 +40,21 @@ const getmessages = (req, res) => {
   db.get_messages().then(messages => res.status(200).json(messages));
 };
 const addmemory = (req, res) => {
+  req.body.caption;
   const db = req.app.get("db");
-  const { messages, image } = req.body;
+  const { caption, image } = req.body;
 
-  db.add_memory([messages, image, req.session.user.username])
+  db.add_memory([caption, image, req.session.user.username])
     .then(() => res.sendStatus(200))
-    .catch(err => console.log(err));
+    .catch(err => err);
 };
 const deleteone = (req, res, next) => {
-  console.log(req.params.id);
+  req.params.id;
   const db = req.app.get("db");
   const { id } = req.params;
   db.delete_message(id)
     .then(messages => res.status(200).json(messages))
-    .catch(err => console.log(err));
+    .catch(err => err);
 };
 const getuser = function(req, res, next) {
   const { session } = req;
@@ -64,26 +65,29 @@ const getuser = function(req, res, next) {
   next();
 };
 const logout = (req, res) => {
-  console.log(req.session);
   req.session.destroy().then(response => {
     res.sendStatus(200);
-    console.log(req.session);
+    req.session;
   });
 };
 const getPost = (req, res) => {
-  console.log(req.params);
+  +req.params.id;
   const db = req.app.get("db");
   db.get_post(+req.params.id).then(post => res.status(200).json(post));
 };
 const getProfile = (req, res) => {
-  console.log(req.params);
   const db = req.app.get("db");
   db.get_profile(+req.params.id).then(profile => res.status(200).json(profile));
 };
-// const addComment(req,res) => {
+const getComment = (req, res) => {
+  const db = req.app.get("db");
+  db.get_comments(+req.params.id).then(comment =>
+    res.status(200).json(comment)
+  );
+  // const addComment(req,res) => {
 
-// }
-
+  // }
+};
 module.exports = {
   signup,
   login,
@@ -93,5 +97,6 @@ module.exports = {
   getuser,
   logout,
   getPost,
-  getProfile
+  getProfile,
+  getComment
 };
