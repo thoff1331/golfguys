@@ -1,5 +1,5 @@
-INSERT INTO messages (caption, image, username )
-VALUES ($1, $2, $3);
+INSERT INTO messages (caption, image, username, user_id )
+VALUES ($1, $2, $3, $4);
 
 
 SELECT * FROM messages;

@@ -10,7 +10,6 @@ const initialState = {
 
 const SIGN_UP = "SIGN_UP";
 const LOGIN = "LOGIN";
-const ME = "ME";
 const GET_SESSION = "GET_SESSION";
 const LOGOUT = "LOGOUT";
 

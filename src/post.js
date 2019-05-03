@@ -8,7 +8,6 @@ class Post extends Component {
     super();
     this.state = {
       posts: [],
-      comments: [],
       input: false,
       comments: [],
       inputText: ""
@@ -27,18 +26,15 @@ class Post extends Component {
       });
     });
   }
+
   addComment() {
     this.setState({
       input: true
     });
   }
-  submitComment() {
-    this.setState({
-      input: false
-    });
-  }
+
   getComments() {
-    axios.get(`/auth/comment/$${this.props.match.params.id}`).then(res => {
+    axios.get(`/auth/comment/${this.props.match.params.id}`).then(res => {
       this.setState({
         comments: res.data
       });
@@ -49,8 +45,36 @@ class Post extends Component {
       [e.target.name]: e.target.value
     });
   }
+  submitComment() {
+    axios
+      .post(`/auth/addComment/${this.props.match.params.id}`, {
+        content: this.state.inputText
+      })
+      .then(res => {
+        console.log(res.data);
+        this.setState({
+          comments: [...this.state.comments, res.data[0]]
+        });
+      });
+
+    this.setState({
+      input: false
+    });
+  }
   render() {
-    var mapped = this.state.posts.map((val, index) => {
+    console.log(this.props.username);
+    console.log(this.state.posts);
+    let mappedComments = this.state.comments.map((val, index) => {
+      console.log(val);
+      return (
+        <div className="post-comments">
+          <h4 className="post-author">{val.author} </h4>
+          <h3 className="post-content">{val.content}</h3>
+          <h3 className="post-heart">♡</h3>
+        </div>
+      );
+    });
+    let mappedPosts = this.state.posts.map((val, index) => {
       return (
         <div className="post-page">
           <div className="post-lineup">
@@ -58,17 +82,22 @@ class Post extends Component {
               <h3 className="post-username">{val.username}</h3>
               <img src={val.pp} className="pp-" />
             </div>
-            <img src={val.image} />
+            <img src={val.image} className="posts" />
             <div className="home-posted-by-">
-              <div className="user">
-                <h3>{val.username}</h3>
-              </div>
-              <div className="comment">
-                <p onClick={this.addComment}>💬</p>
-              </div>
-              <p>💚</p>
+              <div className="post-emoji">
+                <div className="post-page-lineup">
+                  <h3 className="user">{val.username}</h3>
 
-              <div className="heart" />
+                  <div className="comment">
+                    <p className="post-page-heart">♡</p> <p>5</p>
+                    <p className="post-comment" onClick={this.addComment}>
+                      💬
+                    </p>
+                    <p>17</p>
+                  </div>
+                </div>
+                <div className="heart" />
+              </div>
             </div>
             <div>
               <h1 className="caption">{val.caption}</h1>
@@ -85,10 +114,10 @@ class Post extends Component {
                 </button>
               ) : null}
             </div>
-            <div className="comment-text">
+            {/* <div className="comment-text">
               <h1 className="user-name">{val.user} </h1>
               <p className="user-text"> {val.comments}</p>
-            </div>
+            </div> */}
             <div className="post-pic" />
           </div>
         </div>
@@ -96,10 +125,13 @@ class Post extends Component {
     });
 
     return (
-      <diiv>
-        <h1> {this.props.match.params.id}</h1>
-        {mapped}
-      </diiv>
+      <div>
+        <div>
+          <h1> {this.props.match.params.id}</h1>
+          {mappedPosts}
+        </div>
+        <div>{mappedComments}</div>
+      </div>
     );
   }
 }

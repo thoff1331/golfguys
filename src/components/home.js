@@ -16,6 +16,7 @@ class Home extends Component {
   componentDidMount() {
     this.props.getSession();
     axios.get("/auth/messages").then(res => {
+      console.log(res.data);
       this.setState({
         messages: res.data
       });
@@ -43,6 +44,7 @@ class Home extends Component {
     // };
   };
   render() {
+    console.log(this.state.posts);
     if (!this.props.username) {
       return (
         <h1 className="protected-profile">
@@ -81,13 +83,21 @@ class Home extends Component {
                     <img src={val.pp} className="pp" />
                   </div>
                   <img src={val.image} alt="" className="posts" />
-                  <h1 key={val.index} />{" "}
-                  <div className="caption">{val.messages}</div>
-                  <button>💚</button>
-                  <Link to={`post/${val.id}`}>
-                    <button>💬</button>
-                  </Link>
-                  <button onClick={() => this.deletePost(val.id)}>❌</button>
+                  <div className="home-buttons">
+                    <h1 key={val.index} /> <h1 className="home-heart">♡</h1>
+                    <h6>5</h6>
+                    <Link to={`post/${val.id}`} className="comment-link">
+                      <h1>💬</h1>
+                    </Link>
+                    <h6>17</h6>
+                    <h1
+                      className="home-delete"
+                      onClick={() => this.deletePost(val.id)}
+                    >
+                      ❌
+                    </h1>
+                  </div>
+                  <div className="caption">{val.caption}</div>
                   <div>
                     <div className="lineup" />
                   </div>

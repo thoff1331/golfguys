@@ -7,7 +7,7 @@ class Add extends Component {
   constructor() {
     super();
     this.state = {
-      messages: "",
+      caption: "",
       image: ""
     };
     this.handleChange = this.handleChange.bind(this);
@@ -21,7 +21,7 @@ class Add extends Component {
   handlesubmit(e) {
     //  e.preventDefault();
     Axios.post("/auth/add", {
-      messages: this.state.messages,
+      caption: this.state.caption,
       image: this.state.image
     });
   }
@@ -38,8 +38,8 @@ class Add extends Component {
           <textarea
             className="input-add"
             onChange={this.handleChange}
-            value={this.state.messages}
-            name="messages"
+            value={this.state.caption}
+            name="caption"
           />
           <label>Add a Picture to your post </label>
           <input

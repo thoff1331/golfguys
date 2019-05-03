@@ -25,7 +25,8 @@ const login = async (req, res) => {
     if (isMatch) {
       req.session.user = {
         username: results[0].username,
-        pp: results[0].pp
+        pp: results[0].pp,
+        userId: results[0].user_id
       };
       res.status(200).json(req.session.user);
     } else {
@@ -40,16 +41,19 @@ const getmessages = (req, res) => {
   db.get_messages().then(messages => res.status(200).json(messages));
 };
 const addmemory = (req, res) => {
-  req.body.caption;
   const db = req.app.get("db");
   const { caption, image } = req.body;
 
-  db.add_memory([caption, image, req.session.user.username])
+  db.add_memory([
+    caption,
+    image,
+    req.session.user.username,
+    req.session.user.userId
+  ])
     .then(() => res.sendStatus(200))
     .catch(err => err);
 };
 const deleteone = (req, res, next) => {
-  req.params.id;
   const db = req.app.get("db");
   const { id } = req.params;
   db.delete_message(id)
@@ -65,13 +69,10 @@ const getuser = function(req, res, next) {
   next();
 };
 const logout = (req, res) => {
-  req.session.destroy().then(response => {
-    res.sendStatus(200);
-    req.session;
-  });
+  req.session.destroy();
+  res.sendStatus(200);
 };
 const getPost = (req, res) => {
-  +req.params.id;
   const db = req.app.get("db");
   db.get_post(+req.params.id).then(post => res.status(200).json(post));
 };
@@ -81,13 +82,19 @@ const getProfile = (req, res) => {
 };
 const getComment = (req, res) => {
   const db = req.app.get("db");
-  db.get_comments(+req.params.id).then(comment =>
-    res.status(200).json(comment)
-  );
-  // const addComment(req,res) => {
-
-  // }
+  db.get_comments(+req.params.id)
+    .then(comment => res.status(200).json(comment))
+    .catch(err => console.log("1*****", err));
 };
+const addComment = (req, res) => {
+  console.log(req.session.user);
+  const db = req.app.get("db");
+  const { content } = req.body;
+  db.add_comment([req.session.user.username, content, +req.params.id])
+    .then(comment => res.status(200).json(comment))
+    .catch(err => console.log("2******", err));
+};
+
 module.exports = {
   signup,
   login,
@@ -98,5 +105,6 @@ module.exports = {
   logout,
   getPost,
   getProfile,
-  getComment
+  getComment,
+  addComment
 };

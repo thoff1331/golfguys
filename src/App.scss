@@ -278,6 +278,8 @@ h6 {
 .posts {
   width: 250px;
   border: 4px solid $font-color;
+  margin-bottom: 0;
+  margin-top: 0;
 }
 
 .home-posted-by {
@@ -289,6 +291,9 @@ h6 {
   margin-top: -10px;
   font-weight: 900;
   font-size: 35px;
+  margin-bottom: 1vh;
+  margin-left: 4vw;
+  padding-bottom: 1vh;
 }
 .lineups {
   display: flex;
@@ -351,19 +356,21 @@ h6 {
 // }
 .comment {
   margin-left: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .heart {
   margin-left: 12px;
 }
-.comment-text {
-  display: flex;
-  padding-top: 0;
-  flex-direction: row;
-  justify-content: space-between;
-  align-content: flex-start;
-  align-items: center;
-  border: 1px solid black;
-}
+// .comment-text {
+//   display: flex;
+//   padding-top: 0;
+//   flex-direction: row;
+//   justify-content: space-between;
+//   align-content: flex-start;
+//   align-items: center;
+// }
 .user-name {
   text-decoration: underline;
   font-size: 30px;
@@ -382,10 +389,6 @@ h6 {
   margin-left: 25px;
 }
 
-.post-username {
-  // border: 5px solid red;
-}
-
 .post-top {
   display: flex;
   height: 5vh;
@@ -397,7 +400,7 @@ h6 {
   text-decoration: underline;
 }
 .comment-input {
-  border: 1px solid black;
+  //border: 1px solid black;
 }
 
 .post-comment-button {
@@ -511,4 +514,87 @@ h6 {
 }
 .profile-pic-input {
   border: 1px solid black;
+}
+.post-comments {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  // margin-top: 7vh;
+  width: 20vw;
+  margin-left: 33vw;
+  padding-top: 8vh;
+}
+.post-author {
+  text-decoration: underline;
+  font-weight: bolder;
+}
+.post-content {
+  margin-left: 1vw;
+  display: flex;
+  flex-wrap: wrap;
+  // text-orientation: upright;
+  // width: 100vw;
+  // line-height: 1em;
+  // height: 3em;
+  // text-overflow: ellipsis;
+  // float: left;
+  // word-wrap: initial;
+  // trying to get the words to flow on one line first before going down
+}
+.post-heart {
+  margin-left: 9vw;
+}
+
+.home-heart {
+  display: flex;
+  align-items: center;
+  background: transparent;
+  background: none;
+  flex-direction: row;
+  width: 10vw;
+  font-size: 20px;
+}
+
+.home-buttons {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-content: stretch;
+  width: 10vw;
+  font-size: 20px;
+  margin-left: 0;
+}
+.comment-link {
+  margin-left: 3vw;
+  width: 10vw;
+  font-size: 17px;
+  text-decoration: none;
+}
+
+.delete-link {
+  margin-left: 3vw;
+}
+.post-emoji {
+  width: 30vw;
+  display: flex;
+  flex-direction: row;
+  border: #000000 10px;
+  align-items: flex-start;
+  margin-bottom: 2vh;
+}
+.post-page-lineup {
+  display: flex;
+
+  flex-direction: row;
+}
+.post-comment {
+  margin-left: 1vw;
+}
+.home-delete {
+  background: none;
+  font-size: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 5vw;
 }

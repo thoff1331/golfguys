@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import Post from "./post";
 import { getSession, logout, login } from "./ducks/auth";
 import { connect } from "react-redux";
 
@@ -8,7 +7,6 @@ import { HashRouter, Link } from "react-router-dom";
 import routes from "./components/routes";
 import ball from "./pics/ball.png";
 import tee from "./pics/tee.png";
-import { builtinModules } from "module";
 class App extends Component {
   constructor(props) {
     super(props);

@@ -12,7 +12,7 @@ const { CONNECTION_STRING, SESSION_SECRET } = process.env;
 massive(CONNECTION_STRING)
   .then(db => {
     app.set("db", db);
-    ("Database Connected");
+    console.log("Database Connected");
   })
   .catch(err => {
     err;
@@ -27,6 +27,7 @@ app.use(
     }
   })
 );
+app.post("/auth/addComment/:id", authController.addComment);
 app.get("/auth/comment/:id", authController.getComment);
 app.get("/auth/profile/:id", authController.getProfile);
 app.get("/auth/post/:id", authController.getPost);
@@ -50,5 +51,5 @@ app.get("/api/getGoogle", (req, res) => {
 const PORT = 3131;
 
 app.listen(PORT, () => {
-  `Listening on port ${PORT}`;
+  console.log(`Listening on port ${PORT}`);
 });

@@ -19,13 +19,14 @@ class Courses extends Component {
     });
   }
   render() {
-    if (!this.props.username) {
-      return (
-        <h1 className="protected-profile">
-          <Link to="/login">Please Login </Link>
-        </h1>
-      );
-    } else {
+    // if (!this.props.username) {
+    //   return (
+    //     <h1 className="protected-profile">
+    //       <Link to="/login">Please Login </Link>
+    //     </h1>
+    //   );
+    // } else {
+    {
       let map = this.state.data.map(val => {
         return (
           <div className="bump">
