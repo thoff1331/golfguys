@@ -1,0 +1,1 @@
+SELECT COUNT(*) from comment where post_id = $1;

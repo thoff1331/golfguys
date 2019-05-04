@@ -27,6 +27,7 @@ app.use(
     }
   })
 );
+app.get("/auth/getCommentCount/:id", authController.getCommentCount);
 app.post("/auth/addComment/:id", authController.addComment);
 app.get("/auth/comment/:id", authController.getComment);
 app.get("/auth/profile/:id", authController.getProfile);

@@ -91,12 +91,19 @@ const getComment = (req, res) => {
     .catch(err => console.log("1*****", err));
 };
 const addComment = (req, res) => {
-  console.log(req.session.user);
+  console.log(req.params.id);
   const db = req.app.get("db");
   const { content } = req.body;
   db.add_comment([req.session.user.username, content, +req.params.id])
     .then(comment => res.status(200).json(comment))
-    .catch(err => console.log("2******", err));
+    .catch(err => console.log(err));
+};
+const getCommentCount = (req, res) => {
+  console.log(req.params.id);
+  const db = req.app.get("db");
+  db.get_comment_count(+req.params.id)
+    .then(count => res.status(200).json(count))
+    .catch(err => console.log("1*****", err));
 };
 
 module.exports = {
@@ -110,5 +117,6 @@ module.exports = {
   getPost,
   getProfile,
   getComment,
-  addComment
+  addComment,
+  getCommentCount
 };

@@ -44,6 +44,7 @@ class Home extends Component {
     // };
   };
   render() {
+    console.log(this.state.messages);
     if (!this.props.username) {
       return (
         <h1 className="protected-profile">
@@ -84,11 +85,11 @@ class Home extends Component {
                   <img src={val.image} alt="" className="posts" />
                   <div className="home-buttons">
                     <h1 key={val.index} /> <h1 className="home-heart">♡</h1>
-                    <h6>5</h6>
+                    <h6>{val.likes}</h6>
                     <Link to={`post/${val.id}`} className="comment-link">
                       <h1>💬</h1>
                     </Link>
-                    <h6>17</h6>
+                    <h6>{val.comments}</h6>
                     <h1
                       className="home-delete"
                       onClick={() => this.deletePost(val.id)}
