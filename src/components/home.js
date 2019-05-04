@@ -9,11 +9,15 @@ class Home extends Component {
   constructor() {
     super();
     this.state = {
-      messages: []
+      messages: [],
+      comments: []
     };
     this.deletePost = this.deletePost.bind(this);
+    this.getCommentCountHome = this.getCommentCountHome.bind(this);
+    this.getLikes = this.getLikes.bind(this);
   }
   componentDidMount() {
+    this.getCommentCountHome();
     this.props.getSession();
     axios.get("/auth/messages").then(res => {
       console.log(res.data);
@@ -43,7 +47,28 @@ class Home extends Component {
     // });
     // };
   };
+  // req.params.match
+  getCommentCountHome() {
+    axios.get("auth/getCommentCountHome").then(res => {
+      console.log(res.data);
+      this.setState({
+        comments: res.data
+      });
+    });
+  }
+  // req.params.match.id
+  getLikes(id) {
+    axios.get(`/auth/getLikes/${id}`).then(res => {
+      console.log("hit");
+      this.setState({
+        likes: res.data
+      });
+      window.location.reload();
+    });
+  }
+
   render() {
+    console.log(this.state.comments);
     console.log(this.state.messages);
     if (!this.props.username) {
       return (
@@ -84,12 +109,17 @@ class Home extends Component {
                   </div>
                   <img src={val.image} alt="" className="posts" />
                   <div className="home-buttons">
-                    <h1 key={val.index} /> <h1 className="home-heart">♡</h1>
-                    <h6>{val.likes}</h6>
+                    <h1 key={val.index} />{" "}
+                    <h1 onClick={this.getLikes} className="home-heart">
+                      ♡
+                    </h1>
+                    <h6 className="like-number">{val.likes}</h6>
                     <Link to={`post/${val.id}`} className="comment-link">
                       <h1>💬</h1>
                     </Link>
-                    <h6>{val.comments}</h6>
+                    <h6 className="post-comment-number">
+                      {this.state.comments.length}
+                    </h6>
                     <h1
                       className="home-delete"
                       onClick={() => this.deletePost(val.id)}

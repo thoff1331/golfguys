@@ -10,13 +10,15 @@ class Post extends Component {
       posts: [],
       input: false,
       comments: [],
-      inputText: ""
+      inputText: "",
+      likes: []
     };
     this.addComment = this.addComment.bind(this);
     this.submitComment = this.submitComment.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.getComments = this.getComments.bind(this);
     this.getCommentCount = this.getCommentCount.bind(this);
+    this.getLikes = this.getLikes.bind(this);
   }
   componentDidMount() {
     this.getCommentCount();
@@ -73,11 +75,22 @@ class Post extends Component {
       });
   }
 
+  getLikes() {
+    axios.get("/auth/getLikes").then(res => {
+      console.log("hit");
+      this.setState({
+        likes: res.data
+      });
+      window.location.reload();
+    });
+  }
+
   render() {
+    console.log(this.state.likes);
     console.log(this.props.username);
     console.log(this.state.posts);
     let mappedComments = this.state.comments.map((val, index) => {
-      console.log(val.count);
+      console.log(val);
       return (
         <div className="post-comments">
           <h4 className="post-author">{val.author} </h4>
@@ -102,11 +115,16 @@ class Post extends Component {
                   <h3 className="user">{val.username}</h3>
 
                   <div className="comment">
-                    <p className="post-page-heart">♡</p> <p>{val.likes}</p>
+                    <p onClick={this.getLikes} className="post-page-heart">
+                      ♡
+                    </p>{" "}
+                    <p className="like-number">{val.likes}</p>
                     <p className="post-comment" onClick={this.addComment}>
                       💬
                     </p>
-                    <p>{this.state.comments.length}</p>
+                    <p className="post-comment-number">
+                      {this.state.comments.length}
+                    </p>
                   </div>
                 </div>
                 <div className="heart" />

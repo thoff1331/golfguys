@@ -292,8 +292,9 @@ h6 {
   font-weight: 900;
   font-size: 35px;
   margin-bottom: 1vh;
-  margin-left: 4vw;
-  padding-bottom: 1vh;
+  margin-left: 2vw;
+  padding-bottom: 0vh;
+  height: 4vh;
 }
 .lineups {
   display: flex;
@@ -597,4 +598,13 @@ h6 {
   justify-content: center;
   align-items: center;
   margin-left: 5vw;
+}
+.post-comment-number {
+  margin-left: 1vw;
+  margin-bottom: 1vh;
+}
+
+.like-number {
+  margin-left: 1vw;
+  margin-bottom: 1vh;
 }

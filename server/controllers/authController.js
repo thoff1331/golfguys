@@ -106,6 +106,20 @@ const getCommentCount = (req, res) => {
     .catch(err => console.log("1*****", err));
 };
 
+const getCommentCountHome = (req, res) => {
+  const db = req.app.get("db");
+  db.get_comment_count_home()
+    .then(count => res.status(200).json(count))
+    .catch(err => console.log(err));
+};
+const getLikes = (req, res) => {
+  console.log("hit");
+  const db = req.app.get("db");
+  db.get_likes()
+    .then(likes => res.status(200).json(likes))
+    .catch(err => console.log(err));
+};
+
 module.exports = {
   signup,
   login,
@@ -118,5 +132,7 @@ module.exports = {
   getProfile,
   getComment,
   addComment,
-  getCommentCount
+  getCommentCount,
+  getCommentCountHome,
+  getLikes
 };
