@@ -10,7 +10,8 @@ class Home extends Component {
     super();
     this.state = {
       messages: [],
-      comments: []
+      comments: [],
+      likes: []
     };
     this.deletePost = this.deletePost.bind(this);
     this.getCommentCountHome = this.getCommentCountHome.bind(this);
@@ -57,8 +58,8 @@ class Home extends Component {
     });
   }
   // req.params.match.id
-  getLikes(id) {
-    axios.get(`/auth/getLikes/${id}`).then(res => {
+  getLikes() {
+    axios.get("/auth/getLikes").then(res => {
       console.log("hit");
       this.setState({
         likes: res.data
@@ -68,6 +69,7 @@ class Home extends Component {
   }
 
   render() {
+    console.log(this.state.likes);
     console.log(this.state.comments);
     console.log(this.state.messages);
     if (!this.props.username) {
