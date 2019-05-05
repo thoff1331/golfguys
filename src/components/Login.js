@@ -3,6 +3,7 @@ import { Link, Redirect } from "react-router-dom";
 import axios from "axios";
 import { connect } from "react-redux";
 import { login } from "../ducks/auth";
+import logo from "../pics/tall_logo.png";
 
 class Login extends Component {
   constructor(props) {
@@ -43,14 +44,16 @@ class Login extends Component {
     }
 
     return (
-      <div>
-        <h1 className="login-button">Login</h1>
-
+      <div className="login-border">
+        {/* <div className="login-form-border"> */}
         <form
           onSubmit={this.handleSubmit}
           className="formli"
           autoComplete="off"
         >
+          <img className="logo-log" src={logo} />
+
+          <h1>Login</h1>
           <label>Username </label>
           <input
             onChange={this.handleChange}
@@ -69,6 +72,7 @@ class Login extends Component {
           <button className="buttonsu">Submit</button>
         </form>
       </div>
+      // </div>
     );
   }
 }

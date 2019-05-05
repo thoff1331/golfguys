@@ -8,6 +8,7 @@ body {
 }
 
 nav {
+  width: 100vw;
   background-color: white;
   margin-top: 0;
   position: fixed;
@@ -73,6 +74,7 @@ nav {
   color: $color;
   border-radius: 25px;
   text-decoration: none;
+  margin-top: 1.5vh;
 }
 
 .mainheader {
@@ -98,7 +100,9 @@ nav {
   font-size: $form-font;
   text-decoration: none;
   font-weight: 900;
-  padding-top: 9vh;
+  border: 2px solid $font-color;
+  background: white;
+  border-radius: 5px;
 }
 .upgrade {
   color: red($color: #000000);
@@ -400,9 +404,6 @@ h6 {
 .user {
   text-decoration: underline;
 }
-.comment-input {
-  //border: 1px solid black;
-}
 
 .post-comment-button {
   color: $color;
@@ -607,4 +608,79 @@ h6 {
 .like-number {
   margin-left: 1vw;
   margin-bottom: 1vh;
+}
+.edit-pencil {
+  width: 28px;
+}
+
+.home-course {
+  display: flex;
+  width: 20vw;
+  justify-content: space-between;
+  align-items: center;
+}
+.logo {
+  width: 11vw;
+  display: flex;
+}
+.logo-log {
+  // width: 11vw;
+  // margin-left: 1vw;
+  // margin-top: 10vh;
+  width: 100px;
+  height: 100px;
+  margin-left: 1vw;
+}
+
+// .login-page {
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+// }
+
+// .login-parent {
+//   display: flex;
+//   flex-direction: column;
+//   height: 100vh;
+//   width: 100vw;
+//   flex-wrap: wrap;
+//   border: #000000 1px solid;
+
+//   justify-content: space-evenly;
+// }
+
+// .login-logo {
+//   width: 100px;
+// }
+
+.login-border {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  background-image: url("../src/pics/coursezzz\ \(1\).png");
+}
+.login-form-border {
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid blue;
+  height: 10vh;
+  background: #000000;
+}
+form {
+  border: red solid 1px;
+  width: 16vw;
+  height: 40vh;
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+}
+
+.login-button {
+  margin-bottom: 100px;
+  border: 2px solid red;
 }

@@ -5,8 +5,9 @@ import { connect } from "react-redux";
 import "./App.scss";
 import { HashRouter, Link } from "react-router-dom";
 import routes from "./components/routes";
-import ball from "./pics/ball.png";
+import logo from "./pics/golf_guys.png";
 import tee from "./pics/tee.png";
+import logo_2 from "./pics/logo_2.png";
 class App extends Component {
   constructor(props) {
     super(props);
@@ -37,10 +38,9 @@ class App extends Component {
     return (
       <HashRouter>
         <nav>
+          <img className="logo" src={logo_2} />
           <div className="mainheader">
-            <header>Golf Guys!</header>
-
-            <img className="ballpic" src={ball} alt="ball" />
+            {/* <img className="ballpic" src={logo} alt="ball" /> */}
           </div>
           <div className="links">
             <div className="navbarTop">
