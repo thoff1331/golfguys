@@ -1,1 +1,5 @@
-SELECT * FROM comment WHERE post_id = $1;
+update messages 
+
+set comments = comments + 1
+where id = $1;
+returning *;

@@ -8,7 +8,9 @@ class UserInfo extends Component {
   render() {
     return (
       <div className="users">
-        <h4>Home Course: Carnoustie</h4>
+        <div>
+          <h4>Home Course: Carnoustie</h4>
+        </div>
         <h4> Handicap: 7 </h4>
         <h4> Rounds Per Year: 52</h4>
         <h4>Career Hole in One: 4</h4>

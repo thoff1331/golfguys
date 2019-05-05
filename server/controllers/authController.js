@@ -91,7 +91,6 @@ const getComment = (req, res) => {
     .catch(err => console.log("1*****", err));
 };
 const addComment = (req, res) => {
-  console.log(req.params.id);
   const db = req.app.get("db");
   const { content } = req.body;
   db.add_comment([req.session.user.username, content, +req.params.id])
@@ -99,7 +98,6 @@ const addComment = (req, res) => {
     .catch(err => console.log(err));
 };
 const getCommentCount = (req, res) => {
-  console.log(req.params.id);
   const db = req.app.get("db");
   db.get_comment_count(+req.params.id)
     .then(count => res.status(200).json(count))
@@ -107,15 +105,17 @@ const getCommentCount = (req, res) => {
 };
 
 const getCommentCountHome = (req, res) => {
+  console.log("hey");
+  console.log(req.params.id);
   const db = req.app.get("db");
-  db.get_comment_count_home()
+  db.get_comment_count_home(+req.params.id)
     .then(count => res.status(200).json(count))
     .catch(err => console.log(err));
 };
 const getLikes = (req, res) => {
   console.log("hit");
   const db = req.app.get("db");
-  db.get_likes()
+  db.get_likes(+req.params.id)
     .then(likes => res.status(200).json(likes))
     .catch(err => console.log(err));
 };

@@ -20,8 +20,8 @@ class Post extends Component {
     this.getCommentCount = this.getCommentCount.bind(this);
     this.getLikes = this.getLikes.bind(this);
   }
+
   componentDidMount() {
-    this.getCommentCount();
     this.getComments();
     this.props.getSession();
     axios.get(`/auth/post/${this.props.match.params.id}`).then(res => {
@@ -55,7 +55,6 @@ class Post extends Component {
         content: this.state.inputText
       })
       .then(res => {
-        console.log(res.data);
         this.setState({
           comments: [...this.state.comments, res.data[0]]
         });
@@ -76,21 +75,20 @@ class Post extends Component {
   }
 
   getLikes() {
-    axios.get("/auth/getLikes").then(res => {
+    axios.get(`/auth/getLikes/${this.props.match.params.id}`).then(res => {
       console.log("hit");
       this.setState({
         likes: res.data
       });
-      window.location.reload();
     });
   }
 
   render() {
-    console.log(this.state.likes);
+    console.log();
     console.log(this.props.username);
-    console.log(this.state.posts);
+    this.state.posts[0] && console.log(this.state.posts[0].comments);
     let mappedComments = this.state.comments.map((val, index) => {
-      console.log(val);
+      console.log(val.comments);
       return (
         <div className="post-comments">
           <h4 className="post-author">{val.author} </h4>
@@ -115,7 +113,7 @@ class Post extends Component {
                   <h3 className="user">{val.username}</h3>
 
                   <div className="comment">
-                    <p onClick={this.getLikes} className="post-page-heart">
+                    <p className="post-page-heart" onClick={this.getLikes}>
                       ♡
                     </p>{" "}
                     <p className="like-number">{val.likes}</p>
@@ -123,7 +121,7 @@ class Post extends Component {
                       💬
                     </p>
                     <p className="post-comment-number">
-                      {this.state.comments.length}
+                      {this.state.posts[0] && this.state.posts[0].comments}
                     </p>
                   </div>
                 </div>

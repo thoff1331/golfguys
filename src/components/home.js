@@ -16,12 +16,12 @@ class Home extends Component {
     this.deletePost = this.deletePost.bind(this);
     this.getCommentCountHome = this.getCommentCountHome.bind(this);
     this.getLikes = this.getLikes.bind(this);
+    //this.getCommentCount = this.getCommentCount.bind(this);
   }
+
   componentDidMount() {
-    this.getCommentCountHome();
     this.props.getSession();
     axios.get("/auth/messages").then(res => {
-      console.log(res.data);
       this.setState({
         messages: res.data
       });
@@ -50,17 +50,30 @@ class Home extends Component {
   };
   // req.params.match
   getCommentCountHome() {
-    axios.get("auth/getCommentCountHome").then(res => {
-      console.log(res.data);
-      this.setState({
-        comments: res.data
+    axios
+      .get(`auth/getCommentCountHome/${this.props.match.params.id}`)
+      .then(res => {
+        console.log(res.data);
+        this.setState({
+          comments: res.data
+        });
       });
-    });
   }
+  // getCommentCount() {
+  //   axios
+  //     .get(`/auth/getCommentCount/${this.props.match.params.id}`)
+  //     .then(res => {
+  //       console.log("hit");
+  //       this.setState({
+  //         comments: res.data
+  //       });
+  //     });
+  // }
   // req.params.match.id
-  getLikes() {
-    axios.get("/auth/getLikes").then(res => {
-      console.log("hit");
+  getLikes(id) {
+    console.log("button");
+    axios.get(`/auth/getLikes/${id}`).then(res => {
+      console.log(res.data);
       this.setState({
         likes: res.data
       });
@@ -69,9 +82,7 @@ class Home extends Component {
   }
 
   render() {
-    console.log(this.state.likes);
-    console.log(this.state.comments);
-    console.log(this.state.messages);
+    console.log(this.props.match.params.id);
     if (!this.props.username) {
       return (
         <h1 className="protected-profile">
@@ -88,6 +99,7 @@ class Home extends Component {
           <Add />
           <div>
             {this.state.messages.map((val, index) => {
+              console.log(val.comments);
               return (
                 <div key={index}>
                   <div className="home-posted-by">
@@ -112,16 +124,18 @@ class Home extends Component {
                   <img src={val.image} alt="" className="posts" />
                   <div className="home-buttons">
                     <h1 key={val.index} />{" "}
-                    <h1 onClick={this.getLikes} className="home-heart">
+                    <h1
+                      className="home-heart"
+                      onClick={e => this.getLikes(val.id)}
+                      className="home-heart"
+                    >
                       ♡
                     </h1>
                     <h6 className="like-number">{val.likes}</h6>
                     <Link to={`post/${val.id}`} className="comment-link">
                       <h1>💬</h1>
                     </Link>
-                    <h6 className="post-comment-number">
-                      {this.state.comments.length}
-                    </h6>
+                    <h6 className="post-comment-number">{val.comments}</h6>
                     <h1
                       className="home-delete"
                       onClick={() => this.deletePost(val.id)}

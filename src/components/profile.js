@@ -67,6 +67,7 @@ class Profile extends Component {
           </div>
         </div>
         {mapped}
+        <UserInfo />
       </div>
     );
   }
