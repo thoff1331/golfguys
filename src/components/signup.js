@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import { signUp } from "../ducks/auth";
+import logo from "../pics/tall_logo.png";
 
 class Signup extends Component {
   constructor(props) {
@@ -37,35 +38,44 @@ class Signup extends Component {
       return <Redirect to="/" push={true} />;
     }
     return (
-      <div>
-        <form
-          onSubmit={this.handleSubmit}
-          className="formsu"
-          autoComplete="off"
-        >
-          <label>Profile Pic</label>
-          <input onChange={this.handleChange} value={this.state.pp} name="pp" />
-          <label>UserName</label>
-          <input
-            onChange={this.handleChange}
-            value={this.state.username}
-            name="username"
-          />
-          <label>PassWord</label>
-          <input
-            // type="password"
-            onChange={this.handleChange}
-            value={this.state.password}
-            name="password"
-            type="password"
-          />
-          <br />
-          <button className="buttonsu">Join The Club</button>
-          <p>{this.props.error}</p>
-          <Link to="/login">
-            <p className="nav">Already Registered? Login here</p>
-          </Link>
-        </form>
+      <div className="signup-page">
+        <div className="signup-border">
+          <div className="sign">
+            <form
+              onSubmit={this.handleSubmit}
+              className="formsu"
+              autoComplete="off"
+            >
+              <img className="logo-log" src={logo} />
+              <label>Profile Pic</label>
+              <input
+                onChange={this.handleChange}
+                value={this.state.pp}
+                name="pp"
+              />
+              <label>UserName</label>
+              <input
+                onChange={this.handleChange}
+                value={this.state.username}
+                name="username"
+              />
+              <label>PassWord</label>
+              <input
+                // type="password"
+                onChange={this.handleChange}
+                value={this.state.password}
+                name="password"
+                type="password"
+              />
+              <br />
+              <button className="buttonsu">Join The Club</button>
+              <p>{this.props.error}</p>
+              <Link to="/login">
+                <p className="nav">Already Registered? Login here</p>
+              </Link>
+            </form>
+          </div>
+        </div>
       </div>
     );
   }

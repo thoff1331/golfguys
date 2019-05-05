@@ -64,6 +64,12 @@ nav {
   text-decoration: none;
   font-weight: 900;
   padding-top: 12vh;
+  border: 1px solid black;
+  padding-bottom: 7vh;
+  padding-top: 1vh;
+  width: 24vw;
+  border: 2px solid $font-color;
+  border-radius: 5px;
 }
 
 .buttonsu {
@@ -103,6 +109,8 @@ nav {
   border: 2px solid $font-color;
   background: white;
   border-radius: 5px;
+  padding-bottom: 1vh;
+  padding-top: 1vh;
 }
 .upgrade {
   color: red($color: #000000);
@@ -630,6 +638,7 @@ h6 {
   width: 100px;
   height: 100px;
   margin-left: 1vw;
+  margin-top: 1vh;
 }
 
 // .login-page {
@@ -671,11 +680,11 @@ h6 {
   background: #000000;
 }
 form {
-  border: red solid 1px;
   width: 16vw;
   height: 40vh;
   display: flex;
   flex-direction: column;
+  background: white;
 
   align-items: center;
 }
@@ -683,4 +692,20 @@ form {
 .login-button {
   margin-bottom: 100px;
   border: 2px solid red;
+}
+.signup-border {
+  background-image: url("../src/pics/coursezzz\ \(1\).png");
+  height: 100vh;
+}
+.signup-page {
+  display: flexbox;
+  justify-content: center;
+  border: 10px solid black;
+}
+.sign {
+  border: 1px solid red;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
