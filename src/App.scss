@@ -65,11 +65,12 @@ nav {
   font-weight: 900;
   padding-top: 12vh;
   border: 1px solid black;
-  padding-bottom: 7vh;
+  padding-bottom: 4vh;
   padding-top: 1vh;
-  width: 24vw;
+  width: 27vw;
   border: 2px solid $font-color;
   border-radius: 5px;
+  height: 48vh;
 }
 
 .buttonsu {
@@ -78,7 +79,6 @@ nav {
   background-color: yellow;
   font-size: 17px;
   color: $color;
-  border-radius: 25px;
   text-decoration: none;
   margin-top: 1.5vh;
 }
@@ -111,6 +111,8 @@ nav {
   border-radius: 5px;
   padding-bottom: 1vh;
   padding-top: 1vh;
+  width: 20vw;
+  height: 47vh;
 }
 .upgrade {
   color: red($color: #000000);
@@ -243,15 +245,6 @@ h6 {
   height: 3vh;
 }
 
-.add-form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  font-size: $form-font;
-  text-decoration: none;
-  font-weight: 900;
-  padding-top: 20vh;
-}
 .input-add {
   width: 300px;
   height: 100px;
@@ -264,50 +257,7 @@ h6 {
   text-align: center;
   padding-top: 5vh;
 }
-.pp {
-  border-radius: 50%;
-  border: 7px solid $font-color;
-  width: 50px;
-  height: 50px;
-  margin-left: 35px;
-}
-.lineup {
-  display: flex;
-  justify-content: center;
-  width: 20vw;
-  align-items: center;
-}
 
-.home-pp {
-  display: flex;
-  font-size: 32px;
-  justify-content: center;
-  width: 20vw;
-  align-items: center;
-  padding-top: 9vw;
-}
-
-.posts {
-  width: 250px;
-  border: 4px solid $font-color;
-  margin-bottom: 0;
-  margin-top: 0;
-}
-
-.home-posted-by {
-  display: flex;
-  margin-top: 15px;
-  padding-top: 2vw;
-}
-.caption {
-  margin-top: -10px;
-  font-weight: 900;
-  font-size: 35px;
-  margin-bottom: 1vh;
-  margin-left: 2vw;
-  padding-bottom: 0vh;
-  height: 4vh;
-}
 .lineups {
   display: flex;
   width: 30vw;
@@ -484,22 +434,9 @@ h6 {
   justify-content: center;
   height: -0vh;
 }
-.recent-posts {
-  margin-top: 0;
-  margin-bottom: 1vh;
-  text-decoration: underline yellow;
-}
-.protected-profile {
-  padding-top: 20vh;
-}
+
 .protected-home {
   padding-top: 30vh;
-}
-.profile-link-home {
-  color: $color;
-  font-size: 24px;
-  text-decoration: underline;
-  z-index: 2;
 }
 
 .buttonsu-profile {
@@ -555,32 +492,6 @@ h6 {
   margin-left: 9vw;
 }
 
-.home-heart {
-  display: flex;
-  align-items: center;
-  background: transparent;
-  background: none;
-  flex-direction: row;
-  width: 10vw;
-  font-size: 20px;
-}
-
-.home-buttons {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  align-content: stretch;
-  width: 10vw;
-  font-size: 20px;
-  margin-left: 0;
-}
-.comment-link {
-  margin-left: 3vw;
-  width: 10vw;
-  font-size: 17px;
-  text-decoration: none;
-}
-
 .delete-link {
   margin-left: 3vw;
 }
@@ -600,23 +511,11 @@ h6 {
 .post-comment {
   margin-left: 1vw;
 }
-.home-delete {
-  background: none;
-  font-size: 15px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-left: 5vw;
-}
 .post-comment-number {
   margin-left: 1vw;
   margin-bottom: 1vh;
 }
 
-.like-number {
-  margin-left: 1vw;
-  margin-bottom: 1vh;
-}
 .edit-pencil {
   width: 28px;
 }
@@ -638,7 +537,7 @@ h6 {
   width: 100px;
   height: 100px;
   margin-left: 1vw;
-  margin-top: 1vh;
+  margin-top: 3vh;
 }
 
 // .login-page {
@@ -692,9 +591,10 @@ form {
 .login-button {
   margin-bottom: 100px;
   border: 2px solid red;
+  outline: none;
 }
 .signup-border {
-  background-image: url("../src/pics/coursezzz\ \(1\).png");
+  // background-image: url("../src/pics/coursezzz\ \(1\).png");
   height: 100vh;
 }
 .signup-page {
@@ -708,4 +608,16 @@ form {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.profile-form {
+  border: 1px solid black;
+  width: 100vw;
+}
+
+.profile-change-button {
+  border: 1px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 47vw;
 }

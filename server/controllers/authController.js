@@ -2,17 +2,19 @@ const bcrypt = require("bcryptjs");
 
 const signup = async (req, res) => {
   const db = req.app.get("db");
+
   const { pp, username, password } = req.body;
   const hash = await bcrypt.hash(password, 10);
   const result = await db.signup([pp, username, hash]).catch(err => {
     res.status(400).json("Username already exists");
   });
+
   req.session.user = {
     username: result[0].username,
     pp: result[0].pp,
     userId: result[0].user_id
   };
-  res.json(result);
+  res.json(req.session.user);
 };
 const login = async (req, res) => {
   req.body;
@@ -119,6 +121,14 @@ const getLikes = (req, res) => {
     .then(likes => res.status(200).json(likes))
     .catch(err => console.log(err));
 };
+const profileSetup = (req, res) => {
+  console.log(+req.session.user.userId);
+  const { course, handicap, rounds, career } = req.body;
+  const db = req.app.get("db");
+  db.profile_setup([course, handicap, rounds, career, +req.session.user.userId])
+    .then(profile => res.status(200).json(profile))
+    .catch(err => console.log(err));
+};
 
 module.exports = {
   signup,
@@ -134,5 +144,6 @@ module.exports = {
   addComment,
   getCommentCount,
   getCommentCountHome,
-  getLikes
+  getLikes,
+  profileSetup
 };

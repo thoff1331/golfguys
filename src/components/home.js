@@ -4,6 +4,7 @@ import Add from "./postmemory";
 import { connect } from "react-redux";
 import { getSession, logout } from "../ducks/auth";
 import { Redirect, Link } from "react-router-dom";
+import "./home.scss";
 
 class Home extends Component {
   constructor() {
@@ -11,8 +12,12 @@ class Home extends Component {
     this.state = {
       messages: [],
       comments: [],
-      likes: []
+      likes: [],
+      caption: "",
+      image: ""
     };
+    this.handleChange = this.handleChange.bind(this);
+    this.handlesubmit = this.handlesubmit.bind(this);
     this.deletePost = this.deletePost.bind(this);
     this.getCommentCountHome = this.getCommentCountHome.bind(this);
     this.getLikes = this.getLikes.bind(this);
@@ -59,17 +64,7 @@ class Home extends Component {
         });
       });
   }
-  // getCommentCount() {
-  //   axios
-  //     .get(`/auth/getCommentCount/${this.props.match.params.id}`)
-  //     .then(res => {
-  //       console.log("hit");
-  //       this.setState({
-  //         comments: res.data
-  //       });
-  //     });
-  // }
-  // req.params.match.id
+
   getLikes(id) {
     console.log("button");
     axios.get(`/auth/getLikes/${id}`).then(res => {
@@ -78,6 +73,18 @@ class Home extends Component {
         likes: res.data
       });
       window.location.reload();
+    });
+  }
+  handlesubmit(e) {
+    e.preventDefault();
+    axios.post("/auth/add", {
+      caption: this.state.caption,
+      image: this.state.image
+    });
+  }
+  handleChange(e) {
+    this.setState({
+      [e.target.name]: e.target.value
     });
   }
 
@@ -91,66 +98,102 @@ class Home extends Component {
       );
     } else {
       return (
-        <div>
-          <div className="home-pp">
-            <h3> Welcome, {this.props.username} </h3>
-            <img src={this.props.pp} className="pp" />
-          </div>
-          <Add />
-          <div>
-            {this.state.messages.map((val, index) => {
-              console.log(val.comments);
-              return (
-                <div key={index}>
-                  <div className="home-posted-by">
-                    {" "}
-                    <h2>
-                      {" "}
-                      Posted By:{" "}
-                      <Link
-                        className="profile-link-home"
-                        to={{
-                          pathname: `profile-page/${val.username}`,
-                          state: {
-                            id: val.username
-                          }
-                        }}
-                      >
-                        {val.username}
-                      </Link>
-                    </h2>
-                    <img src={val.pp} className="pp" />
+        <div className="background">
+          <div className="home-page">
+            <div className="home-pp">
+              <h3> Welcome, {this.props.username} </h3>
+              <img src={this.props.pp} className="pp" />
+            </div>
+            <div className="add-home">
+              <form
+                onSubmit={this.handlesubmit}
+                className="add-form"
+                autoComplete="off"
+              >
+                <label> Share Your Recent Golf Experience </label>
+                <textarea
+                  className="input-add"
+                  onChange={this.handleChange}
+                  value={this.state.caption}
+                  name="caption"
+                />
+                <label>Add a Picture to your post </label>
+                <input
+                  className="input-home"
+                  onChange={this.handleChange}
+                  value={this.state.image}
+                  placeholder=" Image URL"
+                  name="image"
+                />
+                <br />
+                <button className="buttonsu-home">Post</button>
+              </form>
+            </div>
+            <h1 className="recent-posts"> ~ Recent Posts ~</h1>
+            <div className="bigger-papa">
+              {/* <div className="post-memory" /> */}
+
+              {this.state.messages.map((val, index) => {
+                console.log(val.comments);
+                return (
+                  <div className="big-papa">
+                    <div className="papa">
+                      <div key={index}>
+                        <div>
+                          {" "}
+                          <h2>
+                            {" "}
+                            Posted By:{" "}
+                            <Link
+                              className="profile-link-home"
+                              to={{
+                                pathname: `profile-page/${val.username}`,
+                                state: {
+                                  id: val.username
+                                }
+                              }}
+                            >
+                              {val.username}
+                            </Link>
+                          </h2>
+                          <img src={val.pp} className="pp" />
+                        </div>
+                        <img src={val.image} alt="" className="posts" />
+                        <div className="home-buttons">
+                          <h1 key={val.index} />{" "}
+                          <h1
+                            className="home-heart"
+                            onClick={e => this.getLikes(val.id)}
+                            className="home-heart"
+                          >
+                            ♡
+                          </h1>
+                          <h6 className="like-number">{val.likes}</h6>
+                          <Link to={`post/${val.id}`} className="comment-link">
+                            <h1>💬</h1>
+                          </Link>
+                          <h6 className="post-comment-number">
+                            {val.comments}
+                          </h6>
+                          <h1
+                            className="home-delete"
+                            onClick={() => this.deletePost(val.id)}
+                          >
+                            ❌
+                          </h1>
+                        </div>
+                      </div>
+                      <div className="caption">{val.caption}</div>
+                      <div>
+                        <div className="lineup" />
+                      </div>
+                    </div>
                   </div>
-                  <img src={val.image} alt="" className="posts" />
-                  <div className="home-buttons">
-                    <h1 key={val.index} />{" "}
-                    <h1
-                      className="home-heart"
-                      onClick={e => this.getLikes(val.id)}
-                      className="home-heart"
-                    >
-                      ♡
-                    </h1>
-                    <h6 className="like-number">{val.likes}</h6>
-                    <Link to={`post/${val.id}`} className="comment-link">
-                      <h1>💬</h1>
-                    </Link>
-                    <h6 className="post-comment-number">{val.comments}</h6>
-                    <h1
-                      className="home-delete"
-                      onClick={() => this.deletePost(val.id)}
-                    >
-                      ❌
-                    </h1>
-                  </div>
-                  <div className="caption">{val.caption}</div>
-                  <div>
-                    <div className="lineup" />
-                  </div>
-                  <div />
-                </div>
-              );
-            })}
+
+                  // </div>
+                );
+              })}
+            </div>
           </div>
         </div>
       );

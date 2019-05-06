@@ -49,7 +49,7 @@ class Add extends Component {
             name="image"
           />
           <br />
-          <button className="buttonsu">Post Your Memory</button>
+          <button className="buttonsu-home">Post Your Memory</button>
         </form>
       </div>
     );
