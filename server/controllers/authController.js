@@ -44,7 +44,10 @@ const login = async (req, res) => {
 };
 const getmessages = (req, res) => {
   const db = req.app.get("db");
-  db.get_messages().then(messages => res.status(200).json(messages));
+  db.get_messages().then(messages => {
+    console.log(messages);
+    res.status(200).json(messages);
+  });
 };
 const addmemory = (req, res) => {
   const db = req.app.get("db");
@@ -56,7 +59,7 @@ const addmemory = (req, res) => {
     req.session.user.username,
     req.session.user.userId
   ])
-    .then(() => res.sendStatus(200))
+    .then(response => res.status(200).json(response))
     .catch(err => err);
 };
 const deleteone = (req, res, next) => {
@@ -88,16 +91,30 @@ const getProfile = (req, res) => {
 };
 const getComment = (req, res) => {
   const db = req.app.get("db");
+  console.log(+req.params.id);
   db.get_comments(+req.params.id)
-    .then(comment => res.status(200).json(comment))
+    .then(comment => {
+      console.log(comment);
+      res.status(200).json(comment);
+    })
     .catch(err => console.log("1*****", err));
 };
-const addComment = (req, res) => {
+const addComment = async (req, res) => {
   const db = req.app.get("db");
   const { content } = req.body;
-  db.add_comment([req.session.user.username, content, +req.params.id])
-    .then(comment => res.status(200).json(comment))
-    .catch(err => console.log(err));
+  const commentCount = await db.add_comment([
+    req.session.user.username,
+    content,
+    +req.params.id
+  ]);
+
+  if (commentCount) {
+    db.update_comment_count([+commentCount[0].count, +req.params.id]);
+    console.log(+commentCount[0].count);
+    // res.status(200).json(comment);
+  }
+
+  // .catch(err => console.log(err));
 };
 const getCommentCount = (req, res) => {
   const db = req.app.get("db");

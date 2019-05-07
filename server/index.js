@@ -27,7 +27,7 @@ app.use(
     }
   })
 );
-app.post("/auth/profileSetup/:id", authController.profileSetup);
+app.put("/auth/profileSetup/:id", authController.profileSetup);
 app.get("/auth/getLikes/:id", authController.getLikes);
 app.get("/auth/getCommentCountHome/:id", authController.getCommentCountHome);
 app.get("/auth/getCommentCount/:id", authController.getCommentCount);

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import UserInfo from "./userinfo";
 import axios from "axios";
 
@@ -13,14 +13,15 @@ class Profile extends Component {
     };
   }
   componentDidMount() {
-    //   axios.get(`/auth/profile/${this.props.match.id}`).then(res => {
-    //     this.setState({
-    //       profile: res.data
-    //     });
-    //   });
-    // }
+    axios.get(`/auth/profile/${this.props.match.id}`).then(res => {
+      this.setState({
+        profile: res.data
+      });
+    });
   }
+
   render() {
+    console.log(this.state.profile);
     var mapped = this.state.profile.map((val, index) => {
       return <h3>{val.username}</h3>;
     });
@@ -28,7 +29,7 @@ class Profile extends Component {
     if (!this.props.auth.username) {
       return (
         <h1 className="protected-profile">
-          <Link to="/login">Please Login </Link>
+          <Redirect to="/login" />
         </h1>
       );
     }

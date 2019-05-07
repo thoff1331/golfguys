@@ -36,23 +36,31 @@
   border: 3px solid #fee715a8;
   width: 50px;
   height: 50px;
-  margin-left: 35px;
+  margin-left: 1vw;
 }
 .posts {
-  width: 250px;
+  width: 22vw;
   // border: 4px solid $font-color;
-  margin-bottom: 0;
-  margin-top: 0;
+  // margin-bottom: 0;
+  // margin-top: 0;
+  // margin-left: 0.5vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 0px;
 }
 
 .home-buttons {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
-  align-content: stretch;
-  width: 10vw;
+  width: 8vw;
   font-size: 20px;
-  margin-left: 0;
+  // margin-left: 3vw;
+  border: 1px solid black;
+  justify-content: space-between;
+  margin-bottom: 3vh;
+  align-items: baseline;
 }
 .home-heart {
   display: flex;
@@ -61,36 +69,36 @@
   background: none;
   flex-direction: row;
   width: 10vw;
-  font-size: 20px;
+  font-size: 15px;
+  border: 1px solid black;
 }
 
 .like-number {
-  margin-left: 1vw;
   margin-bottom: 1vh;
 }
 .comment-link {
-  margin-left: 3vw;
-  width: 10vw;
+  // margin-left: 3vw;
+  width: 4vw;
   font-size: 17px;
   text-decoration: none;
+  // border: 2px solid green;
 }
 
 .post-comment-number {
-  margin-left: 1vw;
+  // margin-left: 1vw;
   margin-bottom: 1vh;
 }
-.post-comment-number {
-  margin-left: 1vw;
-  margin-bottom: 1vh;
-}
+// .post-comment-number {
+//   margin-left: 1vw;
+//   margin-bottom: 1vh;
+// }
 .caption {
-  margin-top: -10px;
   font-weight: 900;
-  font-size: 35px;
-  margin-bottom: 1vh;
-  margin-left: 2vw;
-  padding-bottom: 0vh;
-  height: 4vh;
+  font-size: 17px;
+  // margin-bottom: 1vh;
+  // padding-bottom: 0vh;
+
+  // margin-right: 14vw;
 }
 
 .lineup {
@@ -175,15 +183,15 @@
 .papa {
   border-radius: 5px;
   border: 5px solid #006b54b0;
-  width: 15vw;
+  width: 17vw;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
   padding: 45px;
   height: 45vh;
-  margin-bottom: 5vh;
-  text-align: center;
+  padding-bottom: 8vh;
+  // text-align: center;
 }
 .big-papa {
   //   border: 1px solid red;
@@ -204,7 +212,7 @@
   align-content: flex-start;
   width: 90vw;
   padding: 50px;
-  margin-left: 5vh;
+  // margin-left: 5vh;
   //   border: 10px solid blue;
   height: 100vh;
   //   background: blue;
@@ -217,4 +225,71 @@
 
 .pp-home {
   border: 5px saddlebrown solid;
+}
+.delete-link {
+  // margin-left: 3vw;
+  display: none;
+  margin-top: 0;
+}
+.home-delete {
+  // margin-top: 0;
+  // // margin-left: 3vw;
+  // font-size: 10px;
+  // height: 6vh;
+  // border: 2px solid red;
+}
+.papa-buttons {
+  display: flex;
+  flex-direction: row;
+  width: 20vw;
+  // margin-right: 5vw;
+  align-items: center;
+  margin-top: 0;
+  // border: 5px solid red;
+  justify-content: space-around;
+  // height: 1vh;
+}
+
+.big-boss {
+  // display: flex;
+  // justify-content: center;
+  // align-items: center;
+  // border: 11px solid green;
+}
+.baby-boss {
+  margin-bottom: 0vh;
+  display: flex;
+  margin-right: 2vw;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.bosses {
+  // margin-left: 6vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.papa-buttons h1,
+.papa-buttons h6 {
+  margin: 0;
+  font-size: 20px;
+}
+.comment-link h1 {
+  margin: 0;
+  font-size: 22px;
+  margin-left: 3vw;
+}
+.comment-number {
+  border: 1px solid blue;
+  margin-left: 8vw;
+  width: 9vw;
+}
+
+.papa-buttons h4 {
+  margin-right: 4vw;
+  height: 10px;
+  font-size: 17px;
+  // border: 3px solid yellow;
 }

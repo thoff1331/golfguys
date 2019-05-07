@@ -19,9 +19,9 @@ class Home extends Component {
     this.handleChange = this.handleChange.bind(this);
     this.handlesubmit = this.handlesubmit.bind(this);
     this.deletePost = this.deletePost.bind(this);
-    this.getCommentCountHome = this.getCommentCountHome.bind(this);
+    // this.getCommentCountHome = this.getCommentCountHome.bind(this);
     this.getLikes = this.getLikes.bind(this);
-    //this.getCommentCount = this.getCommentCount.bind(this);
+    // this.getCommentCount = this.getCommentCount.bind(this);
   }
 
   componentDidMount() {
@@ -54,33 +54,42 @@ class Home extends Component {
     // };
   };
   // req.params.match
-  getCommentCountHome() {
-    axios
-      .get(`auth/getCommentCountHome/${this.props.match.params.id}`)
-      .then(res => {
-        console.log(res.data);
-        this.setState({
-          comments: res.data
-        });
-      });
-  }
+  // getCommentCountHome() {
+  //   axios
+  //     .get(`auth/getCommentCountHome/${this.props.match.params.id}`)
+  //     .then(res => {
+  //       console.log(res.data);
+  //       this.setState({
+  //         comments: res.data
+  //       });
+  //     });
+  // }
 
   getLikes(id) {
     console.log("button");
     axios.get(`/auth/getLikes/${id}`).then(res => {
       console.log(res.data);
       this.setState({
-        likes: res.data
+        messages: res.data
       });
-      window.location.reload();
+      // window.location.reload();
     });
   }
   handlesubmit(e) {
     e.preventDefault();
-    axios.post("/auth/add", {
-      caption: this.state.caption,
-      image: this.state.image
-    });
+    axios
+      .post("/auth/add", {
+        caption: this.state.caption,
+        image: this.state.image
+      })
+      .then(res => {
+        console.log(res);
+        this.setState({
+          messages: res.data,
+          caption: "",
+          image: ""
+        });
+      });
   }
   handleChange(e) {
     this.setState({
@@ -89,11 +98,12 @@ class Home extends Component {
   }
 
   render() {
+    console.log(this.state.messages);
     console.log(this.props.match.params.id);
     if (!this.props.username) {
       return (
         <h1 className="protected-profile">
-          <Link to="/login">Please Login </Link>
+          <Redirect to="/login" />
         </h1>
       );
     } else {
@@ -138,8 +148,8 @@ class Home extends Component {
                 return (
                   <div className="big-papa">
                     <div className="papa">
-                      <div key={index}>
-                        <div>
+                      <div key={index} className="bosses">
+                        <div className="baby-boss">
                           {" "}
                           <h2>
                             {" "}
@@ -159,28 +169,37 @@ class Home extends Component {
                           <img src={val.pp} className="pp" />
                         </div>
                         <img src={val.image} alt="" className="posts" />
-                        <div className="home-buttons">
-                          <h1 key={val.index} />{" "}
-                          <h1
-                            className="home-heart"
-                            onClick={e => this.getLikes(val.id)}
-                            className="home-heart"
-                          >
-                            ♡
-                          </h1>
-                          <h6 className="like-number">{val.likes}</h6>
-                          <Link to={`post/${val.id}`} className="comment-link">
-                            <h1>💬</h1>
-                          </Link>
-                          <h6 className="post-comment-number">
-                            {val.comments}
-                          </h6>
-                          <h1
-                            className="home-delete"
-                            onClick={() => this.deletePost(val.id)}
-                          >
-                            ❌
-                          </h1>
+                        <div className="big-boss">
+                          <div className="papa-buttons">
+                            <h1 key={val.index} />
+                            {/* <h1
+                              className="home-delete"
+                              onClick={() => this.deletePost(val.id)}
+                            >
+                              ❌
+                            </h1> */}
+                            <h1
+                              className="like-number"
+                              onClick={e => this.getLikes(val.id)}
+                            >
+                              ♡
+                            </h1>
+                            <h6>{val.likes}</h6>
+                            <Link
+                              to={`post/${val.id}`}
+                              className="comment-link"
+                            >
+                              <h1>💬</h1>
+                            </Link>
+                            <h4>{val.comments}</h4>
+
+                            <h1
+                              className="home-delete"
+                              onClick={() => this.deletePost(val.id)}
+                            >
+                              ❌
+                            </h1>
+                          </div>
                         </div>
                       </div>
                       <div className="caption">{val.caption}</div>

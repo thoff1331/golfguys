@@ -256,6 +256,7 @@ h6 {
 .bump {
   text-align: center;
   padding-top: 5vh;
+  color: gold;
 }
 
 .lineups {
@@ -268,7 +269,10 @@ h6 {
   width: 100vw;
   font-size: 25px;
   font-weight: 900;
-  padding-top: 10vh;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  flex-direction: column;
 }
 .lineups- {
   display: flex;
@@ -452,7 +456,7 @@ h6 {
 
 .lineups-profile {
   display: flex;
-  height: 45vh;
+  height: 20vh;
   width: 45vw;
   justify-content: space-between;
   align-items: center;
@@ -610,14 +614,43 @@ form {
   align-items: center;
 }
 .profile-form {
+  display: flex;
+  border: 10px solid;
+  margin-right: 52vw;
+  margin-top: 0;
+  flex-direction: column;
+  font-size: 13px;
   border: 1px solid black;
-  width: 100vw;
+  background: whitesmoke;
+  height: 50vh;
+  width: 25vw;
+  justify-content: center;
+  align-items: center;
 }
 
 .profile-change-button {
-  border: 1px solid black;
   display: flex;
   justify-content: center;
   align-items: center;
   margin-left: 47vw;
+}
+.big-profile-div {
+  height: 100vh;
+  background: url("./pics/gc\ \(1\).png");
+  background-size: cover;
+}
+
+.profile-default {
+  margin-top: 0;
+  display: flex;
+  flex-direction: column;
+  font-size: 13px;
+  border: 1px solid black;
+  background: whitesmoke;
+  height: 50vh;
+  width: 25vw;
+  justify-content: center;
+  align-items: center;
+  margin-right: 55vw;
+  margin-top: 5vh;
 }

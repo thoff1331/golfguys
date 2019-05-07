@@ -39,6 +39,7 @@ class Post extends Component {
 
   getComments() {
     axios.get(`/auth/comment/${this.props.match.params.id}`).then(res => {
+      console.log(res.data);
       this.setState({
         comments: res.data
       });
@@ -50,6 +51,7 @@ class Post extends Component {
     });
   }
   submitComment() {
+    this.getComments();
     axios
       .post(`/auth/addComment/${this.props.match.params.id}`, {
         content: this.state.inputText
@@ -80,11 +82,12 @@ class Post extends Component {
       this.setState({
         likes: res.data
       });
+      window.location.reload();
     });
   }
 
   render() {
-    console.log();
+    console.log(this.state.comments);
     console.log(this.props.username);
     this.state.posts[0] && console.log(this.state.posts[0].comments);
     let mappedComments = this.state.comments.map((val, index) => {
@@ -121,7 +124,8 @@ class Post extends Component {
                       💬
                     </p>
                     <p className="post-comment-number">
-                      {this.state.posts[0] && this.state.posts[0].comments}
+                      {/* {this.state.posts[0] && this.state.posts[0].comments} */}
+                      {this.state.comments.length}
                     </p>
                   </div>
                 </div>

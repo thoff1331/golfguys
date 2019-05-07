@@ -110,7 +110,6 @@ class UserInfo extends Component {
         ) : null}
 
         {/* <h4> Rounds Per Year: 52</h4>
-
         <h4>Career Hole in One: 4</h4> */}
       </div>
     );
