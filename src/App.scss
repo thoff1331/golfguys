@@ -73,16 +73,6 @@ nav {
   height: 48vh;
 }
 
-.buttonsu {
-  color: $color;
-  background: none;
-  background-color: yellow;
-  font-size: 17px;
-  color: $color;
-  text-decoration: none;
-  margin-top: 1.5vh;
-}
-
 .mainheader {
   display: flex;
   width: 30vw;
@@ -257,6 +247,12 @@ h6 {
   text-align: center;
   padding-top: 5vh;
   color: gold;
+  margin-top: 10vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
 }
 
 .lineups {
@@ -613,20 +609,6 @@ form {
   justify-content: center;
   align-items: center;
 }
-.profile-form {
-  display: flex;
-  border: 10px solid;
-  margin-right: 52vw;
-  margin-top: 0;
-  flex-direction: column;
-  font-size: 13px;
-  border: 1px solid black;
-  background: whitesmoke;
-  height: 50vh;
-  width: 25vw;
-  justify-content: center;
-  align-items: center;
-}
 
 .profile-change-button {
   display: flex;
@@ -644,13 +626,62 @@ form {
   margin-top: 0;
   display: flex;
   flex-direction: column;
-  font-size: 13px;
-  border: 1px solid black;
+  font-size: 15px;
+  border: 5px solid #006b54;
   background: whitesmoke;
   height: 50vh;
   width: 25vw;
   justify-content: center;
   align-items: center;
-  margin-right: 55vw;
   margin-top: 5vh;
+  border-radius: 5px;
+}
+.profile-form {
+  display: flex;
+  margin-top: 0;
+  flex-direction: column;
+  border: 5px solid #006b54;
+  background: whitesmoke;
+  height: 50vh;
+  width: 25vw;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5vh;
+  font-size: 30px;
+  border-radius: 5px;
+}
+.top {
+  border: 10px solid rgb(39, 12, 12);
+  width: 100vw;
+  height: 100vh;
+  background: url("./pics/gc\ \(1\).png");
+}
+
+.mapped-profile {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+
+.edit-button {
+  color: $color;
+  background: none;
+  background-color: yellow;
+  font-size: 17px;
+  color: $color;
+  text-decoration: none;
+  margin-top: 1.5vh;
+}
+
+.derek {
+  // border: 1px solid red;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.derek2 {
+  // border: 1px solid red;
+  width: 100%;
 }

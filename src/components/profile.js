@@ -3,76 +3,153 @@ import { connect } from "react-redux";
 import { Link, Redirect } from "react-router-dom";
 import UserInfo from "./userinfo";
 import axios from "axios";
+import { getSession } from "../ducks/auth";
 
 class Profile extends Component {
   constructor(props) {
     super(props);
     this.state = {
       input: false,
-      profile: []
+      profile: [],
+      course: "",
+      handicap: "",
+      rounds: "",
+      career: "",
+      showInput: false,
+      profileValues: []
     };
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
   componentDidMount() {
-    axios.get(`/auth/profile/${this.props.match.id}`).then(res => {
+    this.props.getSession();
+    axios.get("/auth/profile/").then(res => {
       this.setState({
         profile: res.data
       });
     });
   }
+  handleChange(e) {
+    this.setState({
+      [e.target.name]: e.target.value
+    });
+  }
+  handleSubmit() {
+    console.log("hittem");
+    axios
+      .put("/auth/profileSetup", {
+        course: this.state.course,
+        handicap: this.state.handicap,
+        rounds: this.state.rounds,
+        career: this.state.career
+      })
+      .then(res => {
+        console.log(res);
+        this.setState(
+          {
+            profile: res.data,
+            showInput: false
+          },
+          () => console.log(this.state.profile)
+        );
+      });
+  }
 
   render() {
-    console.log(this.state.profile);
-    var mapped = this.state.profile.map((val, index) => {
-      return <h3>{val.username}</h3>;
-    });
+    console.log(this.state.course);
+    console.log(this.state.showInput);
 
     if (!this.props.auth.username) {
       return (
         <h1 className="protected-profile">
-          <Redirect to="/login" />
+          <Link to="/login">Please Login </Link>
         </h1>
       );
     }
-    return (
-      <div>
-        <div>
-          <div className="lineups-profile">
-            <h1 className="bump">
-              {" "}
-              Welcome to {this.props.auth.username}'s' page{" "}
-            </h1>
 
-            <img src={this.props.auth.pp} className="pp" />
+    let mappedProfile = this.state.profile.map((val, index) => {
+      return (
+        <div className="profile-default">
+          <h1>Home Course: {val.course}</h1>
+          <h1>Handicap: {val.handicap}</h1>
+          <h1> Rounds Per Year: {val.rounds}</h1>
+          <h1> Career Hole in One: {val.career}</h1>
+        </div>
+      );
+    });
+    return (
+      <div className="top">
+        <div className="derek2">
+          <h1 className="bump">
+            {" "}
+            Welcome to {this.props.auth.username}'s' page{" "}
+            <img className="pp" src={this.props.auth.pp} />
+          </h1>
+          <div className="profile-pp" />
+        </div>
+
+        <div className="users">
+          <div className="derek">
             <button
-              onClick={() => {
-                this.setState({ input: true });
-              }}
-              className="buttonsu-profile"
+              className="edit-button"
+              onClick={() => this.setState({ showInput: true })}
             >
-              Change Profile Pic
+              Edit
             </button>
-            {this.state.input ? (
-              <input className="profile-pic-input" placeholder="image url" />
-            ) : null}
-            <div />
-            {this.state.input ? (
-              <button
-                onClick={() => {
-                  this.setState({ input: false });
-                }}
-                className="buttonsu"
+          </div>
+          <div className="mapped-profile">
+            {mappedProfile}
+
+            {this.state.showInput ? (
+              <form
+                onSubmit={this.handlesubmit}
+                autoComplete="off"
+                className="profile-form"
               >
-                Submit
-              </button>
+                <label>Home Course</label>
+                <input
+                  onChange={this.handleChange}
+                  placeholder="course"
+                  name="course"
+                  value={this.state.course}
+                  autoComplete="off"
+                />
+                <label> Handicap</label>
+                <input
+                  onChange={this.handleChange}
+                  name="handicap"
+                  value={this.state.handicap}
+                  type="number"
+                  autoComplete="off"
+                />
+                <label>Rounds Per Year</label>
+                <input
+                  value={this.state.rounds}
+                  onChange={this.handleChange}
+                  name="rounds"
+                  type="number"
+                  autoComplete="off"
+                />
+                <label>Career Hole in One</label>
+                <input
+                  onChange={this.handleChange}
+                  value={this.state.career}
+                  name="career"
+                  type="number"
+                  autoComplete="off"
+                />
+                <button onClick={this.handleSubmit}>submit</button>
+              </form>
             ) : null}
           </div>
         </div>
-        {mapped}
-        <UserInfo />
       </div>
     );
   }
 }
 
 const mapStateToProps = reduxState => reduxState;
-export default connect(mapStateToProps)(Profile);
+export default connect(
+  mapStateToProps,
+  { getSession }
+)(Profile);

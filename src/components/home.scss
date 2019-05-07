@@ -31,12 +31,12 @@
   text-decoration: underline;
   z-index: 2;
 }
+
 .pp {
   border-radius: 50%;
   border: 3px solid #fee715a8;
   width: 50px;
   height: 50px;
-  margin-left: 1vw;
 }
 .posts {
   width: 22vw;
@@ -264,6 +264,7 @@
   justify-content: center;
   align-items: center;
 }
+
 .bosses {
   // margin-left: 6vw;
   display: flex;
@@ -276,11 +277,13 @@
   margin: 0;
   font-size: 20px;
 }
+
 .comment-link h1 {
   margin: 0;
   font-size: 22px;
   margin-left: 3vw;
 }
+
 .comment-number {
   border: 1px solid blue;
   margin-left: 8vw;
@@ -292,4 +295,10 @@
   height: 10px;
   font-size: 17px;
   // border: 3px solid yellow;
+}
+
+.profile-pp {
+  width: 100vw;
+  display: flex;
+  justify-content: center;
 }

@@ -24,10 +24,10 @@ class ProfilePage extends Component {
   render() {
     var mapped = this.state.profile.map((val, index) => {
       return (
-        <di>
+        <div>
           <h3>{val.username}</h3>
           <img src={val.pp} />
-        </di>
+        </div>
       );
     });
 
@@ -40,17 +40,17 @@ class ProfilePage extends Component {
     }
     return (
       <div>
-        <img src={this.props.match.params.pp} />
+        {/* <img src={this.props.match.params.pp} /> */}
         <div>
           <div className="lineups-">
             <h1 className="bump">
               {" "}
-              Welcome to {this.props.match.params.id}' s page{" "}
+              {/* Welcome to {this.props.match.params.id}' s page{" "} */}
             </h1>
+            <h1>Hey</h1>
           </div>
         </div>
         {mapped}
-        <UserInfo />
       </div>
     );
   }

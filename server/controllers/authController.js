@@ -45,14 +45,12 @@ const login = async (req, res) => {
 const getmessages = (req, res) => {
   const db = req.app.get("db");
   db.get_messages().then(messages => {
-    console.log(messages);
     res.status(200).json(messages);
   });
 };
 const addmemory = (req, res) => {
   const db = req.app.get("db");
   const { caption, image } = req.body;
-  console.log(req.session.user.userId);
   db.add_memory([
     caption,
     image,
@@ -86,15 +84,18 @@ const getPost = (req, res) => {
   db.get_post(+req.params.id).then(post => res.status(200).json(post));
 };
 const getProfile = (req, res) => {
+  console.log("hit");
+  console.log(req.session.user.username);
   const db = req.app.get("db");
-  db.get_profile(+req.params.id).then(profile => res.status(200).json(profile));
+  db.get_profile(req.session.user.username)
+    .then(profile => res.status(200).json(profile))
+    .catch(err => console.log(err));
 };
 const getComment = (req, res) => {
   const db = req.app.get("db");
-  console.log(+req.params.id);
+
   db.get_comments(+req.params.id)
     .then(comment => {
-      console.log(comment);
       res.status(200).json(comment);
     })
     .catch(err => console.log("1*****", err));
@@ -110,7 +111,7 @@ const addComment = async (req, res) => {
 
   if (commentCount) {
     db.update_comment_count([+commentCount[0].count, +req.params.id]);
-    console.log(+commentCount[0].count);
+
     // res.status(200).json(comment);
   }
 
@@ -124,25 +125,27 @@ const getCommentCount = (req, res) => {
 };
 
 const getCommentCountHome = (req, res) => {
-  console.log("hey");
-  console.log(req.params.id);
   const db = req.app.get("db");
   db.get_comment_count_home(+req.params.id)
     .then(count => res.status(200).json(count))
     .catch(err => console.log(err));
 };
 const getLikes = (req, res) => {
-  console.log("hit");
   const db = req.app.get("db");
   db.get_likes(+req.params.id)
     .then(likes => res.status(200).json(likes))
     .catch(err => console.log(err));
 };
 const profileSetup = (req, res) => {
-  console.log(+req.session.user.userId);
   const { course, handicap, rounds, career } = req.body;
   const db = req.app.get("db");
-  db.profile_setup([course, handicap, rounds, career, +req.session.user.userId])
+  db.profile_setup([
+    course,
+    handicap,
+    rounds,
+    career,
+    req.session.user.username
+  ])
     .then(profile => res.status(200).json(profile))
     .catch(err => console.log(err));
 };
