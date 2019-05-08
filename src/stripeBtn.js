@@ -10,13 +10,13 @@ const StripeBtn = () => {
       token: token
     };
     axios
-      .post("http://localhost:8000/payment", body)
+      .post("/auth/payment", body)
       .then(response => {
         alert("Payment Success");
       })
       .catch(error => {
         console.log("Payment Error: ", error);
-        alert("Payment Success");
+        alert("Payment failure");
       });
   };
   return (
@@ -28,6 +28,7 @@ const StripeBtn = () => {
       token={onToken}
       stripeKey={publishableKey}
       billingAddress={false}
+      amount={999}
     />
   );
 };

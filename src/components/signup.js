@@ -14,8 +14,7 @@ class Signup extends Component {
       username: "",
       password: "",
       loginAttempt: false,
-      file: null,
-      runn: {}
+      file: null
     };
     this.handleFileUpload = this.handleFileUpload.bind(this);
     this.handleChange = this.handleChange.bind(this);
@@ -43,7 +42,7 @@ class Signup extends Component {
         console.log(response.data.Location);
         this.setState(
           {
-            image: response.data.Location
+            pp: response.data.Location
           },
           () => {
             this.handlesubmit();
@@ -80,7 +79,7 @@ class Signup extends Component {
               <label>Profile Pic</label>
               <input
                 onChange={this.handleFileUpload}
-                value={this.state.pp}
+                // value={this.state.pp}
                 name="pp"
                 type="file"
               />

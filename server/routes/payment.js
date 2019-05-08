@@ -1,4 +1,4 @@
-const stripe = require(process.env.STRIPE_SECRET_KEY);
+const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 const stripeChargeCallback = res => (stripeErr, stripeRes) => {
   if (stripeErr) {
     res.status(500).send({ error: stripeErr });
@@ -13,7 +13,8 @@ const paymentApi = app => {
       timestamp: new Date().toISOString()
     });
   });
-  app.post("/", (req, res) => {
+  app.post("/auth/payment", (req, res) => {
+    console.log(req.body);
     const body = {
       source: req.body.token.id,
       amount: req.body.amount,

@@ -10,6 +10,14 @@ const fs = require("fs");
 const fileType = require("file-type");
 const bluebird = require("bluebird");
 const multiparty = require("multiparty");
+const cors = require("cors");
+const bodyParser = require("body-parser");
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(cors());
+const configureRoutes = require("./routes");
+configureRoutes(app);
 
 AWS.config.update({
   accessKeyId: process.env.AWS_ACCESS_KEY_ID,
@@ -80,6 +88,24 @@ app.get("/api/getGoogle", (req, res) => {
     });
 });
 app.post("/auth/addimage", (req, res) => {
+  const form = new multiparty.Form();
+  form.parse(req, async (error, fields, files) => {
+    if (error) throw new Error(error);
+    try {
+      const path = files.file[0].path;
+      const buffer = fs.readFileSync(path);
+      const type = fileType(buffer);
+      const timestamp = Date.now().toString();
+      const fileName = `bucketFolder/${timestamp}-lg`;
+      const data = await uploadFile(buffer, fileName, type);
+
+      return res.status(200).send(data);
+    } catch (error) {
+      return res.status(400).send(error);
+    }
+  });
+});
+app.post("/auth/addProfilePic", (req, res) => {
   const form = new multiparty.Form();
   form.parse(req, async (error, fields, files) => {
     if (error) throw new Error(error);
