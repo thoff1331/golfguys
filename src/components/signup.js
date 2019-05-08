@@ -14,7 +14,8 @@ class Signup extends Component {
       username: "",
       password: "",
       loginAttempt: false,
-      file: null
+      file: null,
+      runn: {}
     };
     this.handleFileUpload = this.handleFileUpload.bind(this);
     this.handleChange = this.handleChange.bind(this);
