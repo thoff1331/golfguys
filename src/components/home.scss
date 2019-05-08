@@ -138,9 +138,10 @@
 .add {
 }
 .background {
-  background: url("../pics/course-2.png");
+  background: url("../pics/bg4.png");
   height: 120vh;
   background-repeat: no-repeat;
+  background-size: cover;
 }
 .post-memory {
 }
@@ -164,6 +165,7 @@
   border-radius: 5px;
   height: 55vh;
   font-weight: 700;
+  opacity: 0.6;
 }
 .add-home {
   display: flex;

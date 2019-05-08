@@ -45,7 +45,7 @@ class Signup extends Component {
             pp: response.data.Location
           },
           () => {
-            this.handlesubmit();
+            this.handleSubmit();
           }
         );
       })
@@ -54,8 +54,7 @@ class Signup extends Component {
       });
   };
 
-  handleSubmit(e) {
-    e.preventDefault();
+  handleSubmit() {
     this.props.signUp(this.state.pp, this.state.username, this.state.password);
     this.setState({
       loginAttempt: true
@@ -71,7 +70,7 @@ class Signup extends Component {
         <div className="signup-border">
           <div className="sign">
             <form
-              onSubmit={this.handleSubmit}
+              onSubmit={this.submitFile}
               className="formsu"
               autoComplete="off"
             >
