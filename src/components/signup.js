@@ -4,6 +4,7 @@ import { Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import { signUp } from "../ducks/auth";
 import logo from "../pics/tall_logo.png";
+import axios from "axios";
 
 class Signup extends Component {
   constructor(props) {
