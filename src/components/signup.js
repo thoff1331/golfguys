@@ -12,19 +12,47 @@ class Signup extends Component {
       pp: "",
       username: "",
       password: "",
-      loginAttempt: false
+      loginAttempt: false,
+      file: null
     };
+    this.handleFileUpload = this.handleFileUpload.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  // componentDidMount() {
-  //   this.props.signUp();
-  // }
-
   handleChange(e) {
     this.setState({ [e.target.name]: e.target.value });
   }
+  handleFileUpload(e) {
+    this.setState({ file: e.target.files });
+  }
+  submitFile = (event, id) => {
+    console.log("hitt");
+    event.preventDefault();
+    const formData = new FormData();
+    formData.append("file", this.state.file[0]);
+    axios
+      .post("/auth/addProfilePic", formData, {
+        headers: {
+          "Content-Type": "multipart/form-data"
+        }
+      })
+      .then(response => {
+        console.log(response.data.Location);
+        this.setState(
+          {
+            image: response.data.Location
+          },
+          () => {
+            this.handlesubmit();
+          }
+        );
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  };
+
   handleSubmit(e) {
     e.preventDefault();
     this.props.signUp(this.state.pp, this.state.username, this.state.password);
@@ -49,9 +77,10 @@ class Signup extends Component {
               <img className="logo-log" src={logo} />
               <label>Profile Pic</label>
               <input
-                onChange={this.handleChange}
+                onChange={this.handleFileUpload}
                 value={this.state.pp}
                 name="pp"
+                type="file"
               />
               <label>UserName</label>
               <input
