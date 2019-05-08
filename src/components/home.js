@@ -5,6 +5,7 @@ import { connect } from "react-redux";
 import { getSession, logout } from "../ducks/auth";
 import { Redirect, Link } from "react-router-dom";
 import "./home.scss";
+import { file } from "@babel/types";
 
 class Home extends Component {
   constructor() {
@@ -14,8 +15,10 @@ class Home extends Component {
       comments: [],
       likes: [],
       caption: "",
-      image: ""
+      image: "",
+      file: null
     };
+    this.handleFileUpload = this.handleFileUpload.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.handlesubmit = this.handlesubmit.bind(this);
     this.deletePost = this.deletePost.bind(this);
@@ -96,6 +99,31 @@ class Home extends Component {
       [e.target.name]: e.target.value
     });
   }
+  handleFileUpload(e) {
+    this.setState({ file: e.target.files });
+    console.log(e.target);
+  }
+  submitFile = (event, id) => {
+    console.log("hitt");
+    event.preventDefault();
+    const formData = new FormData();
+    formData.append("file", this.state.file[0]);
+    axios
+      .post("/auth/addimage", formData, {
+        headers: {
+          "Content-Type": "multipart/form-data"
+        }
+      })
+      .then(response => {
+        console.log(response.data.Location);
+        this.setState({
+          image: response.data.Location
+        }).then();
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  };
 
   render() {
     console.log(this.state.messages);
@@ -130,11 +158,13 @@ class Home extends Component {
                 <label>Add a Picture to your post </label>
                 <input
                   className="input-home"
-                  onChange={this.handleChange}
-                  value={this.state.image}
+                  onChange={this.handleFileUpload}
+                  // value={this.state.file}
                   placeholder=" Image URL"
                   name="image"
+                  type="file"
                 />
+                <button onClick={this.submitFile}>upload</button>
                 <br />
                 <button className="buttonsu-home">Post</button>
               </form>
@@ -175,8 +205,8 @@ class Home extends Component {
                             {/* <h1
                               className="home-delete"
                               onClick={() => this.deletePost(val.id)}
-                            >
-                              ❌
+                              >
+                              𝐗
                             </h1> */}
                             <h1
                               className="like-number"
@@ -197,7 +227,7 @@ class Home extends Component {
                               className="home-delete"
                               onClick={() => this.deletePost(val.id)}
                             >
-                              ❌
+                              𝐗
                             </h1>
                           </div>
                         </div>

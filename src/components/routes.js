@@ -8,9 +8,11 @@ import Login from "./Login";
 import Upgrade from "./upgrade";
 import Post from "../post";
 import ProfilePage from "./ProfilePage";
+import Contact from "./contact";
 
 export default (
   <Switch>
+    <Route path="/contact" component={Contact} />
     <Route exact path="/" component={Home} />
     <Route path="/signup" component={Signup} />
     <Route path="/profile" component={Profile} />
@@ -18,6 +20,7 @@ export default (
     <Route path="/login" component={Login} />
     <Route path="/upgrade" component={Upgrade} />
     <Route path="/post/:id" component={Post} />
+    ``
     <Route path="/profile-page/:id" component={ProfilePage} />
   </Switch>
 );

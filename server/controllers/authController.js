@@ -49,6 +49,7 @@ const getmessages = (req, res) => {
   });
 };
 const addmemory = (req, res) => {
+  console.log("addd");
   const db = req.app.get("db");
   const { caption, image } = req.body;
   db.add_memory([

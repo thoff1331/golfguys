@@ -57,9 +57,11 @@ class App extends Component {
                 {" "}
                 Go Play!
               </Link>
-              <Link className="nav" to="/signup">
-                Sign Up!
-              </Link>
+              {!this.props.username ? (
+                <Link className="nav" to="/signup">
+                  Sign Up!
+                </Link>
+              ) : null}
               {!this.props.username ? (
                 <Link className="nav" to="/login">
                   Log in!
@@ -69,6 +71,9 @@ class App extends Component {
                   Log out!
                 </Link>
               )}
+              <Link className="nav" to="/contact">
+                Contact
+              </Link>
             </div>
           </div>
           <img

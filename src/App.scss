@@ -20,7 +20,7 @@ nav {
   color: yellow;
   text-decoration: none;
   font-weight: 900;
-  font-size: 19px;
+  font-size: 9px;
   z-index: 2;
   a.nav {
     &:hover {
@@ -28,7 +28,9 @@ nav {
     }
   }
 }
-
+a.nav {
+  font-size: 18px;
+}
 .navbarTop {
   justify-content: space-evenly;
   align-items: center;
@@ -105,10 +107,18 @@ nav {
   height: 47vh;
 }
 .upgrade {
-  color: red($color: #000000);
   font-family: $font-family;
   font-size: 30px;
-  padding-top: 7vh;
+  margin-top: 17vh;
+  border: 5px solid $font-color;
+  border-radius: 5px;
+  width: 35vw;
+  background: whitesmoke;
+  display: flex;
+  flex-direction: column;
+  height: 45vh;
+  align-items: center;
+  padding: 10px;
 }
 .home-component {
   color: $color;
@@ -594,7 +604,7 @@ form {
   outline: none;
 }
 .signup-border {
-  // background-image: url("../src/pics/coursezzz\ \(1\).png");
+  background-image: url("../src/pics/coursezzz\ \(1\).png");
   height: 100vh;
 }
 .signup-page {
@@ -684,4 +694,44 @@ form {
 .derek2 {
   // border: 1px solid red;
   width: 100%;
+}
+.contact-form {
+  margin-top: 10vh;
+  border: 5px solid $font-color;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.border-upgrade {
+  background: url("./pics/bg3\ \(1\).png");
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.upgrade-title {
+  color: yellow;
+  margin-top: 10vh;
+}
+
+.contact-background {
+  background: url("./pics/course-2.png");
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.contact-form-submit-button {
+  color: $color;
+  background: none;
+  background-color: yellow;
+  font-size: 17px;
+  color: $color;
+  border-radius: 25px;
+  text-decoration: none;
+  margin-bottom: 2vh;
 }
