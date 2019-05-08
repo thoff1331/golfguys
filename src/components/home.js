@@ -78,8 +78,7 @@ class Home extends Component {
       // window.location.reload();
     });
   }
-  handlesubmit(e) {
-    e.preventDefault();
+  handlesubmit() {
     axios
       .post("/auth/add", {
         caption: this.state.caption,
@@ -116,9 +115,15 @@ class Home extends Component {
       })
       .then(response => {
         console.log(response.data.Location);
-        this.setState({
-          image: response.data.Location
-        }).then();
+        this.setState(
+          {
+            image: response.data.Location,
+            file: null
+          },
+          () => {
+            this.handlesubmit();
+          }
+        );
       })
       .catch(error => {
         console.log(error);
@@ -144,7 +149,7 @@ class Home extends Component {
             </div>
             <div className="add-home">
               <form
-                onSubmit={this.handlesubmit}
+                onSubmit={this.submitFile}
                 className="add-form"
                 autoComplete="off"
               >
@@ -164,7 +169,7 @@ class Home extends Component {
                   name="image"
                   type="file"
                 />
-                <button onClick={this.submitFile}>upload</button>
+
                 <br />
                 <button className="buttonsu-home">Post</button>
               </form>
