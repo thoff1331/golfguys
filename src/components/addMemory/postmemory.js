@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Axios from "axios";
 import { connect } from "react-redux";
-import { logout, getSession } from "../ducks/auth";
+import { logout, getSession } from "../../ducks/auth";
 
 class Add extends Component {
   constructor() {

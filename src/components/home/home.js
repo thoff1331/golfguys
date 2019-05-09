@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import axios from "axios";
-import Add from "./postmemory";
+import Add from "../../components/addMemory/postmemory";
 import { connect } from "react-redux";
-import { getSession, logout } from "../ducks/auth";
+import { getSession, logout } from "../../ducks/auth";
 import { Redirect, Link } from "react-router-dom";
-import "./home.scss";
+import "../../components/home/home.scss";
 import { file } from "@babel/types";
 
 class Home extends Component {

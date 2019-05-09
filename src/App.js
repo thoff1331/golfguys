@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 
 import "./App.scss";
 import { HashRouter, Link } from "react-router-dom";
-import routes from "./components/routes";
+import routes from "../src/components/routes/routes";
 import logo from "./pics/golf_guys.png";
 import tee from "./pics/tee.png";
 import logo_2 from "./pics/logo_2.png";

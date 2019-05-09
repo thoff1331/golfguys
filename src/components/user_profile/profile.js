@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link, Redirect } from "react-router-dom";
-import UserInfo from "./userinfo";
+import UserInfo from "../profile_pages/userinfo";
 import axios from "axios";
-import { getSession } from "../ducks/auth";
+import { getSession } from "../../ducks/auth";
 
 class Profile extends Component {
   constructor(props) {

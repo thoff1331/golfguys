@@ -1,14 +1,14 @@
 import React from "react";
 import { Switch, Route } from "react-router-dom";
-import Home from "./home";
-import Signup from "./signup";
-import Profile from "./profile";
-import Courses from "./courses";
-import Login from "./Login";
-import Upgrade from "./upgrade";
-import Post from "../post";
-import ProfilePage from "./ProfilePage";
-import Contact from "./contact";
+import Home from "../home/home";
+import Signup from "../signup/signup";
+import Profile from "../user_profile/profile";
+import Courses from "../courses/courses";
+import Login from "../login/Login";
+import Upgrade from "../upgrade/upgrade";
+import Post from "../post/post";
+import ProfilePage from "../profile_pages/ProfilePage";
+import Contact from "../contact/contact";
 
 export default (
   <Switch>
