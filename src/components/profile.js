@@ -80,70 +80,71 @@ class Profile extends Component {
       );
     });
     return (
-      <div className="top">
-        <div className="derek2">
-          <h1 className="bump">
-            {" "}
-            Welcome to {this.props.auth.username}'s' page{" "}
-            <img className="pp" src={this.props.auth.pp} />
-          </h1>
-          <div className="profile-pp" />
-        </div>
-
-        <div className="users">
-          <div className="derek">
-            <button
-              className="edit-button"
-              onClick={() => this.setState({ showInput: true })}
-            >
-              Edit
-            </button>
+      <div className="profile-background">
+        <div>
+          <div className="derek2">
+            <h1 className="bump">
+              {" "}
+              Welcome to {this.props.auth.username}'s' page{" "}
+              <img className="pp" src={this.props.auth.pp} />
+            </h1>
+            <div className="profile-pp" />
           </div>
-          <div className="mapped-profile">
-            {mappedProfile}
-
-            {this.state.showInput ? (
-              <form
-                onSubmit={this.handlesubmit}
-                autoComplete="off"
-                className="profile-form"
+          <div className="users">
+            <div className="derek">
+              <button
+                className="edit-button"
+                onClick={() => this.setState({ showInput: true })}
               >
-                <label>Home Course</label>
-                <input
-                  onChange={this.handleChange}
-                  placeholder="course"
-                  name="course"
-                  value={this.state.course}
+                Edit
+              </button>
+            </div>
+            <div className="mapped-profile">
+              {mappedProfile}
+
+              {this.state.showInput ? (
+                <form
+                  onSubmit={this.handlesubmit}
                   autoComplete="off"
-                />
-                <label> Handicap</label>
-                <input
-                  onChange={this.handleChange}
-                  name="handicap"
-                  value={this.state.handicap}
-                  type="number"
-                  autoComplete="off"
-                />
-                <label>Rounds Per Year</label>
-                <input
-                  value={this.state.rounds}
-                  onChange={this.handleChange}
-                  name="rounds"
-                  type="number"
-                  autoComplete="off"
-                />
-                <label>Career Hole in One</label>
-                <input
-                  onChange={this.handleChange}
-                  value={this.state.career}
-                  name="career"
-                  type="number"
-                  autoComplete="off"
-                />
-                <button onClick={this.handleSubmit}>submit</button>
-              </form>
-            ) : null}
-          </div>
+                  className="profile-form"
+                >
+                  <label>Home Course</label>
+                  <input
+                    onChange={this.handleChange}
+                    placeholder="course"
+                    name="course"
+                    value={this.state.course}
+                    autoComplete="off"
+                  />
+                  <label> Handicap</label>
+                  <input
+                    onChange={this.handleChange}
+                    name="handicap"
+                    value={this.state.handicap}
+                    type="number"
+                    autoComplete="off"
+                  />
+                  <label>Rounds Per Year</label>
+                  <input
+                    value={this.state.rounds}
+                    onChange={this.handleChange}
+                    name="rounds"
+                    type="number"
+                    autoComplete="off"
+                  />
+                  <label>Career Hole in One</label>
+                  <input
+                    onChange={this.handleChange}
+                    value={this.state.career}
+                    name="career"
+                    type="number"
+                    autoComplete="off"
+                  />
+                  <button onClick={this.handleSubmit}>submit</button>
+                </form>
+              ) : null}
+            </div>
+          </div>{" "}
         </div>
       </div>
     );

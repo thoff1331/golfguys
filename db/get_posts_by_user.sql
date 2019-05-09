@@ -1,0 +1,1 @@
+SELECT * FROM messages where username = $1;

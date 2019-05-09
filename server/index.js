@@ -61,6 +61,8 @@ app.use(
     }
   })
 );
+app.get("/auth/posts/user/:id", authController.getPostsbyUser);
+app.get("/auth/profile/page/:id", authController.getProfileInfo);
 app.post("/api/contact", contactForm);
 app.put("/auth/profileSetup", authController.profileSetup);
 app.get("/auth/getLikes/:id", authController.getLikes);

@@ -9,20 +9,32 @@ class ProfilePage extends Component {
     super(props);
     this.state = {
       input: false,
-      profile: []
+      profile: [],
+      posts: []
     };
+    this.getPosts = this.getPosts.bind(this);
   }
   componentDidMount() {
-    console.log("hit");
-    axios.get(`/auth/profile/${this.props.match.params.id}`).then(res => {
+    this.getPosts();
+    // console.log("hit");
+    axios.get(`/auth/profile/page/${this.props.match.params.id}`).then(res => {
+      //console.log(res.data);
       this.setState({
         profile: res.data
       });
     });
   }
+  getPosts() {
+    console.log("hittem");
+    axios.get(`/auth/posts/user/${this.props.match.params.id}`).then(res => {
+      this.setState({
+        posts: res.data
+      });
+    });
+  }
 
   render() {
-    console.log(this.props.match);
+    console.log(this.state.posts);
     console.log(this.state.profile);
     var mapped = this.state.profile.map((val, index) => {
       return (
@@ -37,6 +49,21 @@ class ProfilePage extends Component {
         </div>
       );
     });
+    // <div>
+    //   <h1> Posts by {this.props.match.params.id}</h1>
+    // </div>;
+    let mappedPosts = this.state.posts.map((val, index) => {
+      return (
+        <div className="profile-posts">
+          <h3 className="profile-caption">{val.caption}</h3>
+          <img src={val.image} />
+          <div className="profile-numbers">
+            <h6> ♡{val.likes}</h6>
+            <h6> 💬{val.comments}</h6>
+          </div>
+        </div>
+      );
+    });
 
     if (!this.props.auth.username) {
       return (
@@ -47,15 +74,20 @@ class ProfilePage extends Component {
     }
     return (
       <div className="profile-page-default">
-        <img src={this.props.match.params.pp} />
         <div>
           <div className="lineups-">
             <h1 className="bump">
               {" "}
-              Welcome to {this.props.match.params.id}' s page {mapped}
+              <img src={this.props.match.params.pp} />
+              Welcome to {this.props.match.params.id}' s page
+              {mapped}
             </h1>
           </div>
         </div>
+        <div className="profile-post-by">
+          <h1> ~ Posts by {this.props.match.params.id} ~ </h1>
+        </div>
+        <div className="mapped-post">{mappedPosts}</div>
       </div>
     );
   }

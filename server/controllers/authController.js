@@ -150,6 +150,22 @@ const profileSetup = (req, res) => {
     .then(profile => res.status(200).json(profile))
     .catch(err => console.log(err));
 };
+const getProfileInfo = (req, res) => {
+  console.log("hit");
+  console.log(req.params.id);
+  const db = req.app.get("db");
+  db.get_profile_info(req.params.id)
+    .then(profile => res.status(200).json(profile))
+    .catch(err => console.log(err));
+};
+const getPostsbyUser = (req, res) => {
+  console.log("hit");
+  console.log(req.params.id);
+  const db = req.app.get("db");
+  db.get_posts_by_user(req.params.id)
+    .then(posts => res.status(200).json(posts))
+    .catch(err => console.log(err));
+};
 
 module.exports = {
   signup,
@@ -166,5 +182,7 @@ module.exports = {
   getCommentCount,
   getCommentCountHome,
   getLikes,
-  profileSetup
+  profileSetup,
+  getProfileInfo,
+  getPostsbyUser
 };
