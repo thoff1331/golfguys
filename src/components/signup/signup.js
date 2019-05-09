@@ -5,6 +5,7 @@ import { connect } from "react-redux";
 import { signUp } from "../../ducks/auth";
 import logo from "../../pics/tall_logo.png";
 import axios from "axios";
+import "./signup.scss";
 
 class Signup extends Component {
   constructor(props) {
@@ -68,42 +69,40 @@ class Signup extends Component {
     return (
       <div className="signup-page">
         <div className="signup-border">
-          <div className="sign">
-            <form
-              onSubmit={this.submitFile}
-              className="formsu"
-              autoComplete="off"
-            >
-              <img className="logo-log" src={logo} />
-              <label>Profile Pic</label>
-              <input
-                onChange={this.handleFileUpload}
-                // value={this.state.pp}
-                name="pp"
-                type="file"
-              />
-              <label>UserName</label>
-              <input
-                onChange={this.handleChange}
-                value={this.state.username}
-                name="username"
-              />
-              <label>PassWord</label>
-              <input
-                // type="password"
-                onChange={this.handleChange}
-                value={this.state.password}
-                name="password"
-                type="password"
-              />
-              <br />
-              <button className="buttonsu">Join The Club</button>
-              <p>{this.props.error}</p>
-              <Link to="/login">
-                <p className="nav">Already Registered? Login here</p>
-              </Link>
-            </form>
-          </div>
+          <form
+            onSubmit={this.submitFile}
+            className="formsu"
+            autoComplete="off"
+          >
+            <img className="logo-log" src={logo} />
+            <label>Profile Pic</label>
+            <input
+              onChange={this.handleFileUpload}
+              // value={this.state.pp}
+              name="pp"
+              type="file"
+            />
+            <label>UserName</label>
+            <input
+              onChange={this.handleChange}
+              value={this.state.username}
+              name="username"
+            />
+            <label>PassWord</label>
+            <input
+              // type="password"
+              onChange={this.handleChange}
+              value={this.state.password}
+              name="password"
+              type="password"
+            />
+            <br />
+            <button className="button-sign-up">Join The Club</button>
+            <p>{this.props.error}</p>
+            <Link to="/login">
+              <p className="nav">Already Registered? Login here</p>
+            </Link>
+          </form>
         </div>
       </div>
     );

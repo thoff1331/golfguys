@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import { connect } from "react-redux";
 import { getSession, logout } from "../../ducks/auth";
+import "./post.scss";
 
 class Post extends Component {
   constructor() {

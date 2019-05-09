@@ -4,6 +4,7 @@ import { Link, Redirect } from "react-router-dom";
 import UserInfo from "../profile_pages/userinfo";
 import axios from "axios";
 import { getSession } from "../../ducks/auth";
+import "./profile.scss";
 
 class Profile extends Component {
   constructor(props) {

@@ -6,6 +6,7 @@ import { getSession, logout } from "../../ducks/auth";
 import { Redirect, Link } from "react-router-dom";
 import "../../components/home/home.scss";
 import { file } from "@babel/types";
+import "./home.scss";
 
 class Home extends Component {
   constructor() {

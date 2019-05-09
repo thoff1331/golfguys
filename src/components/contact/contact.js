@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { Redirect } from "react-router-dom";
+import "./contact.scss";
 const nodemailer = require("nodemailer");
 
 export default class Contact extends Component {

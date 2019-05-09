@@ -4,6 +4,7 @@ import axios from "axios";
 import { connect } from "react-redux";
 import { login } from "../../ducks/auth";
 import logo from "../../pics/tall_logo.png";
+import "./login.scss";
 
 class Login extends Component {
   constructor(props) {
@@ -69,7 +70,7 @@ class Login extends Component {
             type="password"
           />
 
-          <button className="buttonsu">Submit</button>
+          <button className="login-button">Submit</button>
         </form>
       </div>
       // </div>

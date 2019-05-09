@@ -4,7 +4,7 @@ import Home from "../home/home";
 import Signup from "../signup/signup";
 import Profile from "../user_profile/profile";
 import Courses from "../courses/courses";
-import Login from "../login/Login";
+import Login from "../login/login";
 import Upgrade from "../upgrade/upgrade";
 import Post from "../post/post";
 import ProfilePage from "../profile_pages/ProfilePage";

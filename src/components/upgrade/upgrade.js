@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import StripeBtn from "../Stripe/stripeBtn";
+import "./upgrade.scss";
 
 function Upgrade(props) {
   return (

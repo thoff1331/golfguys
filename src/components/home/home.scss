@@ -1,3 +1,4 @@
+@import "../../variables.scss";
 .protected-profile {
   padding-top: 20vh;
   height: 100vh;
@@ -62,11 +63,6 @@
 .posts {
   max-height: 224px;
   max-width: 380px;
-  // border: 4px solid $font-color;
-  // margin-bottom: 0;
-  // margin-top: 0;
-  // margin-left: 0.5vw;
-  display: flex;
   justify-content: center;
   align-items: center;
   margin-left: 0px;
@@ -110,17 +106,10 @@
   // margin-left: 1vw;
   margin-bottom: 1vh;
 }
-// .post-comment-number {
-//   margin-left: 1vw;
-//   margin-bottom: 1vh;
-// }
+
 .caption {
   font-weight: 900;
   font-size: 17px;
-  // margin-bottom: 1vh;
-  // padding-bottom: 0vh;
-
-  // margin-right: 14vw;
 }
 
 .lineup {
@@ -134,7 +123,7 @@
   border: 6px red;
 }
 .recent-posts {
-  margin-top: 20vh;
+  margin-top: 55vh;
   margin-bottom: 1vh;
   align-items: center;
   width: 100vw;
@@ -155,11 +144,9 @@
   border-top: 3px solid #fee715;
 }
 
-.add {
-}
 .background {
   background: url("../../pics/course-2.png");
-  height: 120vh;
+  height: 86vh;
   background-repeat: no-repeat;
   background-size: cover;
   transition: none;
@@ -182,7 +169,7 @@
   width: 25vw;
   display: flex;
   background: whitesmoke;
-  margin-top: 12vh;
+  margin-top: 20vh;
   justify-content: center;
   margin-bottom: 4vh;
   border-radius: 5px;
@@ -228,12 +215,6 @@
 }
 
 .bigger-papa {
-  //   display: flex;
-  //   flex-direction: row;
-  //   flex-wrap: wrap;
-  //   align-items: center;
-  //   align-content: center;
-  //   justify-content: space-between;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -262,13 +243,7 @@
   display: none;
   margin-top: 0;
 }
-.home-delete {
-  // margin-top: 0;
-  // // margin-left: 3vw;
-  // font-size: 10px;
-  // height: 6vh;
-  // border: 2px solid red;
-}
+
 .papa-buttons {
   display: flex;
   flex-direction: row;
@@ -282,10 +257,6 @@
 }
 
 .big-boss {
-  // display: flex;
-  // justify-content: center;
-  // align-items: center;
-  // border: 11px solid green;
 }
 .baby-boss {
   margin-bottom: 0vh;

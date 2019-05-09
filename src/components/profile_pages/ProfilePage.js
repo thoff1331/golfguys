@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import UserInfo from "./userinfo";
 import axios from "axios";
+import "./profilepage.scss";
 
 class ProfilePage extends Component {
   constructor(props) {

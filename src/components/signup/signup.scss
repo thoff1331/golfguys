@@ -1,0 +1,57 @@
+@import "../../variables.scss";
+.signup-border {
+  background-image: url("../../pics/coursezzz\ \(1\).png");
+  height: 100vh;
+}
+
+.formsu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: $form-font;
+  text-decoration: none;
+  font-weight: 900;
+  border: 1px solid black;
+  width: 27vw;
+  border: 2px solid $font-color;
+  border-radius: 5px;
+  height: 48vh;
+  opacity: 0.7;
+  font-size: 15px;
+}
+
+.logo {
+  width: 11vw;
+  display: flex;
+}
+.logo-log {
+  width: 100px;
+  height: 100px;
+  margin-left: 1vw;
+  margin-top: 3vh;
+}
+.button-sign-up {
+  color: $color;
+  background: none;
+  background-color: yellow;
+  font-size: 17px;
+  color: $color;
+  border-radius: 25px;
+  text-decoration: none;
+  margin-bottom: 2vh;
+}
+
+form {
+  width: 16vw;
+  height: 40vh;
+  display: flex;
+  flex-direction: column;
+  background: whitesmoke;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+}
