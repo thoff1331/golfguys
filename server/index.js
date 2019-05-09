@@ -68,7 +68,7 @@ app.get("/auth/getCommentCountHome/:id", authController.getCommentCountHome);
 app.get("/auth/getCommentCount/:id", authController.getCommentCount);
 app.post("/auth/addComment/:id", authController.addComment);
 app.get("/auth/comment/:id", authController.getComment);
-app.get("/auth/profile/", authController.getProfile);
+app.get("/auth/profile/:id", authController.getProfile);
 app.get("/auth/post/:id", authController.getPost);
 app.get("/auth/logout", authController.logout);
 app.get("/auth/cookie", authController.getuser);

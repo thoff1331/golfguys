@@ -1,5 +1,25 @@
 .protected-profile {
   padding-top: 20vh;
+  height: 100vh;
+  width: 100vw;
+  background: url("../pics/bg5.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  text-align: center;
+  text-decoration: none;
+  color: #fee715;
+  transition: none;
+  background-position: center;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+}
+
+.protected-pp {
+  text-decoration: none;
+  font-size: 55px;
+  color: #fee715;
 }
 
 .home-pp {
@@ -138,10 +158,16 @@
 .add {
 }
 .background {
-  background: url("../pics/bg4.png");
-  height: 120vh;
+  background: url("../pics/gc\ \(1\).png");
+  height: 100vh;
   background-repeat: no-repeat;
   background-size: cover;
+  transition: none;
+  background-position: center;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
 }
 .post-memory {
 }

@@ -13,7 +13,8 @@ class ProfilePage extends Component {
     };
   }
   componentDidMount() {
-    axios.get(`/auth/profile/${this.props.match.id}`).then(res => {
+    console.log("hit");
+    axios.get(`/auth/profile/${this.props.match.params.id}`).then(res => {
       this.setState({
         profile: res.data
       });
@@ -21,11 +22,18 @@ class ProfilePage extends Component {
   }
 
   render() {
+    console.log(this.props.match);
+    console.log(this.state.profile);
     var mapped = this.state.profile.map((val, index) => {
       return (
-        <div>
-          <h3>{val.username}</h3>
-          <img src={val.pp} />
+        <div className="profile-page-values">
+          <div className="profile-page-top">
+            <img src={val.pp} className="profile-picture" />
+          </div>
+          <h3>Favorite Course: {val.course}</h3>
+          <h3>Handicap: {val.handicap}</h3>
+          <h3>Rounds Per Year: {val.rounds}</h3>
+          <h3>Career Hole in One: {val.career}</h3>
         </div>
       );
     });
@@ -38,18 +46,16 @@ class ProfilePage extends Component {
       );
     }
     return (
-      <div>
+      <div className="profile-page-default">
         <img src={this.props.match.params.pp} />
         <div>
           <div className="lineups-">
             <h1 className="bump">
               {" "}
-              Welcome to {this.props.match.params.id}' s page{" "}
+              Welcome to {this.props.match.params.id}' s page {mapped}
             </h1>
-            <h1>Hey</h1>
           </div>
         </div>
-        {mapped}
       </div>
     );
   }

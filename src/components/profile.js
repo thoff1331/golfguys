@@ -21,9 +21,9 @@ class Profile extends Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
-  componentDidMount() {
+  componentDidMount(id) {
     this.props.getSession();
-    axios.get("/auth/profile/").then(res => {
+    axios.get("/auth/profile/:id").then(res => {
       this.setState({
         profile: res.data
       });
@@ -62,7 +62,9 @@ class Profile extends Component {
     if (!this.props.auth.username) {
       return (
         <h1 className="protected-profile">
-          <Link to="/login">Please Login </Link>
+          <Link className="protected-pp" to="/login">
+            Please Login{" "}
+          </Link>
         </h1>
       );
     }
