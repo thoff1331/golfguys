@@ -126,7 +126,7 @@ link {
 }
 .top-menu- {
   width: 100vw;
-  height: 17vh;
+  height: 14vh;
   position: absolute;
   top: 0px;
   display: none;
@@ -137,7 +137,7 @@ link {
 }
 .top-menu-open {
   width: 100vw;
-  height: 20vh;
+  height: 14vh;
   position: absolute;
   top: 0px;
   background: $color;
@@ -163,12 +163,12 @@ link {
     height: 0px;
   }
   to {
-    height: 20vh;
+    height: 14vh;
   }
 }
 @keyframes closeMenu {
   from {
-    height: 20vh;
+    height: 14vh;
   }
   to {
     height: 0px;
@@ -180,7 +180,7 @@ h6 {
 
 .top-menu-list {
   display: flex;
-  height: 20vh;
+  height: 14vh;
   width: 45vw;
   justify-content: space-between;
   align-items: flex-end;

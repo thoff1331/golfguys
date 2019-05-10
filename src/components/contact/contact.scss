@@ -18,25 +18,33 @@
 }
 
 .upgrade-title {
-  color: yellow;
-  margin-top: 10vh;
+  color: $yellow-font;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 29%;
+  margin-top: 0;
 }
 .contact-form {
-  margin-top: 10vh;
+  margin-top: 25vh;
   border: 5px solid $font-color;
   border-radius: 5px;
   display: flex;
   justify-content: space-evenly;
   opacity: 0.7;
+  width: 35vw;
 }
 
 .contact-form-submit-button {
   color: $color;
   background: none;
   background-color: yellow;
-  font-size: 17px;
+  font-size: 10px;
   color: $color;
   border-radius: 25px;
   text-decoration: none;
   margin-bottom: 2vh;
+}
+.input-contact {
+  width: 43%;
 }

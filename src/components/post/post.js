@@ -134,7 +134,7 @@ class Post extends Component {
               </div>
             </div>
             <div>
-              <h1 className="caption">{val.caption}</h1>
+              <h6 className="caption">{val.caption}</h6>
               {this.state.input ? (
                 <input
                   onChange={this.handleChange}
@@ -159,12 +159,9 @@ class Post extends Component {
     });
 
     return (
-      <div>
-        <div>
-          <h1> {this.props.match.params.id}</h1>
-          {mappedPosts}
-        </div>
-        <div>{mappedComments}</div>
+      <div className="post-page-maps">
+        {mappedPosts}
+        {mappedComments}
       </div>
     );
   }

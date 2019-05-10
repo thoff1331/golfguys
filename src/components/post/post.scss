@@ -1,4 +1,8 @@
 @import "../../variables.scss";
+body {
+  //background: orange;
+  zoom: 1;
+}
 
 .post-comment-button {
   color: $color;
@@ -15,9 +19,13 @@
   flex-direction: row;
   justify-content: center;
   // margin-top: 7vh;
-  width: 20vw;
-  margin-left: 33vw;
-  padding-top: 8vh;
+  width: 40vw;
+  // margin-left: 35vw;
+  margin-top: 20%;
+  border: 1vw solid #006b54;
+  background: white;
+
+  margin-top: 1vh;
 }
 .post-author {
   text-decoration: underline;
@@ -38,6 +46,9 @@
 }
 .post-heart {
   margin-left: 9vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .post-page-lineup {
@@ -56,21 +67,26 @@
   width: 30vw;
   display: flex;
   flex-direction: row;
-  border: #000000 10px;
-  align-items: flex-start;
+  // border: #000000 10px;
+  align-items: center;
   margin-bottom: 2vh;
+  justify-content: center;
 }
 
 .post-page {
   display: flex;
   justify-content: center;
-  height: 20vh;
+  // height: 23vh;
   align-items: center;
-  padding-top: 15vh;
+  // padding-top: 63%;
+  // margin-top: 25%;
 }
 .post-lineup {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 15vh;
 }
 .post-pic {
   display: flex;
@@ -78,12 +94,29 @@
 }
 
 .post-lineup img {
-  border: 4px solid $color;
+  border: 5px solid $color;
 }
 .post-top {
   display: flex;
   height: 5vh;
   align-items: center;
-  padding-top: 20px;
+  margin-top: 10%;
   // border: 5px solid orange;
+}
+
+.caption {
+  width: 40vw;
+  margin-top: 0;
+  background: $background;
+  border: 5px solid $border;
+}
+
+.post-username {
+  margin-top: 3 vh;
+}
+.post-page-maps {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }

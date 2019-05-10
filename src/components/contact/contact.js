@@ -42,36 +42,35 @@ export default class Contact extends Component {
       return <Redirect to="/" />;
     }
     return (
-      <div className="contact-background">
-        <h1 className="upgrade-title">Contact Us</h1>
+      <div>
         <form
           autocomplete="off"
           className="contact-form"
           onSubmit={this.handleSubmit}
         >
           <input
-            className="contact-first-name-input"
+            className="input-contact"
             placeholder="First Name"
             onChange={this.handleChange}
             value={this.state.first_name}
             name="first_name"
           />
           <input
-            className="contact-last-name-input"
+            className="input-contact"
             placeholder="Last Name"
             onChange={this.handleChange}
             value={this.state.last_name}
             name="last_name"
           />
           <input
-            className="contact-email-input"
-            placeholder="Email Address"
+            className="input-contact"
+            placeholder="Email"
             onChange={this.handleChange}
             value={this.state.email}
             name="email"
           />
           <textarea
-            className="contact-message-input"
+            className="input-contact"
             placeholder="Message"
             onChange={this.handleChange}
             value={this.state.message}
