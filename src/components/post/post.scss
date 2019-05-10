@@ -24,6 +24,7 @@ body {
   margin-top: 20%;
   border: 1vw solid #006b54;
   background: white;
+  text-align: center;
 
   margin-top: 1vh;
 }
@@ -109,6 +110,7 @@ body {
   margin-top: 0;
   background: $background;
   border: 5px solid $border;
+  text-align: center;
 }
 
 .post-username {
@@ -119,4 +121,20 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.button-comment {
+  color: $color;
+  background: none;
+  background-color: yellow;
+  font-size: 10px;
+  color: $color;
+  border-radius: 25px;
+  text-decoration: none;
+  margin-bottom: 2vh;
+}
+.add-fields {
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
 }

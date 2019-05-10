@@ -135,18 +135,23 @@ class Post extends Component {
             </div>
             <div>
               <h6 className="caption">{val.caption}</h6>
-              {this.state.input ? (
-                <input
-                  onChange={this.handleChange}
-                  placeholder="Add Your Comment here"
-                  name="inputText"
-                />
-              ) : null}
-              {this.state.input ? (
-                <button onClick={this.submitComment} className="buttonsu">
-                  Submit
-                </button>
-              ) : null}
+              <div className="add-fields">
+                {this.state.input ? (
+                  <input
+                    onChange={this.handleChange}
+                    placeholder="Add Your Comment here"
+                    name="inputText"
+                  />
+                ) : null}
+                {this.state.input ? (
+                  <button
+                    onClick={this.submitComment}
+                    className="button-comment"
+                  >
+                    Submit
+                  </button>
+                ) : null}
+              </div>
             </div>
             {/* <div className="comment-text">
               <h1 className="user-name">{val.user} </h1>
