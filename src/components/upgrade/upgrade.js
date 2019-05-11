@@ -6,13 +6,13 @@ import "./upgrade.scss";
 function Upgrade(props) {
   return (
     <div className="border-upgrade">
-      <h1 className="upgrade-title"> Upgrade</h1>
       <div className="upgrade">
-        <h3>
+        <h1 className="title">Upgrade</h1>
+        <p className="c">
           Upgrade to our Masters Membership to receive discounted rates and be
           entered into a raffle to win a Trip of a lifetime to Scotland to Play
           at hsitoric st. Andrews Golf Course
-        </h3>
+        </p>
         <StripeBtn className="upg" />
       </div>
 

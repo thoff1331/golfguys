@@ -19,6 +19,13 @@
   opacity: 0.7;
   font-size: 15px;
 }
+@media only screen and (max-width: 800px) {
+  .formsu {
+    height: 45%;
+    width: 50%;
+    align-content: center;
+  }
+}
 
 .logo {
   width: 11vw;
@@ -54,4 +61,10 @@ form {
   right: 0;
   bottom: 0;
   margin: auto;
+}
+.profile-pic-upload {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 10vw;
 }

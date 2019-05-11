@@ -1,37 +1,62 @@
 @import "../../variables.scss";
 
 .border-upgrade {
-  background: url("../../pics/bg3\ \(1\).png");
+  // background: url("../../pics/bg3\ \(1\).png");
   display: flex;
-  height: 100vh;
-  width: 100vw;
-  justify-content: center;
+  // height: 100vh;
+  // width: 100vw;
   align-items: center;
+  justify-content: center;
   flex-direction: column;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  width: 100%;
-  height: 100%;
+  // background-repeat: no-repeat;
+  // background-position: center;
+  // background-size: cover;
+  // position: absolute;
+  //top: 90px;
+  // left: 0px;
+  // width: 100%;
+  // height: 100%;
 }
 .upgrade {
   font-family: $font-family;
   font-size: 30px;
-  margin-top: 17vh;
-  border: 5px solid $font-color;
+  border: 15px solid $font-color;
   border-radius: 5px;
   width: 35vw;
   background: whitesmoke;
   display: flex;
   flex-direction: column;
-  height: 45vh;
   align-items: center;
-  padding: 10px;
+  justify-content: center;
   opacity: 0.7;
+  height: 70vh;
+  margin-top: 20vh;
 }
+@media only screen and (max-width: 800px) {
+  .upgrade {
+    position: absolute;
+    top: 20px;
+    height: 70%;
+    width: 65%;
+    font-family: $font-family;
+    font-size: 16px;
+    border: 15px solid $font-color;
+    border-radius: 5px;
+    background: whitesmoke;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.7;
+  }
+  .upgrade-paragraph {
+    padding: 12px;
+  }
+}
+
 .upg {
   display: none;
+}
+.title {
+  color: $font-color;
 }

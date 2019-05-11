@@ -91,15 +91,26 @@ class App extends Component {
             <Link to="/profile" className="six">
               <h6>Profile</h6>
             </Link>
+            <Link to="/upgrade" className="six">
+              <h6>Upgrade</h6>
+            </Link>{" "}
             <Link to="/courses" className="six">
               <h6>Go Play!</h6>
-            </Link>{" "}
-            <Link to="/signup" className="six">
-              <h6>Signup</h6>
             </Link>
-            <Link to="/login" className="six">
-              {" "}
-              <h6>Login</h6>
+            <Link to="/signup" className="six">
+              <h6>Sign Up!</h6>
+            </Link>
+            {!this.props.username ? (
+              <Link className="six" to="/login">
+                <h6> Log in! </h6>
+              </Link>
+            ) : (
+              <Link to="/login" className="six" onClick={this.logout}>
+                <h6> Log out! </h6>
+              </Link>
+            )}
+            <Link to="/contact" className="six">
+              <h6>Contact</h6>{" "}
             </Link>
           </div>
         </div>

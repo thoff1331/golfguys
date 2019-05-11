@@ -73,10 +73,18 @@ class Profile extends Component {
     let mappedProfile = this.state.profile.map((val, index) => {
       return (
         <div className="profile-default">
-          <h1>Home Course: {val.course}</h1>
-          <h1>Handicap: {val.handicap}</h1>
-          <h1> Rounds Per Year: {val.rounds}</h1>
-          <h1> Career Hole in One: {val.career}</h1>
+          <div className="dereks-here">
+            <h1>Home Course: {val.course}</h1>
+            <h1>Handicap: {val.handicap}</h1>
+            <h1> Rounds Per Year: {val.rounds}</h1>
+            <h1> Career Hole in One: {val.career}</h1>
+            <button
+              className="edit-button"
+              onClick={() => this.setState({ showInput: true })}
+            >
+              Edit
+            </button>
+          </div>
         </div>
       );
     });
@@ -93,12 +101,9 @@ class Profile extends Component {
           </div>
           <div className="users">
             <div className="derek">
-              <button
-                className="edit-button"
-                onClick={() => this.setState({ showInput: true })}
-              >
-                Edit
-              </button>
+              <div className="profile-intro">
+                <h3>Welocme to {this.props.auth.username}'s Profile </h3>
+              </div>
             </div>
             <div className="mapped-profile">
               {mappedProfile}
@@ -124,6 +129,7 @@ class Profile extends Component {
                     value={this.state.handicap}
                     type="number"
                     autoComplete="off"
+                    placeholder="Handicap"
                   />
                   <label>Rounds Per Year</label>
                   <input
@@ -132,6 +138,7 @@ class Profile extends Component {
                     name="rounds"
                     type="number"
                     autoComplete="off"
+                    placeholder="Rounds Per Year"
                   />
                   <label>Career Hole in One</label>
                   <input
@@ -140,8 +147,14 @@ class Profile extends Component {
                     name="career"
                     type="number"
                     autoComplete="off"
+                    placeholder="Career Hole in one"
                   />
-                  <button onClick={this.handleSubmit}>submit</button>
+                  <button
+                    onClick={this.handleSubmit}
+                    className="submit-button-edit"
+                  >
+                    submit
+                  </button>
                 </form>
               ) : null}
             </div>

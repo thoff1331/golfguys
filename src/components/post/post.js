@@ -108,7 +108,6 @@ class Post extends Component {
           <div className="post-lineup">
             <div className="post-top">
               <h3 className="post-username">{val.username}</h3>
-              <img src={val.pp} className="pp-" />
             </div>
             <img src={val.image} className="posts" />
             <div className="home-posted-by-">

@@ -81,6 +81,7 @@ class Signup extends Component {
               // value={this.state.pp}
               name="pp"
               type="file"
+              className="profile-pic-upload"
             />
             <label>UserName</label>
             <input
@@ -88,7 +89,7 @@ class Signup extends Component {
               value={this.state.username}
               name="username"
             />
-            <label>PassWord</label>
+            <label>Password</label>
             <input
               // type="password"
               onChange={this.handleChange}
@@ -98,10 +99,10 @@ class Signup extends Component {
             />
             <br />
             <button className="button-sign-up">Join The Club</button>
-            <p>{this.props.error}</p>
             <Link to="/login">
-              <p className="nav">Already Registered? Login here</p>
+              <p className="derek-is-king">Already Registered? Login here</p>
             </Link>
+            <p>{this.props.error}</p>
           </form>
         </div>
       </div>

@@ -12,6 +12,7 @@ const bluebird = require("bluebird");
 const multiparty = require("multiparty");
 const cors = require("cors");
 const bodyParser = require("body-parser");
+const mc = require("./controllers/maps/mapscontroller");
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -41,7 +42,7 @@ const uploadFile = (buffer, name, type) => {
 };
 
 app.use(express.json());
-const { CONNECTION_STRING, SESSION_SECRET } = process.env;
+const { CONNECTION_STRING, SESSION_SECRET, KEY } = process.env;
 const { contactForm } = require("./controllers/contactForm");
 massive(CONNECTION_STRING)
   .then(db => {
@@ -61,6 +62,7 @@ app.use(
     }
   })
 );
+app.post("/auth/location", mc.Location);
 app.get("/auth/posts/user/:id", authController.getPostsbyUser);
 app.get("/auth/profile/page/:id", authController.getProfileInfo);
 app.post("/api/contact", contactForm);
@@ -79,16 +81,7 @@ app.post("/auth/login", authController.login);
 app.get("/auth/messages", authController.getmessages);
 app.post("/auth/add", authController.addmemory);
 app.delete("/auth/delete/:id", authController.deleteone);
-app.get("/api/getGoogle", (req, res) => {
-  axios
-    .get(
-      "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=40.51606,-112.30155&radius=1500&type=golf&keyword=golf&key=AIzaSyAYc5zf8Pk1IyMfT0CLUHWWHtflYwm79qc"
-    )
-    .then(response => {
-      response;
-      res.json(response.data);
-    });
-});
+
 app.post("/auth/addimage", (req, res) => {
   const form = new multiparty.Form();
   form.parse(req, async (error, fields, files) => {

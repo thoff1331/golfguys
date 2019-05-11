@@ -40,13 +40,16 @@ class ProfilePage extends Component {
     var mapped = this.state.profile.map((val, index) => {
       return (
         <div className="profile-page-values">
-          <div className="profile-page-top">
-            <img src={val.pp} className="profile-picture" />
+          <h3 className="welcome">
+            Welcome to {this.props.match.params.id} 's profile
+          </h3>
+          <img src={val.pp} className="profile-picture" />
+          <div className="values">
+            <h3>Favorite Course: {val.course}</h3>
+            <h3>Handicap: {val.handicap}</h3>
+            <h3>Rounds Per Year: {val.rounds}</h3>
+            <h3>Career Hole in One: {val.career}</h3>
           </div>
-          <h3>Favorite Course: {val.course}</h3>
-          <h3>Handicap: {val.handicap}</h3>
-          <h3>Rounds Per Year: {val.rounds}</h3>
-          <h3>Career Hole in One: {val.career}</h3>
         </div>
       );
     });
@@ -74,21 +77,25 @@ class ProfilePage extends Component {
       );
     }
     return (
-      <div className="profile-page-default">
-        <div>
-          <div className="lineups-">
-            <h1 className="bump">
+      <div className="profile-page-big">
+        <div className="profile-page-default">
+          <div>
+            <div className="lineups-">
+              <h1 className="bump">
+                {" "}
+                <img src={this.props.match.params.pp} />
+                {mapped}
+              </h1>
+            </div>
+          </div>
+          <div className="profile-post-by-page">
+            <h1 className="tilda">
               {" "}
-              <img src={this.props.match.params.pp} />
-              Welcome to {this.props.match.params.id}' s page
-              {mapped}
+              ~ Posts by {this.props.match.params.id} ~{" "}
             </h1>
           </div>
+          <div className="mapped-post-profile">{mappedPosts}</div>
         </div>
-        <div className="profile-post-by">
-          <h1> ~ Posts by {this.props.match.params.id} ~ </h1>
-        </div>
-        <div className="mapped-post">{mappedPosts}</div>
       </div>
     );
   }

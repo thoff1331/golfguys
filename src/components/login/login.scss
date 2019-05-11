@@ -16,6 +16,12 @@
   height: 47vh;
   opacity: 0.7;
 }
+@media only screen and (max-width: 800px) {
+  .formli {
+    height: 50%;
+    width: 60%;
+  }
+}
 .login-button {
   color: $color;
   background: none;
@@ -25,14 +31,29 @@
   border-radius: 25px;
   text-decoration: none;
   margin-bottom: 2vh;
+  margin-top: 6vh;
 }
+@media only screen and (max-width: 800px) {
+  .login-button {
+    margin-top: 6vh;
+  }
+}
+
 .login-border {
   display: flex;
   flex-direction: column;
   height: 100vh;
   justify-content: center;
   align-items: center;
-  background-image: url("../../pics/coursezzz\ \(1\).png");
+  // background-image: url("../../pics/coursezzz\ \(1\).png");
+  // background-repeat: no-repeat;
+  // background-position: center;
+  // background-size: cover;
+  // position: absolute;
+  // top: 0px;
+  // left: 0px;
+  // width: 100%;
+  // height: 100%;
 }
 .login-form-border {
   width: 100vw;

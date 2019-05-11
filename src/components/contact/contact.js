@@ -43,41 +43,44 @@ export default class Contact extends Component {
     }
     return (
       <div>
-        <form
-          autocomplete="off"
-          className="contact-form"
-          onSubmit={this.handleSubmit}
-        >
-          <input
-            className="input-contact"
-            placeholder="First Name"
-            onChange={this.handleChange}
-            value={this.state.first_name}
-            name="first_name"
-          />
-          <input
-            className="input-contact"
-            placeholder="Last Name"
-            onChange={this.handleChange}
-            value={this.state.last_name}
-            name="last_name"
-          />
-          <input
-            className="input-contact"
-            placeholder="Email"
-            onChange={this.handleChange}
-            value={this.state.email}
-            name="email"
-          />
-          <textarea
-            className="input-contact"
-            placeholder="Message"
-            onChange={this.handleChange}
-            value={this.state.message}
-            name="message"
-          />
-          <button className="contact-form-submit-button">Get In Touch</button>
-        </form>
+        <div>
+          <form
+            autocomplete="off"
+            className="contact-form"
+            onSubmit={this.handleSubmit}
+          >
+            <h1 className="contact-us">Contact Us</h1>
+            <input
+              className="input-contact"
+              placeholder="First Name"
+              onChange={this.handleChange}
+              value={this.state.first_name}
+              name="first_name"
+            />
+            <input
+              className="input-contact"
+              placeholder="Last Name"
+              onChange={this.handleChange}
+              value={this.state.last_name}
+              name="last_name"
+            />
+            <input
+              className="input-contact"
+              placeholder="Email"
+              onChange={this.handleChange}
+              value={this.state.email}
+              name="email"
+            />
+            <textarea
+              className="input-contact"
+              placeholder="Message"
+              onChange={this.handleChange}
+              value={this.state.message}
+              name="message"
+            />
+            <button className="contact-form-submit-button">Get In Touch</button>
+          </form>
+        </div>
       </div>
     );
   }
