@@ -29,12 +29,18 @@
   justify-content: center;
   width: 100vw;
   align-items: center;
-  padding-top: 5vw;
+  padding-top: 3vw;
   color: #fee715;
   background: #006b54;
-  height: 9vh;
+  height: 3vh;
   border-top: solid 6px yellow;
   border-bottom: solid 6px yellow;
+  margin-bottom: 1vh;
+  padding-bottom: 2vh;
+}
+.home-pp {
+  margin-top: 1vh;
+  width: 110vw;
 }
 
 .home-posted-by-home {
@@ -59,13 +65,16 @@
   width: 50px;
   height: 50px;
   margin-left: 1vw;
+  margin-top: -30px;
 }
-.posts {
-  max-height: 224px;
-  max-width: 380px;
-  justify-content: center;
-  align-items: center;
-  margin-left: 0px;
+//LEAVE THIS ALONE
+@media only screen and (max-width: 800px) {
+  .pp {
+    margin-top: 0.5vh;
+    height: 30px;
+    width: 30px;
+    margin-left: 4vw;
+  }
 }
 
 .home-buttons {
@@ -96,8 +105,8 @@
 }
 .comment-link {
   // margin-left: 3vw;
-  width: 4vw;
-  font-size: 17px;
+  width: 2vw;
+  font-size: 10px;
   text-decoration: none;
   // border: 2px solid green;
 }
@@ -107,9 +116,21 @@
   margin-bottom: 1vh;
 }
 
-.caption {
+.comment-caption {
   font-weight: 900;
-  font-size: 17px;
+  font-size: 25px;
+  border: 2px $border solid;
+  width: 30vw;
+  height: 6vh;
+  text-align: center;
+}
+@media only screen and (max-width: 800px) {
+  .comment-caption {
+    display: flex;
+    width: 32.7vh;
+    justify-content: center;
+    // text-align: center;
+  }
 }
 
 .lineup {
@@ -119,9 +140,6 @@
   align-items: center;
 }
 
-.home-page {
-  border: 6px red;
-}
 .recent-posts {
   margin-top: 55vh;
   margin-bottom: 1vh;
@@ -140,46 +158,60 @@
   padding-bottom: 3vh;
   font-size: 42px;
   //   border: 3px #fee715;
-  border-bottom: 3px solid #fee715;
-  border-top: 3px solid #fee715;
+  border-bottom: 6px solid #fee715;
+  border-top: 6px solid #fee715;
 }
 
-.background {
-  // background: url("../../pics/course-2.png");
-  // height: 86vh;
-  // background-repeat: no-repeat;
-  // background-size: cover;
-  // transition: none;
-  // background-position: center;
-  // position: absolute;
-  // top: 0px;
-  // left: 0px;
-  // width: 100%;
-}
-.post-memory {
-}
-// .add-form {
-//   display: flex;
-//   flex-direction: column;
-//   align-items: center;
-//   text-decoration: none;
-//   font-weight: 900;
-// }
 .add-form {
-  width: 25vw;
+  width: 35vw;
+  height: 40vh;
   display: flex;
   background: whitesmoke;
-  margin-top: 20vh;
-  justify-content: center;
-  margin-bottom: 4vh;
-  border-radius: 5px;
+  margin-top: 33vh;
+
+  justify-content: space-around;
+  padding: 2%;
   font-size: 28px;
   border: 3px solid #006b54;
   border-radius: 5px;
-  height: 55vh;
   font-weight: 700;
   opacity: 0.8;
+  label {
+    padding-bottom: 3%;
+    padding-top: 2%;
+  }
+  .input-add {
+    padding-top: 2%;
+  }
+  .input-home {
+    padding-top: 2%;
+    margin-left: 17%;
+  }
 }
+//LEAVE THIS ALONE
+@media only screen and (max-width: 800px) {
+  .add-form {
+    height: 45%;
+    width: 45%;
+    font-size: 20px;
+    margin-top: 28vh;
+    display: flex;
+    justify-content: center;
+  }
+  label {
+    display: flex;
+    align-content: center;
+    align-items: center;
+    padding-left: 7%;
+  }
+}
+@media only screen and (max-width: 800px) {
+  .add-form input {
+    height: 10%;
+    width: 80%;
+  }
+}
+
 .add-home {
   display: flex;
   justify-content: center;
@@ -187,52 +219,50 @@
 .buttonsu-home {
   color: #fee715;
   background-color: yellow;
+  margin-bottom: 2vh;
 
-  color: #006b54;
+  color: #1d006b;
   text-decoration: none;
   margin-top: 1.5vh;
-  border: 2px solid #006b54;
+  // border: 2px solid #006b54;
   height: 70px;
   width: 110px;
-  font-size: 30px;
+  font-size: 25px;
   font-weight: 500;
 }
-.papa {
-  border-radius: 5px;
-  border: 5px solid #006b54b0;
-  width: 17vw;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
-  padding: 45px;
-  height: 45vh;
-  padding-bottom: 8vh;
-  background: whitesmoke;
-  // text-align: center;
-}
-.big-papa {
+//LEAVE THIS ALONE
+@media only screen and (max-width: 800px) {
+  .buttonsu-home {
+    height: 15%;
+    width: 60%;
+    font-size: 20px;
+    border-radius: 6px;
+    text-align: center;
+  }
 }
 
-.bigger-papa {
+.secondPage {
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap;
   justify-content: space-around;
-  align-items: baseline;
-  align-content: flex-start;
-  width: 90vw;
-  padding: 50px;
-  // margin-left: 5vh;
-  // border: 10px solid blue;
   height: 100vh;
-  // background: url("../pics/bg3\ \(1\).png");
-  //   background: blue;
 }
+@media only screen and (max-width: 800px) {
+  .secondPage {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    height: 150vh;
+  }
+}
+
+//
 .name-pic {
   border: 1px solid red;
   display: flex;
+  justify-content: center;
   margin-top: 1vh;
+  margin-left: 30%;
 }
 
 .pp-home {
@@ -244,20 +274,6 @@
   margin-top: 0;
 }
 
-.papa-buttons {
-  display: flex;
-  flex-direction: row;
-  width: 20vw;
-  // margin-right: 5vw;
-  align-items: center;
-  margin-top: 0;
-  // border: 5px solid red;
-  justify-content: space-around;
-  // height: 1vh;
-}
-
-.big-boss {
-}
 .baby-boss {
   margin-bottom: 0vh;
   display: flex;
@@ -266,24 +282,23 @@
   justify-content: center;
   align-items: center;
 }
+@media only screen and (max-width: 800px) {
+  .baby-boss {
+    display: flex;
+    margin-top: -25%;
+  }
+}
 
 .bosses {
-  // margin-left: 6vw;
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
-
-.papa-buttons h1,
-.papa-buttons h6 {
-  margin: 0;
-  font-size: 20px;
-}
-
-.comment-link h1 {
-  margin: 0;
-  font-size: 22px;
-  margin-left: 3vw;
+@media only screen and (max-width: 800px) {
+  .bosses {
+    display: flex;
+    flex-direction: column;
+  }
 }
 
 .comment-number {
@@ -292,15 +307,160 @@
   width: 9vw;
 }
 
-.papa-buttons h4 {
-  margin-right: 4vw;
-  height: 10px;
-  font-size: 17px;
-  // border: 3px solid yellow;
-}
-
 .profile-pp {
   width: 100vw;
   display: flex;
   justify-content: center;
+}
+
+.posts {
+  max-height: 30vh;
+  max-width: 30vh;
+  border: 5px solid $border;
+  justify-content: center;
+  align-items: center;
+  margin-left: 7%;
+}
+@media only screen and (max-width: 800px) {
+  .posts {
+    display: flex;
+    justify-content: center;
+    margin-left: 3%;
+  }
+}
+//
+
+.bigger-papa {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: baseline;
+  align-content: flex-start;
+  width: 90vw;
+  padding: 50px;
+  height: 100vh;
+}
+
+.papa {
+  border-radius: 5px;
+  border: 5px solid $border;
+  width: 17vw;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 45px;
+  height: 55vh;
+  padding-bottom: 8vh;
+  background: whitesmoke;
+  // text-align: center;
+}
+@media only screen and (max-width: 800px) {
+  .papa {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    width: 40vh;
+    // margin-top: -640px;
+  }
+}
+
+.baby-boss {
+  margin-bottom: 0vh;
+  display: flex;
+  margin-right: 2vw;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+// @media only screen and (max-width: 800px) {
+//   .baby-boss {
+//     display: flex;
+//     flex-direction: column;
+//   }
+// }
+
+//
+
+.big-boss {
+  // border: 2px solid red;
+  height: 32vh;
+}
+
+.comment-link {
+  // border: 2px solid red;
+  font-size: 20px;
+}
+
+.like-number {
+  // border: 2px solid pink;
+  font-size: 35px;
+  font-weight: bolder;
+}
+// @media only screen and (max-width: 800px) {
+//   .like-number {
+//     display: flex;
+//     margin-left: -2%;
+//   }
+// }
+
+.likes-mobile {
+  // border: 2px solid pink;
+  font-size: 20px;
+  margin-left: -2vw;
+}
+@media only screen and (max-width: 800px) {
+  .likes-mobile {
+    display: flex;
+    margin-left: -10%;
+  }
+}
+
+.comment-mobile-number {
+  font-size: 20px;
+  margin-left: -15px;
+}
+@media only screen and (max-width: 800px) {
+  .comment-mobile-number {
+    display: flex;
+    margin-left: 2%;
+  }
+}
+
+.comment-link-mobile {
+}
+
+.papa-buttons {
+  display: flex;
+  flex-direction: row;
+  width: 20vw;
+  align-items: center;
+  margin-top: 10px;
+  justify-content: space-around;
+}
+@media only screen and (max-width: 800px) {
+  .papa-buttons {
+    display: flex;
+    width: 30vh;
+    padding-top: 5%;
+  }
+}
+
+//
+
+.buttons-home-mobile {
+}
+
+.image-post {
+  justify-content: center;
+  display: flex;
+  width: 110vw;
+}
+
+.bottom-border {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  width: 100vw;
 }

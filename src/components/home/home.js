@@ -155,7 +155,7 @@ class Home extends Component {
                 autoComplete="off"
               >
                 <label> Share Your Recent Golf Experience </label>
-                <textarea
+                <input
                   className="input-add"
                   onChange={this.handleChange}
                   value={this.state.caption}
@@ -174,21 +174,20 @@ class Home extends Component {
                 <br />
                 <button className="buttonsu-home">Post</button>
               </form>
+              <div className="recent-div">
+                <h1 className="recent-posts"> ~ Recent Posts ~</h1>
+              </div>
             </div>
-            <h1 className="recent-posts"> ~ Recent Posts ~</h1>
-            <div className="bigger-papa">
-              {/* <div className="post-memory" /> */}
-
-              {this.state.messages.map((val, index) => {
-                console.log(val.comments);
-                return (
-                  <div className="big-papa">
+            <div className="bottom-border" />
+            <div className="mobileSecondPage">
+              <div className="secondPage">
+                {this.state.messages.map((val, index) => {
+                  console.log(val.comments);
+                  return (
                     <div className="papa">
                       <div key={index} className="bosses">
                         <div className="baby-boss">
-                          {" "}
                           <h2>
-                            {" "}
                             Posted By:{" "}
                             <Link
                               className="profile-link-home"
@@ -204,30 +203,26 @@ class Home extends Component {
                           </h2>
                           <img src={val.pp} className="pp" />
                         </div>
-                        <img src={val.image} alt="" className="posts" />
                         <div className="big-boss">
+                          <img src={val.image} alt="" className="posts" />
+                          <h1 key={val.index} />
                           <div className="papa-buttons">
-                            <h1 key={val.index} />
-                            {/* <h1
-                              className="home-delete"
-                              onClick={() => this.deletePost(val.id)}
-                              >
-                              𝐗
-                            </h1> */}
                             <h1
                               className="like-number"
                               onClick={e => this.getLikes(val.id)}
                             >
                               ♡
                             </h1>
-                            <h6>{val.likes}</h6>
+                            <h4 className="likes-mobile">{val.likes}</h4>
                             <Link
                               to={`post/${val.id}`}
                               className="comment-link"
                             >
-                              <h1>💬</h1>
+                              <h1 className="comment-link-mobile">💬</h1>
                             </Link>
-                            <h4>{val.comments}</h4>
+                            <h4 className="comment-mobile-number">
+                              {val.comments}
+                            </h4>
 
                             <h1
                               className="home-delete"
@@ -237,17 +232,17 @@ class Home extends Component {
                             </h1>
                           </div>
                         </div>
-                      </div>
-                      <div className="caption">{val.caption}</div>
-                      <div>
+
                         <div className="lineup" />
                       </div>
-                    </div>
-                  </div>
+                      <div className="comment-caption">{val.caption}</div>
 
-                  // </div>
-                );
-              })}
+                      <div />
+                    </div>
+                    //{" "}
+                  );
+                })}
+              </div>
             </div>
           </div>
         </div>
