@@ -13,6 +13,7 @@ const multiparty = require("multiparty");
 const cors = require("cors");
 const bodyParser = require("body-parser");
 const mc = require("./controllers/maps/mapscontroller");
+const path = require("path");
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -40,7 +41,7 @@ const uploadFile = (buffer, name, type) => {
   };
   return s3.upload(params).promise();
 };
-
+app.use(express.static(`${__dirname}/../build`));
 app.use(express.json());
 const { CONNECTION_STRING, SESSION_SECRET, KEY } = process.env;
 const { contactForm } = require("./controllers/contactForm");
@@ -84,7 +85,7 @@ app.delete("/auth/delete/:id", authController.deleteone);
 app.get("/api/getGoogle", (req, res) => {
   axios
     .get(
-      "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=32.7767,96.7970&radius=1500&type=golf&keyword=golf&key=AIzaSyAYc5zf8Pk1IyMfT0CLUHWWHtflYwm79qc"
+      "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=40.5308,112.2983&radius=1500&type=golf&keyword=golf&key=AIzaSyAYc5zf8Pk1IyMfT0CLUHWWHtflYwm79qc"
     )
     .then(response => {
       response;
@@ -126,6 +127,10 @@ app.post("/auth/addProfilePic", (req, res) => {
       return res.status(400).send(error);
     }
   });
+});
+
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "../build/index.html"));
 });
 
 const PORT = 3131;
