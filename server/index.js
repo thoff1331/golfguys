@@ -18,8 +18,6 @@ const path = require("path");
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors());
-const configureRoutes = require("./routes");
-configureRoutes(app);
 
 AWS.config.update({
   accessKeyId: process.env.AWS_ACCESS_KEY_ID,
@@ -129,6 +127,8 @@ app.post("/auth/addProfilePic", (req, res) => {
   });
 });
 
+const configureRoutes = require("./routes");
+configureRoutes(app);
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "../build/index.html"));
 });
