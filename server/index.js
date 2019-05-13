@@ -129,6 +129,7 @@ app.post("/auth/addProfilePic", (req, res) => {
 
 const configureRoutes = require("./routes");
 configureRoutes(app);
+
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "../build/index.html"));
 });
@@ -138,3 +139,4 @@ const PORT = 3131;
 app.listen(PORT, () => {
   console.log(`Listening on port ${PORT}`);
 });
+//example change
