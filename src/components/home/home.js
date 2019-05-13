@@ -142,38 +142,40 @@ class Home extends Component {
       );
     } else {
       return (
-        <div className="background">
+        <div className="background-home">
           <div className="home-page">
             <div className="home-pp">
               <h3> Welcome, {this.props.username} </h3>
               <img src={this.props.pp} className="pp" />
             </div>
-            <div className="add-home">
-              <form
-                onSubmit={this.submitFile}
-                className="add-form"
-                autoComplete="off"
-              >
-                <label> Share Your Recent Golf Experience </label>
-                <input
-                  className="input-add"
-                  onChange={this.handleChange}
-                  value={this.state.caption}
-                  name="caption"
-                />
-                <label>Add a Picture to your post </label>
-                <input
-                  className="input-home"
-                  onChange={this.handleFileUpload}
-                  // value={this.state.file}
-                  placeholder=" Image URL"
-                  name="image"
-                  type="file"
-                />
+            <div className="middle-background">
+              <div className="add-home">
+                <form
+                  onSubmit={this.submitFile}
+                  className="add-form"
+                  autoComplete="off"
+                >
+                  <label> Share Your Recent Golf Experience </label>
+                  <input
+                    className="input-add"
+                    onChange={this.handleChange}
+                    value={this.state.caption}
+                    name="caption"
+                  />
+                  <label>Add a Picture to your post </label>
+                  <input
+                    className="input-home"
+                    onChange={this.handleFileUpload}
+                    // value={this.state.file}
+                    placeholder=" Image URL"
+                    name="image"
+                    type="file"
+                  />
 
-                <br />
-                <button className="buttonsu-home">Post</button>
-              </form>
+                  <br />
+                  <button className="buttonsu-home">Post</button>
+                </form>
+              </div>
               <div className="recent-div">
                 <h1 className="recent-posts"> ~ Recent Posts ~</h1>
               </div>

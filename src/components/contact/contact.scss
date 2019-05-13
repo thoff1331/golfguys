@@ -1,31 +1,33 @@
 @import "../../variables.scss";
 body {
-  // background: url("../../pics/bg6.jpg");
-  // background-repeat: no-repeat;
-  // background-position: center;
-  // background-size: cover;
-  // position: absolute;
-  // top: 0px;
-  // left: 0px;
-  // width: 100%;
-  // height: 100%;
+  //   background: url("../../pics//course-2.png");
+  //   background-repeat: no-repeat;
+  //   background-position: center;
+  //   background-size: cover;
+  //   position: absolute;
+  //   top: -80px;
+  //   left: 0px;
+  //   width: 100%;
+  //   height: 160%;
+  //   z-index: -11;
+  // }
 }
-
 .contact-background {
-  // background: url("../../pics/bg6.jpg");
-  // height: 100vh;
-  // display: flex;
-  // justify-content: center;
-  // align-items: center;
-  // flex-direction: column;
+  background: url("../../pics/gc\ \(1\).png");
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 
-  // background-repeat: no-repeat;
-  // background-position: center;
-  // background-size: cover;
-  // position: absolute;
-  // top: 0px;
-  // left: 0px;
-  // width: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  z-index: -10;
 }
 
 .upgrade-title {

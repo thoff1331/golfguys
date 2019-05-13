@@ -42,7 +42,7 @@ export default class Contact extends Component {
       return <Redirect to="/" />;
     }
     return (
-      <div>
+      <div className="contact-background">
         <div>
           <form
             autocomplete="off"

@@ -107,19 +107,19 @@ class Post extends Component {
         <div className="post-page">
           <div className="post-lineup">
             <div className="post-top">
-              <h3 className="post-username">{val.username}</h3>
+              <h3 className="post-username"> Posted By: {val.username}</h3>
             </div>
             <img src={val.image} className="posts" />
             <div className="home-posted-by-">
               <div className="post-emoji">
                 <div className="post-page-lineup">
-                  <h3 className="user">{val.username}</h3>
+                  {/* <h3 className="user">{val.username}</h3> */}
 
                   <div className="comment">
                     <p className="post-page-heart" onClick={this.getLikes}>
                       ♡
                     </p>{" "}
-                    <p className="like-number">{val.likes}</p>
+                    <p className="like-number-post">{val.likes}</p>
                     <p className="post-comment" onClick={this.addComment}>
                       💬
                     </p>

@@ -83,12 +83,14 @@ class Signup extends Component {
               type="file"
               className="profile-pic-upload"
             />
+            <br />
             <label>UserName</label>
             <input
               onChange={this.handleChange}
               value={this.state.username}
               name="username"
             />
+            <br />
             <label>Password</label>
             <input
               // type="password"

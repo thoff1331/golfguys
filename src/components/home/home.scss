@@ -1,7 +1,8 @@
 @import "../../variables.scss";
+
 .protected-profile {
   padding-top: 20vh;
-  height: 100vh;
+  height: 120vh;
   width: 100vw;
   background: url("../../pics/bg5.png");
   background-repeat: no-repeat;
@@ -15,6 +16,7 @@
   top: 0px;
   left: 0px;
   width: 100%;
+  z-index: -10;
 }
 
 .protected-pp {
@@ -41,6 +43,11 @@
 .home-pp {
   margin-top: 1vh;
   width: 110vw;
+}
+@media only screen and (max-width: 800px) {
+  .home-pp {
+    margin-top: 25vh;
+  }
 }
 
 .home-posted-by-home {
@@ -119,16 +126,18 @@
 .comment-caption {
   font-weight: 900;
   font-size: 25px;
-  border: 2px $border solid;
-  width: 30vw;
+  // border: 2px $border solid;
+  width: 26vw;
   height: 6vh;
   text-align: center;
+  margin-top: 1vh;
 }
 @media only screen and (max-width: 800px) {
   .comment-caption {
     display: flex;
     width: 32.7vh;
     justify-content: center;
+    margin-top: 2vh;
     // text-align: center;
   }
 }
@@ -167,7 +176,7 @@
   height: 40vh;
   display: flex;
   background: whitesmoke;
-  margin-top: 33vh;
+  margin-top: 25vh;
 
   justify-content: space-around;
   padding: 2%;
@@ -194,7 +203,7 @@
     height: 45%;
     width: 45%;
     font-size: 20px;
-    margin-top: 28vh;
+    margin-top: 27vh;
     display: flex;
     justify-content: center;
   }
@@ -288,6 +297,12 @@
     margin-top: -25%;
   }
 }
+@media only screen and (max-width: 800px) {
+  .baby-boss h2 {
+    display: flex;
+    margin-top: 8%;
+  }
+}
 
 .bosses {
   display: flex;
@@ -363,6 +378,8 @@
     flex-wrap: nowrap;
     width: 40vh;
     // margin-top: -640px;
+    margin-left: 20vw;
+    margin-bottom: -100px;
   }
 }
 
@@ -463,4 +480,27 @@
   flex-direction: column;
   flex-wrap: nowrap;
   width: 100vw;
+}
+
+.middle-background {
+  background: url("../../pics/course-2.png");
+  // background-repeat: no-repeat;
+  // background-position: center;
+  // background-size: cover;
+  // position: absolute;
+  // top: 0px;
+  // left: 0px;
+  // width: 100%;
+  // z-index: -10;
+}
+
+@media only screen and (max-width: 800px) {
+  .middle-background {
+    // background: url("../../pics/course-2.png");
+    // display: flex;
+  }
+}
+.background-home {
+  background: white;
+  margin-top: -60px;
 }

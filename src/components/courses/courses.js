@@ -68,7 +68,8 @@ class Courses extends Component {
       // });
 
       return (
-        <div>
+        <div className="search-background">
+          <h1 className="find"> Find Courses in Your Area</h1>
           <div className="search-feature">
             <input
               onChange={e => {
@@ -79,7 +80,7 @@ class Courses extends Component {
               placeholder="Search address, Course or by your zip code"
             />
             <button className="button-search" onClick={this.getLocation}>
-              Search for Courses near you!
+              Search
             </button>
           </div>
           <div className="search-results" />

@@ -1,17 +1,18 @@
 @import "../../variables.scss";
 
 .profile-background {
-  //border: 10px solid rgb(39, 12, 12);
-  // margin-top: -85px;
-  //   width: 100vw;
-  //   height: 100vh;
-  //   background: url("../../pics/gc\ \(1\).png");
-  //   background-size: cover;
-  //   background-repeat: no-repeat;
-  // }
+  margin-top: -85px;
+  width: 100vw;
+  height: 150vh;
+  background: url("../../pics/gc\ \(1\).png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: absolute;
+  z-index: -10;
 }
+
 .derek2 {
-  border: 1px solid rgb(110, 109, 109);
+  // border: 1px solid rgb(110, 109, 109);
   opacity: 0;
   width: 100%;
 }
@@ -24,7 +25,6 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 100%;
   border: 5px solid $font-color;
   background: whitesmoke;
   opacity: 0.7;
@@ -38,6 +38,7 @@
     width: 50%;
     font-size: 15px;
     margin-left: 12vw;
+    background: whitesmoke;
   }
 }
 .users {
@@ -62,11 +63,13 @@
   font-size: 17px;
   color: $color;
   text-decoration: none;
+  padding-bottom: 1vh;
 }
 
 @media only screen and (max-width: 800px) {
   .edit-button {
-    margin-top: 3%;
+    // margin-top: 3%;
+    margin-top: -30px;
   }
 }
 
@@ -80,18 +83,21 @@
 }
 
 .dereks-here {
-  height: 50vh;
-  width: 25vw;
+  height: 55vh;
+  width: 28vw;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   border: 5px solid #006b54;
+  margin-top: 10px;
+  background: whitesmoke;
+  background-size: cover;
 }
 
 @media only screen and (max-width: 800px) {
   .dereks-here {
-    margin-top: 20px;
+    margin-top: 25vh;
     height: 50vh;
     width: 100%;
     display: flex;
@@ -102,26 +108,28 @@
     justify-content: center;
     align-items: center;
     border: 5px solid #006b54;
+    background: whitesmoke;
   }
 }
 
 .profile-default {
-  padding-top: 6px;
+  // padding-top: 6px;
   margin-top: 0;
   display: flex;
   flex-direction: column;
   font-size: 15px;
   background: whitesmoke;
-  height: 50vh;
-  width: 100%;
+  height: 47vh;
+  width: 25vw;
   justify-content: center;
   align-items: center;
-  position: absolute;
-  right: 0;
-  left: 0;
-  // margin-top: 5vh;
+  // position: absolute;
+  // right: 0;
+  // left: 0;
+  margin-top: 10vh;
   border-radius: 5px;
   opacity: 0.7;
+  margin-left: 40%;
 }
 @media only screen and (max-width: 800px) {
   .profile-default {
@@ -129,6 +137,7 @@
     width: 100%;
     font-size: 13px;
     margin-top: 5vh;
+    background: whitesmoke;
   }
 }
 
@@ -148,7 +157,7 @@
   left: 0;
   border-radius: 5px;
   opacity: 0.7;
-  // margin-left: 62.7vw;
+  margin-left: 39.7vw;
 }
 
 @media only screen and (max-width: 800px) {
@@ -157,7 +166,7 @@
     width: 100%;
     // border: red 1px solid;
     font-size: 27px;
-    margin-top: 610px;
+    margin-top: 95vh;
     position: absolute;
     right: 0;
     left: 0;
@@ -171,10 +180,9 @@
   font-size: 17px;
   color: $color;
   text-decoration: none;
-  margin-top: 6.5%;
+  margin-top: 5.5%;
 }
 .profile-intro {
-  border: 1px black solid;
   width: 100%;
   display: flex;
   justify-content: center;

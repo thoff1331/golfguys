@@ -2,6 +2,15 @@
 .signup-border {
   background-image: url("../../pics/coursezzz\ \(1\).png");
   height: 100vh;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  z-index: -10;
 }
 
 .formsu {
@@ -15,15 +24,19 @@
   width: 27vw;
   border: 2px solid $font-color;
   border-radius: 5px;
-  height: 48vh;
+  height: 57vh;
   opacity: 0.7;
   font-size: 15px;
 }
 @media only screen and (max-width: 800px) {
   .formsu {
-    height: 45%;
+    height: 60%;
     width: 50%;
     align-content: center;
+  }
+  .formsu input {
+    margin-top: 6%;
+    // border: 1px solid blue;
   }
 }
 
@@ -35,7 +48,8 @@
   width: 100px;
   height: 100px;
   margin-left: 1vw;
-  margin-top: 3vh;
+  margin-top: 1vh;
+  padding-bottom: 2vh;
 }
 .button-sign-up {
   color: $color;
@@ -45,7 +59,14 @@
   color: $color;
   border-radius: 25px;
   text-decoration: none;
-  margin-bottom: 2vh;
+  margin-bottom: 3vh;
+}
+@media only screen and (max-width: 800px) {
+  .button-sign-up {
+    height: 75%;
+    width: 50%;
+    align-content: center;
+  }
 }
 
 form {

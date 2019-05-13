@@ -19,7 +19,12 @@
 @media only screen and (max-width: 800px) {
   .formli {
     height: 50%;
-    width: 60%;
+    width: 50%;
+    text-align: center;
+  }
+  input {
+    width: 20vw;
+    margin-left: 2vw;
   }
 }
 .login-button {
@@ -36,6 +41,7 @@
 @media only screen and (max-width: 800px) {
   .login-button {
     margin-top: 6vh;
+    padding-bottom: 1vh;
   }
 }
 
@@ -45,16 +51,18 @@
   height: 100vh;
   justify-content: center;
   align-items: center;
-  // background-image: url("../../pics/coursezzz\ \(1\).png");
-  // background-repeat: no-repeat;
-  // background-position: center;
-  // background-size: cover;
-  // position: absolute;
-  // top: 0px;
-  // left: 0px;
-  // width: 100%;
-  // height: 100%;
+  background-image: url("../../pics/coursezzz\ \(1\).png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  z-index: -10;
 }
+
 .login-form-border {
   width: 100vw;
   display: flex;
