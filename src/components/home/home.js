@@ -104,31 +104,36 @@ class Home extends Component {
     console.log(e.target);
   }
   submitFile = (event, id) => {
-    console.log("hitt");
     event.preventDefault();
-    const formData = new FormData();
-    formData.append("file", this.state.file[0]);
-    axios
-      .post("/auth/addimage", formData, {
-        headers: {
-          "Content-Type": "multipart/form-data"
-        }
-      })
-      .then(response => {
-        console.log(response.data.Location);
-        this.setState(
-          {
-            image: response.data.Location,
-            file: null
-          },
-          () => {
-            this.handlesubmit();
+    if (!this.state.file) {
+      alert("Please Upload a Picture");
+    } else {
+      console.log("hitt");
+      event.preventDefault();
+      const formData = new FormData();
+      formData.append("file", this.state.file[0]);
+      axios
+        .post("/auth/addimage", formData, {
+          headers: {
+            "Content-Type": "multipart/form-data"
           }
-        );
-      })
-      .catch(error => {
-        console.log(error);
-      });
+        })
+        .then(response => {
+          console.log(response.data.Location);
+          this.setState(
+            {
+              image: response.data.Location,
+              file: null
+            },
+            () => {
+              this.handlesubmit();
+            }
+          );
+        })
+        .catch(error => {
+          console.log(error);
+        });
+    }
   };
 
   render() {
