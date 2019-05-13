@@ -170,7 +170,12 @@
   border-bottom: 6px solid #fee715;
   border-top: 6px solid #fee715;
 }
-
+@media only screen and (max-width: 800px) {
+  .recent-posts {
+    // border: 10px solid blue;
+    // text-align: center;
+  }
+}
 .add-form {
   width: 35vw;
   height: 40vh;
@@ -253,16 +258,18 @@
 .secondPage {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
-  height: 100vh;
-  width: 100vw;
+  justify-content: space-evenly;
+  // height: 100vh;
+  width: 90vw;
+  flex-wrap: wrap;
 }
 @media only screen and (max-width: 800px) {
   .secondPage {
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
-    height: 150vh;
+    // height: 150vh;
+    // border: 10px solid blue;
   }
 }
 
@@ -377,10 +384,15 @@
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
-    width: 40vh;
+    width: 30vh;
     // margin-top: -640px;
-    margin-left: 20vw;
-    margin-bottom: -100px;
+    // margin-left: 20vw;
+    // margin-bottom: -200px;
+    // margin-top: -400px;
+    // height: 60vh;
+    // position: absolute;
+    // top: 110%;
+    // z-index: 4;
   }
 }
 
@@ -481,6 +493,7 @@
   flex-direction: column;
   flex-wrap: nowrap;
   width: 100vw;
+  // border: 10px solid blue;
 }
 
 .middle-background {

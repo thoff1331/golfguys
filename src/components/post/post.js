@@ -58,9 +58,11 @@ class Post extends Component {
         content: this.state.inputText
       })
       .then(res => {
+        console.log("RESPNONSE: ", res);
         this.setState({
           comments: [...this.state.comments, res.data[0]]
         });
+        window.location.reload();
       });
 
     this.setState({

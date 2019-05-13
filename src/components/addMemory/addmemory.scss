@@ -1,7 +1,73 @@
-@import "../../variables.scss";
+// %message-shared {
+//   border: 1px solid #ccc;
+//   padding: 10px;
+//   color: #333;
+// }
 
-.add {
-  display: flex;
-  flex-direction: column;
-  height: 3vh;
-}
+// %equal-heights {
+//   display: flex;
+//   flex-wrap: wrap;
+// }
+
+// .message {
+//   @extend %message-shared;
+// }
+
+// .success {
+//   @extend %message-shared;
+//   border-color: green;
+// }
+
+// .error {
+//   @extend %message-shared;
+//   border-color: red;
+// }
+
+// .warning {
+//   @extend %message-shared;
+//   border-color: yellow;
+// }
+
+// @mixin flex {
+//   color: $color;
+//   background: none;
+//   background-color: yellow;
+//   font-size: 17px;
+//   color: $color;
+//   border-radius: 25px;
+//   text-decoration: none;
+//   margin-bottom: 3vh;
+//   display: -webkit-flex;
+//   display: flex;
+// }
+
+// @mixin grid($flex) {
+//   @if $flex {
+//     @include flex;
+//   } @else {
+//     display: block;
+//   }
+// }
+
+// .message {
+//   color: red;
+// }
+// .recent-message {
+//   @extend .foo;
+// }
+
+// @each $name in "save" "cancel" "help" {
+//   .icon-#{$name} {
+//     background-image: url("/images/#{$name}.png");
+//   }
+// }
+// /* compiled CSS */
+// .icon-save {
+//   background-image: url("/images/save.png");
+// }
+// .icon-cancel {
+//   background-image: url("/images/cancel.png");
+// }
+// .icon-help {
+//   background-image: url("/images/help.png");
+// }

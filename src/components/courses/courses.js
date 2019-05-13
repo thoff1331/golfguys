@@ -2,53 +2,24 @@ import React, { Component } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import "./courses.scss";
+import courseList from "./courselist";
 
 class Courses extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      data: [],
-      // userAddress: "",
-      lat: "",
-      long: "",
-      search: ""
+      data: []
     };
     this.getData = this.getData.bind(this);
   }
   componentDidMount() {}
   getData() {
-    // axios.get("/api/getGoogle").then(response => {
-    //   this.setState({ data: response.data.results });
-    //   console.log(response);
-    // });
+    axios.get("/api/getGoogle").then(response => {
+      this.setState({ data: response.data.results });
+      console.log(response);
+    });
   }
-  getLocation = () => {
-    console.log("hitt");
-    axios
-      .get(
-        `https://maps.googleapis.com/maps/api/geocode/json?address=${
-          this.state.userAddress
-        }&key=AIzaSyAYc5zf8Pk1IyMfT0CLUHWWHtflYwm79qc`
-      )
-      .then(res => {
-        this.setState(
-          {
-            lat: res.data.results,
-            long: res.data.results
-          },
-          () => {
-            let location = { lat: this.state.lat, long: this.state.long };
-            axios.post("/auth/location", location).then(response => {
-              this.setState({
-                data: response.data
-              });
-            });
-          }
-        );
-      });
-  };
-
   render() {
     console.log(this.state.data);
     // if (!this.props.username) {
@@ -59,31 +30,31 @@ class Courses extends Component {
     //   );
     // } else {
     {
-      // let map = this.state.data.map(val => {
-      //   return (
-      //     <div className="bump">
-      //       <h1>{val.name}</h1>
-      //     </div>
-      //   );
-      // });
+      let map = this.state.data.map(val => {
+        return (
+          <div className="bump">
+            <h1>{val.name}</h1>
+          </div>
+        );
+      });
 
       return (
-        <div className="search-background">
-          <h1 className="find"> Find Courses in Your Area</h1>
-          <div className="search-feature">
-            <input
-              onChange={e => {
-                this.setState({ userAddress: e.target.value });
-              }}
-              name="search"
-              className="search-input"
-              placeholder="Search address, Course or by your zip code"
-            />
-            <button className="button-search" onClick={this.getLocation}>
-              Search
-            </button>
+        <div>
+          <div className="course-page">
+            <h1 className="course-banner"> Courses In Dallas,Texas</h1>
+            <div className="course-list">
+              <h1>1.Stevens Park Golf Course</h1>
+              <h3>Address: 1005 N Montclair Ave, Dallas, TX 75208 </h3>
+              <h1>2.Cedar Crest Golf Course </h1>
+              <h3> Address: 1800 Southerland Ave, Dallas, TX 75203 </h3>
+              <h1>3.Tenision Park Golf Course</h1>
+              <h3> Address: 3501 Samuell Blvd, Dallas, TX 75223 </h3>
+              <h1>4.Grover C. Keeton Golf Course </h1>
+              <h3>Address: 2323 N Jim Miller Rd, Dallas, TX 75227 </h3>
+              <h1> 5.Brook Hollow Golf Club </h1>
+              <h3> Address: 8301 Harry Hines Blvd, Dallas, TX 75235 </h3>
+            </div>
           </div>
-          <div className="search-results" />
         </div>
       );
     }

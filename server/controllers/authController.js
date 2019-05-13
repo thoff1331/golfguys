@@ -104,18 +104,16 @@ const getComment = (req, res) => {
 const addComment = async (req, res) => {
   const db = req.app.get("db");
   const { content } = req.body;
-  const commentCount = await db.add_comment([
-    req.session.user.username,
-    content,
-    +req.params.id
-  ]);
+  const commentCount = await db
+    .add_comment([req.session.user.username, content, +req.params.id])
+    .then(comment => {
+      res.status(200).json(comment);
+    });
 
   if (commentCount) {
     db.update_comment_count([+commentCount[0].count, +req.params.id]);
-
-    // res.status(200).json(comment);
   }
-
+  res.status(200).json(comment);
   // .catch(err => console.log(err));
 };
 const getCommentCount = (req, res) => {
