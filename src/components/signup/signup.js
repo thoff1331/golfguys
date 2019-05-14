@@ -107,7 +107,7 @@ class Signup extends Component {
             <br />
             <button className="button-sign-up">Join The Club</button>
             <Link to="/login">
-              <p className="derek-is-king">Already Registered? Login here</p>
+              <p className="derek-is-kingz">Already Registered? Login here</p>
             </Link>
             <p>{this.props.error}</p>
           </form>
