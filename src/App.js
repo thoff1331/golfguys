@@ -102,7 +102,7 @@ class App extends Component {
             </Link>
             {!this.props.username ? (
               <Link className="six" to="/login">
-                <h6> Log in </h6>
+                <h6> LOG IN </h6>
               </Link>
             ) : (
               <Link to="/login" className="six" onClick={this.logout}>

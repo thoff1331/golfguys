@@ -8,6 +8,7 @@ body {
 }
 
 nav {
+  margin-left: -150px;
   top: 0;
   width: 110vw;
   background-color: white;
@@ -33,7 +34,8 @@ a.nav {
   font-family: Arial, Helvetica, sans-serif;
 }
 @media only screen and (max-width: 800px) {
-  .nav {
+  nav {
+    margin-left: 0vw;
   }
 }
 
