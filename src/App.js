@@ -44,6 +44,7 @@ class App extends Component {
       <HashRouter>
         <nav>
           <img className="logo" src={logo_2} />
+
           <div className="mainheader">
             {/* <img className="ballpic" src={logo} alt="ball" /> */}
           </div>
