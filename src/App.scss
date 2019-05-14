@@ -20,7 +20,7 @@ nav {
   color: yellow;
   text-decoration: none;
   font-weight: 900;
-  font-size: 9px;
+  font-size: 6px;
   z-index: 6;
   a.nav {
     &:hover {
@@ -29,7 +29,8 @@ nav {
   }
 }
 a.nav {
-  font-size: 18px;
+  font-size: 15px;
+  font-family: Arial, Helvetica, sans-serif;
 }
 @media only screen and (max-width: 800px) {
   .nav {
@@ -198,7 +199,10 @@ h6 {
 .six {
   border: #000000 1px;
   text-decoration: none;
-  color: white;
+  color: rgb(253, 244, 244);
+  font-size: 15px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bolder;
 }
 
 .search-results {

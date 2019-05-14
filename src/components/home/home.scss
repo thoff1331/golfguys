@@ -124,20 +124,23 @@
 }
 
 .comment-caption {
-  font-weight: 900;
-  font-size: 25px;
+  font-size: 33px;
   // border: 2px $border solid;
   width: 26vw;
   height: 6vh;
   text-align: center;
-  margin-top: 1vh;
+  margin-top: 14vh;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 300;
+  border: 3px solid $border;
+  text-align: center;
 }
 @media only screen and (max-width: 800px) {
   .comment-caption {
     display: flex;
     width: 32.7vh;
     justify-content: center;
-    margin-top: 2vh;
+    margin-top: 16vh;
     // text-align: center;
   }
 }

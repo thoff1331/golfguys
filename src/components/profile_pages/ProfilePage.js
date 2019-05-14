@@ -89,8 +89,7 @@ class ProfilePage extends Component {
             </div>
           </div>
           <div className="profile-post-by-page">
-            <h1 className="tilda">
-              {" "}
+            <h1 className="letters">
               ~ Posts by {this.props.match.params.id} ~{" "}
             </h1>
           </div>

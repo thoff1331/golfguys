@@ -45,34 +45,34 @@ class App extends Component {
           <div className="links">
             <div className="navbarTop">
               <Link className="nav" to="/">
-                Home
+                HOME
               </Link>
               <Link className="nav" to="/profile">
-                Profile
+                PROFILE
               </Link>
               <Link className="nav" to="/upgrade">
-                Upgrade
+                UPGRADE
               </Link>
               <Link className="nav" to="/courses">
                 {" "}
-                Go Play!
+                GO PLAY
               </Link>
               {!this.props.username ? (
                 <Link className="nav" to="/signup">
-                  Sign Up!
+                  SIGN UP
                 </Link>
               ) : null}
               {!this.props.username ? (
                 <Link className="nav" to="/login">
-                  Log in!
+                  LOG IN
                 </Link>
               ) : (
                 <Link to="/login" className="nav" onClick={this.logout}>
-                  Log out!
+                  LOGOUT
                 </Link>
               )}
               <Link className="nav" to="/contact">
-                Contact
+                CONTACT
               </Link>
             </div>
           </div>
@@ -86,31 +86,31 @@ class App extends Component {
         <div className={"top-menu-" + this.state.menuStatus}>
           <div className="top-menu-list">
             <Link to="/" className="six">
-              <h6>Home</h6>
+              <h6>HOME</h6>
             </Link>{" "}
             <Link to="/profile" className="six">
-              <h6>Profile</h6>
+              <h6>PROFILE</h6>
             </Link>
             <Link to="/upgrade" className="six">
-              <h6>Upgrade</h6>
+              <h6>UPGRADE</h6>
             </Link>{" "}
             <Link to="/courses" className="six">
-              <h6>Go Play!</h6>
+              <h6>GO PLAY</h6>
             </Link>
             <Link to="/signup" className="six">
-              <h6>Sign Up!</h6>
+              <h6>SIGN UP</h6>
             </Link>
             {!this.props.username ? (
               <Link className="six" to="/login">
-                <h6> Log in! </h6>
+                <h6> Log in </h6>
               </Link>
             ) : (
               <Link to="/login" className="six" onClick={this.logout}>
-                <h6> Log out! </h6>
+                <h6> LOGOUT </h6>
               </Link>
             )}
             <Link to="/contact" className="six">
-              <h6>Contact</h6>{" "}
+              <h6>CONTACT</h6>{" "}
             </Link>
           </div>
         </div>

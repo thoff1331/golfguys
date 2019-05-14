@@ -96,7 +96,7 @@ class Post extends Component {
     let mappedComments = this.state.comments.map((val, index) => {
       console.log(val.comments);
       return (
-        <div className="post-comments">
+        <div className="post-comments-post">
           <h4 className="post-author">{val.author} </h4>
           <h3 className="post-content">{val.content}</h3>
           <h3 className="post-heart">♡</h3>

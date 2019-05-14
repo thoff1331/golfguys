@@ -1,7 +1,7 @@
 @import "../../variables.scss";
 body {
   //background: orange;
-  zoom: 1;
+  // zoom: 1;
 }
 
 .post-comment-button {
@@ -21,7 +21,7 @@ body {
   // margin-top: 7vh;
   width: 40vw;
   // margin-left: 35vw;
-  margin-top: 20%;
+
   border: 1vw solid #196b00;
   background: white;
   text-align: center;
@@ -104,6 +104,21 @@ body {
   justify-content: center;
   align-items: center;
   margin-top: 15vh;
+  border: 5px solid $border;
+  background: whitesmoke;
+  opacity: 0.7;
+  border-radius: 5px;
+  padding: 10px;
+  img {
+    margin-left: -5px;
+    border: none;
+  }
+
+  @media only screen and (max-width: 800px) {
+    .post-lineup {
+      width: 46vw;
+    }
+  }
 }
 .post-pic {
   display: flex;
@@ -170,11 +185,53 @@ body {
 .posts {
   background: whitesmoke;
 }
+@media only screen and (max-width: 800px) {
+  .posts img {
+    border: none;
+  }
+}
 
 .posts-page-maps {
-  background: yellow;
 }
 
 .post-page {
-  background: rgba(172, 255, 47, 0.815);
+  // background: url("../../pics/post-page.png");
+  // background-repeat: no-repeat;
+  // background-position: center;
+  // background-size: cover;
+  // // position: absolute;
+  // top: 0px;
+  // left: 0px;
+  // width: 100%;
+  // height: 180%;
+  // z-index: -10;
+  // background: img;
+}
+@media only screen and (max-width: 800px) {
+  .post-page {
+    // background: url("../../pics/post-page.png");
+    // background-repeat: no-repeat;
+    // background-size: cover;
+  }
+}
+
+.post-comments-post {
+  border: 1px solid black;
+  display: flex;
+  margin-top: 1vh;
+  width: 24vw;
+  background: whitesmoke;
+  border: 3px solid $border;
+  justify-content: center;
+}
+@media only screen and (max-width: 800px) {
+  .post-comments-post {
+    width: 30vh;
+  }
+}
+
+body {
+  background: url("../../pics/post-page.png");
+  background-repeat: no-repeat;
+  background-size: cover;
 }

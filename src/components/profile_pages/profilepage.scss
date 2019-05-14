@@ -21,13 +21,13 @@ body {
   width: 22vw;
 }
 
-.profile-page-values {
-  color: #fee715;
-  //border: #000000 10px rgb(17, 16, 16);
-  font-size: 15px;
-  color: #006b54;
-  margin-top: 0;
-}
+// .profile-page-values {
+//   color: #fee715;
+//   //border: #000000 10px rgb(17, 16, 16);
+//   font-size: 15px;
+//   color: #006b54;
+//   margin-top: 0;
+// }
 
 @media only screen and (max-width: 800px) {
   .profile-page-values {
@@ -78,14 +78,14 @@ body {
     text-align: center;
   }
   .profile-page-default {
-    // background: url("../../pics/bg5.png");
+    background: url("../../pics/pozt-page.png");
     // display: flex;
     // flex-direction: column;
     // justify-content: center;
     // align-items: center;
-    // background-repeat: no-repeat;
+    background-repeat: no-repeat;
     // background-position: center;
-    // background-size: cover;
+    background-size: cover;
     // position: absolute;
     // top: 0px;
     // left: 0px;
@@ -108,10 +108,35 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 1px solid blue;
-  background-color: #fee715;
+  // border: 1px solid blue;
+  background-image: url("../../pics/pozt-page.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  // background-size: cover;
+  // position: absolute;
+  // top: 0px;
+  // left: 0px;
+  // width: 100%;
+  height: 140%;
+  // z-index: -10;
+  margin-top: -90px;
 }
-
+@media only screen and (max-width: 800px) {
+  .profile-post-by-page {
+    // background-image: url("../../pics/pozt-page.png");
+    // background-repeat: no-repeat;
+    // background-position: center;
+    // background-size: cover;
+    // position: absolute;
+    // top: 0px;
+    // left: 0px;
+    // width: 100%;
+    // height: 120%;
+    // z-index: -10;
+    // margin-top: -600px;
+    background: none;
+  }
+}
 .profile-post-by-page {
   width: 100vw;
   justify-content: center;
@@ -122,7 +147,8 @@ body {
   .profile-post-by-page {
     height: 6vh;
     width: 100vw;
-    margin-top: 27vh;
+    margin-top: 43vh;
+    background: white;
 
     // align-content: center;
     // justify-content: center;
@@ -138,7 +164,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: -175px;
+  margin-top: 1vh;
 }
 
 .lineups- {
@@ -166,8 +192,9 @@ body {
 
 @media only screen and (max-width: 800px) {
   .welcome {
-    color: rgb(161, 161, 167);
+    // color: rgb(15, 15, 179);
     margin-left: -50px;
+    margin-top: 9vh;
   }
 }
 
@@ -178,13 +205,14 @@ body {
     justify-content: center;
     text-align: center;
     margin-bottom: 2%;
-    color: #fee715;
-    margin-top: 0;
+    color: #d6d5ce;
+    margin-top: 200vh;
     display: flex;
     justify-content: center;
     align-items: center;
     margin-left: 13vw;
-    font-size: 20px;
+    font-size: 29px;
+
     // align-content: center;
     // justify-content: center;
   }
@@ -198,11 +226,16 @@ body {
 
 @media only screen and (max-width: 800px) {
   .welcome {
-    color: $font-color;
+    color: $yellow-font;
     font-weight: bolder;
     margin-top: -1rem;
-    font-size: 12px;
-    width: 100vw;
+    font-size: 30px;
+    width: 110vw;
+    margin-left: -30px;
+    margin-top: 8vh;
+    border: 1px solid black;
+    background: $font-color;
+    border: 3px yellow;
   }
 }
 .profile-page-top {
@@ -240,7 +273,8 @@ body {
     justify-content: center;
     align-items: center;
     background: whitesmoke;
-    margin-left: -100px;
+    margin-left: -80px;
+    margin-top: 1vw;
   }
   .profile-posts img {
     max-width: 200px;
@@ -260,6 +294,7 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    margin-top: 1vh;
   }
 }
 
@@ -267,8 +302,10 @@ body {
   .values {
     border: 5px solid $border;
     width: 60vw;
-    height: 20vh;
+    height: 24vh;
     margin-left: 12vw;
+    background: white;
+    margin-top: 8vh;
   }
 }
 
@@ -307,5 +344,13 @@ body {
 @media only screen and (max-width: 800px) {
   .profile-numbers {
     margin-left: 1vw;
+  }
+}
+.values {
+}
+
+@media only screen and (max-width: 800px) {
+  .letters {
+    margin-top: -1px;
   }
 }
