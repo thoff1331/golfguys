@@ -39,16 +39,20 @@ class ProfilePage extends Component {
     console.log(this.state.profile);
     var mapped = this.state.profile.map((val, index) => {
       return (
-        <div className="profile-page-values">
-          <h3 className="welcome">
-            Welcome to {this.props.match.params.id} 's profile
-          </h3>
-          <img src={val.pp} className="profile-picture" />
-          <div className="values">
-            <h3>Favorite Course: {val.course}</h3>
-            <h3>Handicap: {val.handicap}</h3>
-            <h3>Rounds Per Year: {val.rounds}</h3>
-            <h3>Career Hole in One: {val.career}</h3>
+        <div className="derek-is-king">
+          <div className="profile-header">
+            <h3 className="welcome">
+              Welcome to {this.props.match.params.id} 's profile
+            </h3>
+          </div>
+          <div>
+            <img src={val.pp} className="profile-picture" />
+            <div className="values">
+              <h3>Favorite Course: {val.course}</h3>
+              <h3>Handicap: {val.handicap}</h3>
+              <h3>Rounds Per Year: {val.rounds}</h3>
+              <h3>Career Hole in One: {val.career}</h3>
+            </div>
           </div>
         </div>
       );
@@ -81,11 +85,11 @@ class ProfilePage extends Component {
         <div className="profile-page-default">
           <div>
             <div className="lineups-">
-              <h1 className="bump">
+              {/* <h1 className="bump">
                 {" "}
                 <img src={this.props.match.params.pp} />
-                {mapped}
-              </h1>
+              </h1> */}
+              {mapped}
             </div>
           </div>
           <div className="profile-post-by-page">

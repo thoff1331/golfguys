@@ -30,13 +30,13 @@ class Courses extends Component {
     //   );
     // } else {
     {
-      let map = this.state.data.map(val => {
-        return (
-          <div className="bump">
-            <h1>{val.name}</h1>
-          </div>
-        );
-      });
+      // let map = this.state.data.map(val => {
+      //   return (
+      //     <div className="bump">
+      //       <h1>{val.name}</h1>
+      //     </div>
+      //   );
+      // });
 
       return (
         <div>

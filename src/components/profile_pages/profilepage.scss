@@ -50,7 +50,7 @@ body {
       display: flex;
       flex-direction: column;
       justify-content: center;
-      margin-left: 40vw;
+      margin-left: 47vw;
       border-radius: 50%;
       border: 3px solid #fee715a8;
       width: 50px;
@@ -112,7 +112,7 @@ body {
   background-image: url("../../pics/pozt-page.png");
   background-repeat: no-repeat;
   background-position: center;
-  // background-size: cover;
+  background-size: cover;
   // position: absolute;
   // top: 0px;
   // left: 0px;
@@ -184,17 +184,21 @@ body {
   border-bottom: 3px solid yellow;
 }
 
-.welcome {
-  font-size: 25px;
-  font-weight: bolder;
-  color: #012a21;
-}
+// .welcome {
+//   font-size: 25px;
+//   font-weight: bolder;
+//   color: #012a21;
+//   // border: 10px solid black;
+//   // width: 100vw;
+//   // margin-left: 3vw;
+//   // display: flex;
 
 @media only screen and (max-width: 800px) {
   .welcome {
     // color: rgb(15, 15, 179);
     margin-left: -50px;
     margin-top: 9vh;
+    width: 110vw;
   }
 }
 
@@ -218,19 +222,13 @@ body {
   }
 }
 
-.welcome {
-  font-size: 25px;
-  font-weight: 900;
-  color: #012a21;
-}
-
 @media only screen and (max-width: 800px) {
   .welcome {
     color: $yellow-font;
     font-weight: bolder;
     margin-top: -1rem;
     font-size: 30px;
-    width: 110vw;
+    width: 120vw;
     margin-left: -30px;
     margin-top: 8vh;
     border: 1px solid black;
@@ -301,11 +299,14 @@ body {
 @media only screen and (max-width: 800px) {
   .values {
     border: 5px solid $border;
-    width: 60vw;
-    height: 24vh;
-    margin-left: 12vw;
-    background: white;
-    margin-top: 8vh;
+    width: 70vw;
+    height: 40vh;
+    margin-left: 20vw;
+    // background: white;
+    margin-top: 22vh;
+    opacity: 0.7;
+    text-align: center;
+    margin-bottom: -350px;
   }
 }
 
@@ -347,10 +348,91 @@ body {
   }
 }
 .values {
+  background: #d6d5ce;
+  border: 5px solid $border;
+  width: 15vw;
+  margin-left: 3vw;
+  height: 25vh;
+}
+@media only screen and (max-width: 800px) {
+  .values {
+    border: 5px solid $border;
+    width: 70vw;
+    height: 35vh;
+    margin-left: -100px;
+    // background: white;
+    margin-top: 25vh;
+    opacity: 0.7;
+    text-align: center;
+  }
 }
 
 @media only screen and (max-width: 800px) {
   .letters {
     margin-top: -1px;
+  }
+}
+
+.welcome {
+  // font-size: 25px;
+  font-weight: bolder;
+  color: #012a21;
+  // border: 10px solid black;
+  // margin-left: 3vw;
+  // display: flex;
+  margin-top: -150px;
+  border: 1px solid black;
+  // margin-left: 5vw;
+  background: #006b54;
+  color: $yellow-font;
+  width: 100vw;
+  display: flex;
+  position: absolute;
+  left: 0;
+  align-items: center;
+  justify-content: center;
+  height: 6vh;
+  // top: 6vh;
+  top: 27vh;
+  border: 3px solid $yellow-font;
+  font-size: 25px;
+}
+@media only screen and (max-width: 800px) {
+  .welcome {
+    // color: rgb(15, 15, 179);
+    // margin-left: -50px;
+    margin-top: -80px;
+    width: 110vw;
+  }
+}
+
+.derek-is-king {
+  width: 20vw;
+
+  margin-left: 20vw;
+  margin-top: -100px;
+}
+
+.profile-picture {
+  border: 7px solid #fee715;
+  width: 200px;
+  height: 200px;
+  margin-left: 75px;
+  margin-top: -10px;
+}
+
+@media only screen and (max-width: 800px) {
+  .profile-picture {
+    height: 40%;
+    width: 40%;
+    align-content: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 47vw;
+    border-radius: 50%;
+    border: 3px solid #fee715a8;
+    width: 50px;
+    height: 50px;
   }
 }

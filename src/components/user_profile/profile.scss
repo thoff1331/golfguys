@@ -99,7 +99,7 @@
   .dereks-here {
     margin-top: 25vh;
     height: 50vh;
-    width: 100%;
+    width: 80%;
     display: flex;
     position: absolute;
     right: 0;
@@ -109,6 +109,7 @@
     align-items: center;
     border: 5px solid #006b54;
     background: whitesmoke;
+    margin-left: 9vw;
   }
 }
 
@@ -134,7 +135,7 @@
 @media only screen and (max-width: 800px) {
   .profile-default {
     height: 35%;
-    width: 100%;
+    width: 80%;
     font-size: 13px;
     margin-top: 5vh;
     background: whitesmoke;
@@ -147,29 +148,30 @@
   flex-direction: column;
   border: 5px solid #006b54;
   height: 50vh;
-  width: 25vw;
+  width: 28vw;
   justify-content: center;
   align-items: center;
-  margin-top: 80vh;
+  margin-top: 88vh;
   font-size: 30px;
   position: absolute;
   right: 0;
   left: 0;
   border-radius: 5px;
   opacity: 0.7;
-  margin-left: 39.7vw;
+  margin-left: 38vw;
 }
 
 @media only screen and (max-width: 800px) {
   .profile-form {
-    height: 45%;
-    width: 100%;
+    height: 30%;
+    width: 80%;
     // border: red 1px solid;
     font-size: 27px;
-    margin-top: 95vh;
+    margin-top: 82vh;
     position: absolute;
     right: 0;
     left: 0;
+    margin-left: 9vw;
   }
 }
 
@@ -186,9 +188,14 @@
   width: 100%;
   display: flex;
   justify-content: center;
-  height: 9vh;
+  height: 6vh;
   background: #006b54;
   color: $yellow-font;
   border-bottom: 3px yellow solid;
   border-top: 3px yellow solid;
+  margin-top: -25px;
+}
+
+.welcome-prof {
+  margin-top: 1vh;
 }
