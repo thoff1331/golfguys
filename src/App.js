@@ -8,6 +8,9 @@ import routes from "../src/components/routes/routes";
 import logo from "./pics/golf_guys.png";
 import tee from "./pics/tee.png";
 import logo_2 from "./pics/logo_2.png";
+import ReactGA from "react-ga";
+ReactGA.initialize("UA-140140565-1"); // Here we should use our GA id
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -17,6 +20,7 @@ class App extends Component {
     };
     this.logout = this.logout.bind(this);
   }
+
   handleClick = () => {
     if (this.state.menuStatus === "open") {
       this.setState({
@@ -34,6 +38,7 @@ class App extends Component {
       loggedIn: false
     });
   }
+
   render() {
     return (
       <HashRouter>

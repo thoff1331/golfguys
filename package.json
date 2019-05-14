@@ -24,6 +24,7 @@
     "npm": "^6.9.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
+    "react-ga": "^2.5.7",
     "react-google-location": "^1.2.2",
     "react-google-maps-loader": "^4.2.5",
     "react-google-places-suggest": "^3.7.1",
