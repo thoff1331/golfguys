@@ -15,6 +15,12 @@
   // border: 1px solid rgb(110, 109, 109);
   opacity: 0;
   width: 100%;
+  margin-top: -68px;
+}
+@media only screen and (max-width: 800px) {
+  .derek2 {
+    margin-top: -27px;
+  }
 }
 .bump {
   text-align: center;
