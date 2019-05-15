@@ -102,7 +102,7 @@ class Profile extends Component {
           <div className="derek">
             <div className="profile-intro">
               <h3 className="welcome-prof">
-                Welocme to {this.props.auth.username}'s Profile{" "}
+                Welcome to {this.props.auth.username}'s Profile{" "}
               </h3>
             </div>
           </div>
