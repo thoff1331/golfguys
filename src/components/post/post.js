@@ -40,7 +40,6 @@ class Post extends Component {
 
   getComments() {
     axios.get(`/auth/comment/${this.props.match.params.id}`).then(res => {
-      console.log(res.data);
       this.setState({
         comments: res.data
       });
@@ -58,7 +57,6 @@ class Post extends Component {
         content: this.state.inputText
       })
       .then(res => {
-        console.log("RESPNONSE: ", res);
         this.setState({
           comments: [...this.state.comments, res.data[0]]
         });
@@ -81,7 +79,6 @@ class Post extends Component {
 
   getLikes() {
     axios.get(`/auth/getLikes/${this.props.match.params.id}`).then(res => {
-      console.log("hit");
       this.setState({
         likes: res.data
       });
@@ -90,11 +87,8 @@ class Post extends Component {
   }
 
   render() {
-    console.log(this.state.comments);
-    console.log(this.props.username);
     this.state.posts[0] && console.log(this.state.posts[0].comments);
     let mappedComments = this.state.comments.map((val, index) => {
-      console.log(val.comments);
       return (
         <div className="post-comments-post">
           <h4 className="post-author">{val.author} </h4>
@@ -104,7 +98,6 @@ class Post extends Component {
       );
     });
     let mappedPosts = this.state.posts.map((val, index) => {
-      console.log(val);
       return (
         <div className="post-page">
           <div className="post-lineup">

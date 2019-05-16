@@ -49,7 +49,6 @@ const getmessages = (req, res) => {
   });
 };
 const addmemory = (req, res) => {
-  console.log("addd");
   const db = req.app.get("db");
   const { caption, image } = req.body;
   db.add_memory([
@@ -85,8 +84,6 @@ const getPost = (req, res) => {
   db.get_post(+req.params.id).then(post => res.status(200).json(post));
 };
 const getProfile = (req, res) => {
-  console.log("hit");
-  console.log(req.session.user.username);
   const db = req.app.get("db");
   db.get_profile(req.session.user.username)
     .then(profile => res.status(200).json(profile))
@@ -149,16 +146,12 @@ const profileSetup = (req, res) => {
     .catch(err => console.log(err));
 };
 const getProfileInfo = (req, res) => {
-  console.log("hit");
-  console.log(req.params.id);
   const db = req.app.get("db");
   db.get_profile_info(req.params.id)
     .then(profile => res.status(200).json(profile))
     .catch(err => console.log(err));
 };
 const getPostsbyUser = (req, res) => {
-  console.log("hit");
-  console.log(req.params.id);
   const db = req.app.get("db");
   db.get_posts_by_user(req.params.id)
     .then(posts => res.status(200).json(posts))

@@ -17,16 +17,13 @@ class ProfilePage extends Component {
   }
   componentDidMount() {
     this.getPosts();
-    // console.log("hit");
     axios.get(`/auth/profile/page/${this.props.match.params.id}`).then(res => {
-      //console.log(res.data);
       this.setState({
         profile: res.data
       });
     });
   }
   getPosts() {
-    console.log("hittem");
     axios.get(`/auth/posts/user/${this.props.match.params.id}`).then(res => {
       this.setState({
         posts: res.data
@@ -35,8 +32,6 @@ class ProfilePage extends Component {
   }
 
   render() {
-    console.log(this.state.posts);
-    console.log(this.state.profile);
     var mapped = this.state.profile.map((val, index) => {
       return (
         <div className="derek-is-king">

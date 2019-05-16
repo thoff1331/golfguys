@@ -52,7 +52,6 @@ class Home extends Component {
   logout = () => {
     this.props.logout();
     // axios.get("/auth/logout").then(response => {
-    //   console.log(response);
     //   this.props.history.push("/login");
     // });
     // };
@@ -62,7 +61,6 @@ class Home extends Component {
   //   axios
   //     .get(`auth/getCommentCountHome/${this.props.match.params.id}`)
   //     .then(res => {
-  //       console.log(res.data);
   //       this.setState({
   //         comments: res.data
   //       });
@@ -70,9 +68,7 @@ class Home extends Component {
   // }
 
   getLikes(id) {
-    console.log("button");
     axios.get(`/auth/getLikes/${id}`).then(res => {
-      console.log(res.data);
       this.setState({
         messages: res.data
       });
@@ -86,7 +82,6 @@ class Home extends Component {
         image: this.state.image
       })
       .then(res => {
-        console.log(res);
         this.setState({
           messages: res.data,
           caption: "",
@@ -101,14 +96,12 @@ class Home extends Component {
   }
   handleFileUpload(e) {
     this.setState({ file: e.target.files });
-    console.log(e.target);
   }
   submitFile = (event, id) => {
     event.preventDefault();
     if (!this.state.file) {
       alert("Please Upload a Picture");
     } else {
-      console.log("hitt");
       event.preventDefault();
       const formData = new FormData();
       formData.append("file", this.state.file[0]);
@@ -119,7 +112,6 @@ class Home extends Component {
           }
         })
         .then(response => {
-          console.log(response.data.Location);
           this.setState(
             {
               image: response.data.Location,
@@ -137,8 +129,6 @@ class Home extends Component {
   };
 
   render() {
-    console.log(this.state.messages);
-    console.log(this.props.match.params.id);
     if (!this.props.username) {
       return (
         <h1 className="protected-profile">
@@ -189,7 +179,6 @@ class Home extends Component {
             <div className="mobileSecondPage">
               <div className="secondPage">
                 {this.state.messages.map((val, index) => {
-                  console.log(val.comments);
                   return (
                     <div className="papa">
                       <div key={index} className="bosses">

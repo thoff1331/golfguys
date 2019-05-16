@@ -3,7 +3,6 @@
 // const { KEY } = process.env;
 
 // const Location = async (req, res) => {
-//   console.log("hit");
 //   const { LAT, LNG } = req.body;
 //   axios
 //     .get(

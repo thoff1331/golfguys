@@ -33,7 +33,6 @@ class Signup extends Component {
     if (!this.state.file) {
       alert("Please Upload a Profile Picture");
     } else {
-      console.log("hitt");
       event.preventDefault();
       const formData = new FormData();
       formData.append("file", this.state.file[0]);
@@ -44,7 +43,6 @@ class Signup extends Component {
           }
         })
         .then(response => {
-          console.log(response.data.Location);
           this.setState(
             {
               pp: response.data.Location

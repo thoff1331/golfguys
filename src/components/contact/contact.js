@@ -25,8 +25,6 @@ export default class Contact extends Component {
   handleSubmit(e) {
     e.preventDefault();
 
-    console.log("submittedd");
-
     let data = {
       first_name: this.state.first_name,
       last_name: this.state.last_name,

@@ -36,7 +36,6 @@ class Profile extends Component {
     });
   }
   handleSubmit() {
-    console.log("hittem");
     axios
       .put("/auth/profileSetup", {
         course: this.state.course,
@@ -57,9 +56,6 @@ class Profile extends Component {
   }
 
   render() {
-    console.log(this.state.course);
-    console.log(this.state.showInput);
-
     if (!this.props.auth.username) {
       return (
         <h1 className="protected-profile">

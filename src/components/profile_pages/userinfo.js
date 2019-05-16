@@ -26,7 +26,6 @@ class UserInfo extends Component {
   }
   handleSubmit(e) {
     e.preventDefault();
-    console.log("hittem");
     axios
       .post("/auth/profileSetup/${user_id}", {
         course: this.state.course,
@@ -35,7 +34,6 @@ class UserInfo extends Component {
         career: this.state.career
       })
       .then(res => {
-        console.log(res.data);
         this.setState({
           profileValues: res.data
         });
